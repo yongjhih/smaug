@@ -59,9 +59,7 @@ resources:
 search: true
 ---
 
-# Introduction
-
-## The TradeGecko Inventory and Order Management Platform API
+# Introduction - The TradeGecko Inventory and Order Management Platform API
 
 Build tools that solve problems for millions of wholesale and retail businesses worldwide.
 
