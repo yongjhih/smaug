@@ -33,9 +33,15 @@ resources:
   - company
   - contact
   - currency
-  - location
+  - fulfillment
+  - fulfillment_line_item
   - image
+  - invoice
+  - invoice_line_item
+  - location
   - note
+  - order
+  - order_line_item
   - payment_term
   - price_list
   - product
