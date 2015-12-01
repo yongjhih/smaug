@@ -1,0 +1,23 @@
+## Get current <%= t(".resource_name", scope: resource) %>
+
+```ruby
+require 'gecko-ruby'
+gecko.<%= t(".resource_klass", scope: resource) %>.current
+```
+
+```shell
+curl -X GET -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>"
+https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/current
+```
+
+```json
+{
+  "<%= t(".resource_name", scope: resource) %>": <%= json_single %>
+}
+```
+
+Retrieves the details of the current <%= t(".resource_name", scope: resource) %>.
+
+### HTTP Request
+`GET https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/current`
+

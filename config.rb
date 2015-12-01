@@ -4,6 +4,7 @@ require './lib/unique_head.rb'
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
+    layout_engine: :erb,
     fenced_code_blocks: true,
     smartypants: true,
     disable_indented_code_blocks: true,
@@ -13,6 +14,9 @@ set :markdown,
     no_intra_emphasis: true,
     renderer: UniqueHeadCounter
 
+# Uses .env in the root of the project
+activate :dotenv
+
 # Assets
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
@@ -21,6 +25,8 @@ set :fonts_dir, 'fonts'
 
 # Activate the syntax highlighter
 activate :syntax
+activate :i18n, langs: [:en]
+
 ready do
   require './lib/multilang.rb'
 end
@@ -45,7 +51,7 @@ configure :build do
   activate :minify_javascript
   # activate :relative_assets
   # activate :asset_hash
-  # activate :gzip
+  activate :gzip
 end
 
 # Deploy Configuration

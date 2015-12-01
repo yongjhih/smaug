@@ -612,3 +612,11 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+.deprecated {
+  color: red;
+}
+
+.private {
+  color: #70cf32;
+}
