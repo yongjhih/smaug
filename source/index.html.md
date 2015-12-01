@@ -29,6 +29,7 @@ asides:
 
 resources:
   - account
+  - user
 
 search: true
 ---
