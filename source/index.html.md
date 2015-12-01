@@ -15,6 +15,18 @@ guides:
   - order_flow
 
 asides:
+  - creating_an_application
+  - getting_an_auth_code
+  - requesting_for_an_access_token
+  - refreshing_access_tokens
+  - making_an_api_call
+  - testing_with_oauth
+  - omniauth
+  - privileged_access_token
+  - pagination
+  - filtering
+  - rate_limiting
+
 resources:
 
 search: true
