@@ -34,12 +34,15 @@ resources:
   - contact
   - currency
   - location
+  - image
   - note
   - payment_term
   - price_list
+  - product
   - tax_component
   - tax_type
   - user
+  - variant
 
 search: true
 ---
