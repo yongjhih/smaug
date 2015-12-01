@@ -618,3 +618,11 @@ html, body {
     margin-top: $main-padding;
   }
 }
+
+.deprecated {
+  color: red;
+}
+
+.private {
+  color: #70cf32;
+}
