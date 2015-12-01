@@ -73,9 +73,11 @@ for existing known issues or [create a new issue](https://github.com/tradegecko/
 > To authorize, use this code:
 
 ```ruby
-require 'gecko'
-
-api = Gecko::Account.authorize!('gordonGecko')
+require 'gecko-ruby'
+gecko = Gecko::Client.new(OAUTH_ID, OAUTH_SECRET)
+access_token = OAuth2::AccessToken.new(gecko.oauth_client, ACCESS_TOKEN)
+gecko.access_token = access_token
+gecko.Account.current
 ```
 
 ```shell
