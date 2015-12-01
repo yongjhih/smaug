@@ -28,6 +28,7 @@ asides:
   - rate_limiting
 
 resources:
+  - account
 
 search: true
 ---
