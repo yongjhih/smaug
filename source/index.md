@@ -12,6 +12,7 @@ toc_footers:
 includes:
   - errors
 guides:
+  - order_flow
 
 asides:
 resources:
