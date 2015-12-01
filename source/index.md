@@ -32,7 +32,13 @@ resources:
   - address
   - company
   - contact
+  - currency
+  - location
   - note
+  - payment_term
+  - price_list
+  - tax_component
+  - tax_type
   - user
 
 search: true
