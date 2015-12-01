@@ -29,6 +29,10 @@ asides:
 
 resources:
   - account
+  - address
+  - company
+  - contact
+  - note
   - user
 
 search: true
