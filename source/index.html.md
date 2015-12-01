@@ -45,6 +45,12 @@ resources:
   - payment_term
   - price_list
   - product
+  - purchase_order
+  - purchase_order_line_item
+  - stock_adjustment
+  - stock_adjustment_line_item
+  - stock_transfer
+  - stock_transfer_line_item
   - tax_component
   - tax_type
   - user
