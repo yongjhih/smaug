@@ -70,7 +70,7 @@ en:
       from: {
         name: "from",
         type: "String",
-        description: "Dictates whether due_in_days starts from now or eom (end of month).",
+        description: "Dictates whether due_in_days starts from 'now' or 'eom' (end of month).",
         updatable: true,
         creatable: true
       }
