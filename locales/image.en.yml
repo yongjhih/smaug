@@ -116,7 +116,7 @@ en:
       },
       url: {
         type: "String",
-        description: "Remote URL of image for fetching",
+        description: "URL of image for fetching",
         filterable: "",
         creatable: true,
       }

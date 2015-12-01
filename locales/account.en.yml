@@ -53,12 +53,13 @@ en:
     ]
     gecko:
       create: {
-        iso: "USD",
-        precision: 4,
-        format: "%n%u"
+        name: "Bobs Burgers",
+        country: "NZ",
+        email: "example@example.com"
+
       }
       update: {
-        separator: "."
+        country: "US"
       }
 
     attributes: {
@@ -111,6 +112,7 @@ en:
         filterable: "",
         updatable: true,
         creatable: true,
+        required: true
       },
       default_order_price_list_id: {
         name: "default_order_price_list_id",
