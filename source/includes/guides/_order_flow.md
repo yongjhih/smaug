@@ -29,7 +29,7 @@
 `POST /orders/[:order_id]/actions/pack`
 
 5 . Ship the package
-`POST /orders/[:order_id]/actions/ship`
+`POST /orders/[:order_id]/actions/fulfil`
 
 TradeGecko will automatically manage the Order's fulfillment, invoice, payment and packed statuses
 throughout the process
