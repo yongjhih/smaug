@@ -162,7 +162,7 @@ en:
         description: "Sum of the quantities of child variants",
         updatable: true,
         creatable: true,
-        readonly: true,
+        readonly: true
       },
       search_cache: {
         name: "search_cache",

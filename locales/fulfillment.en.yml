@@ -157,8 +157,7 @@ en:
         type: "String",
         description: "",
         updatable: true,
-        creatable: true,
-        private: true
+        creatable: true
       },
       status: {
         name: "status",

@@ -95,8 +95,7 @@ en:
         filterable: "Sales value of the variant in base currency at fulfillment shipped_at date",
         updatable: true,
         creatable: true,
-        readonly: true,
-        private: true
+        readonly: true
       },
       position: {
         name: "position",

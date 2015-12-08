@@ -71,53 +71,42 @@ en:
         name: "name",
         type: "String",
         description: "Name of the file if changed",
-        filterable: "",
-        creatable: true,
       },
       position: {
         name: "position",
         type: "Integer",
         description: "",
-        filterable: "",
-        creatable: true,
         readonly: true,
       },
       base_path: {
         name: "base_path",
         type: "String",
-        description: "",
-        filterable: "Base URL where image has been uploaded",
-        creatable: true,
+        description: "Base URL where image has been uploaded",
         readonly: true,
       },
       file_name: {
         name: "file_name",
         type: "String",
         description: "Parsed name of the file",
-        filterable: "",
-        creatable: true,
         readonly: true,
       },
       versions: {
         name: "versions",
         type: "String",
         description: "An array of image sizes",
-        filterable: "",
-        creatable: true,
         readonly: true,
       },
       image_processing: {
         name: "image_processing",
         type: "String",
         description: "Tells whether image sizes have been generated",
-        filterable: "",
-        creatable: true,
-        readonly: true,
+        readonly: true
       },
       url: {
+        name: "url",
         type: "String",
         description: "URL of image for fetching",
-        filterable: "",
         creatable: true,
+        required: true
       }
     }

@@ -82,6 +82,13 @@ en:
         description: "",
         readonly: true
       },
+      status: {
+        name: "status",
+        type: "String",
+        description: "",
+        filterable: true,
+        readonly: true
+      },
       company_id: {
         name: "company_id",
         type: "Integer",
@@ -165,14 +172,6 @@ en:
         name: "state",
         type: "String",
         description: "",
-        updatable: true,
-        creatable: true,
-      },
-      status: {
-        name: "status",
-        type: "String",
-        description: "",
-        filterable: true,
         updatable: true,
         creatable: true,
       },

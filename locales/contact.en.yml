@@ -79,6 +79,13 @@ en:
         description: "",
         readonly: true
       },
+      status: {
+        name: "status",
+        type: "String",
+        description: "Tells whether the resource is 'active' or 'archived'",
+        filterable: true,
+        readonly: true
+      },
       company_id: {
         name: "company_id",
         type: "Integer",
@@ -148,14 +155,6 @@ en:
         name: "position",
         type: "Integer",
         description: "",
-        updatable: true,
-        creatable: true,
-      },
-      status: {
-        name: "status",
-        type: "String",
-        description: "Tells whether the contact is 'active' or 'archived'",
-        filterable: true,
         updatable: true,
         creatable: true,
       },
