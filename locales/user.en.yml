@@ -66,7 +66,7 @@ en:
       status: {
         name: "status",
         type: "String",
-        description: "Tells whether the currency is 'active' or 'archived'",
+        description: "Tells whether the resource is 'active' or 'archived'",
         filterable: true,
         readonly: true
       },
@@ -86,7 +86,7 @@ en:
       },
       billing_contact: {
         name: "billing_contact",
-        type: "String",
+        type: "Boolean",
         description: "Tells whether user is billing_contact for the current account",
         updatable: true,
         creatable: true
@@ -144,7 +144,7 @@ en:
       },
       notification_email: {
         name: "notification_email",
-        type: "String",
+        type: "Boolean",
         description: "",
         updatable: true,
         creatable: true
@@ -172,7 +172,7 @@ en:
       },
       sales_report_email: {
         name: "sales_report_email",
-        type: "String",
+        type: "Boolean",
         description: "",
         updatable: true,
         creatable: true

@@ -69,7 +69,7 @@ en:
       status: {
         name: "status",
         type: "String",
-        description: "Tells whether the currency is 'active' or 'archived'",
+        description: "Tells whether the resource is 'active' or 'archived'",
         filterable: true,
         readonly: true,
       },

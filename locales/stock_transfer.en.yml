@@ -71,18 +71,18 @@ en:
         description: "",
         readonly: true
       },
-      adjustment_number: {
-        name: "adjustment_number",
+      status: {
+        name: "status",
         type: "String",
-        description: "",
+        description: "Tells whether the resource is 'active' or 'received'",
         filterable: "",
         updatable: true,
         creatable: true,
       },
-      status: {
-        name: "status",
+      adjustment_number: {
+        name: "adjustment_number",
         type: "String",
-        description: "Active or received (defaults to active)",
+        description: "",
         filterable: "",
         updatable: true,
         creatable: true,

@@ -153,6 +153,7 @@ en:
         filterable: true,
         updatable: true,
         creatable: true,
+        private: true
       },
       industry: {
         name: "industry",
