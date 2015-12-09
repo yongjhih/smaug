@@ -85,7 +85,7 @@ en:
         creatable: true,
       },
       compound: {
-        name: "{",
+        name: "compound",
         type: "String",
         description: "",
         filterable: "",
