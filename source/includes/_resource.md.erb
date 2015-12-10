@@ -16,7 +16,7 @@
 | Attribute                            | Type          | Description  | Readonly
 | ------------------------------------ | ------------- | ------------ | ----------
 <% t(".attributes", scope: resource).each_pair do |key, value| %>
-**<%= value[:name] %>**<%= " <span class='private'>(p)</span>" if value[:private] %> <%= " <span class='deprecated'>(d)</span>" if value[:deprecated] %> | <%= value[:type] %> | <%= value[:description] %> | <%= value[:readonly] %>
+**<%= value[:name] %>**<%= " <span class='private'>private</span>" if value[:private] %> <%= " <span class='deprecated'>deprecated</span>" if value[:deprecated] %> | <%= value[:type] %> | <%= value[:description] %> | <%= value[:readonly] %>
 <% end %>
 
 <%= partial "includes/index_request", locals: { resource: resource, json_all: json_all }  %>
