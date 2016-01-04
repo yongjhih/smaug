@@ -68,8 +68,8 @@ for existing known issues or [create a new issue](https://github.com/tradegecko/
 
 ```ruby
 require 'gecko-ruby'
-gecko = Gecko::Client.new(OAUTH_ID, OAUTH_SECRET)
-access_token = OAuth2::AccessToken.new(gecko.oauth_client, ACCESS_TOKEN)
+gecko = Gecko::Client.new(<OAUTH_ID>, <OAUTH_SECRET>)
+access_token = OAuth2::AccessToken.new(gecko.oauth_client, <ACCESS_TOKEN>)
 gecko.access_token = access_token
 gecko.Account.current
 ```
@@ -77,19 +77,20 @@ gecko.Account.current
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: gordonGecko"
+  -H "Authorization: Bearer <ACCESS_TOKEN>"
 ```
 
+> Make sure to replace `<ACCESS_TOKEN>` with your API key.
 
 > Make sure to replace `geckogeckogecko` with your API key.
 
 TradeGecko uses OAuth 2.0 authentication  to allow access to the API. 
 You can register a new TradeGecko API application at our [developer portal](http://developer.tradegecko.com/).
 
-TradeGecko expects for the API token to be included in all API requests to the server in a header that looks like the following:
+TradeGecko expects for the Access token to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: geckogeckogecko`
+`Authorization: Bearer <ACCESS_TOKEN>`
 
 <aside class="notice">
-You must replace <code>gordonGecko</code> with your personal API key.
+You must replace <code><ACCESS_TOKEN></code> with your personal API key.
 </aside>

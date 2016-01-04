@@ -3,8 +3,8 @@
 <% unless t('.gecko.unavailable', scope: resource) == true %>
 ```ruby
 require 'gecko-ruby'
-gecko = Gecko::Client.new(OAUTH_ID, OAUTH_SECRET)
-access_token = OAuth2::AccessToken.new(gecko.oauth_client, ACCESS_TOKEN)
+gecko = Gecko::Client.new(<OAUTH_ID>, <OAUTH_SECRET>)
+access_token = OAuth2::AccessToken.new(gecko.oauth_client, <ACCESS_TOKEN>)
 gecko.access_token = access_token
 gecko.<%= t(".resource_klass", scope: resource) %>.find(1)
 ```

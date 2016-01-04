@@ -1,11 +1,5 @@
 # TradeGecko developer docs
 --------
-### Adding a resource
-
-All resources are in locale files and they are registered in `source/index.md` under resources.
-
-To add a new resource, save a copy of `example.en.yml` into the locales directory and rename it (and the key below `en`),
-then add it to the list in `source/index.md`.
 
 ### Example attribute.
 ```
@@ -26,10 +20,15 @@ name: {
 
 ### To Do
 
-LedgerAccount
 FulfillmentReturn
+LedgerAccount
 Login
 Payment
+Procurement
+Refund
+StockAdjustment
+StockTransfer
+TaxComponent
 Webhook
 
 ### Add a new resource with
