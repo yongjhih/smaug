@@ -59,7 +59,7 @@ irb(main):010:0> token = client.password.get_token('username', 'password')
 => <#OAuth2::AccessToken ...>
 ```
 
-You now have access to the TradegGecko API.
+You now have access to the TradeGecko API.
 
 ### Making your first TradeGecko API request
 
