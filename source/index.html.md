@@ -92,5 +92,5 @@ TradeGecko expects for the Access token to be included in all API requests to th
 `Authorization: Bearer <ACCESS_TOKEN>`
 
 <aside class="notice">
-You must replace <code><ACCESS_TOKEN></code> with your personal API key.
+You must replace <code>&lt;ACCESS_TOKEN&gt;</code> with your personal API key.
 </aside>
