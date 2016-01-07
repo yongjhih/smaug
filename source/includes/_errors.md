@@ -9,9 +9,7 @@ Error Code | Meaning
 402 | Payment Required -- Your subscription has lapsed
 403 | Forbidden -- The resource requested is not available with your permissions
 404 | Not Found -- The specified resource could not be found
-405 | Method Not Allowed -- We currently support GET, PUT, POST, PATCH and DELETE
-406 | Not Acceptable -- Your request is in a format that isn't json
-422 | Unprocessable Entity -- Your request has invalid data in it
-429 | Too Many Requests -- You are allowed 300 requests per 300 seconds.
+422 | Unprocessable Entity -- Your request is invalid
+429 | Too Many Requests -- You are allowed [300 requests per 300 seconds](#rate-limiting "Rate Limiting").
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable (Time out) -- The server is overloaded or down for maintenance.
