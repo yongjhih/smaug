@@ -28,7 +28,7 @@ Creates a new <%= t(".resource_name", scope: resource) %> object. This endpoint 
 
 | Attribute                      | Type          | Description                | Required
 | ------------------------------ | ------------- | -------------------------- | ------------
-<% t(".attributes", scope: resource).select{ |k,v| v[:creatable] }.each_pair do |key, value| %>
+<% t(".attributes", scope: resource).select{ |k,v| v[:creatable] && !v[:private] }.each_pair do |key, value| %>
   **<%= value[:name] %>**<%= " <span class='private'>private</span>" if value[:private] %><%= " <span class='deprecated'>deprecated</span>" if value[:deprecated] %> | <%= value[:type] %> | <%= value[:description] %> | <%= value[:required] %>
 <% end %>
 
@@ -39,7 +39,7 @@ Creates a new <%= t(".resource_name", scope: resource) %> object. This endpoint 
 
 | Child Attribute                | Type          | Description                | Required
 | ------------------------------ | ------------- | -------------------------- | ------------
-<% t(".attributes", scope: child_resource).select{ |k,v| v[:creatable] }.each_pair do |key, value| %>
+<% t(".attributes", scope: child_resource).select{ |k,v| v[:creatable] && !v[:private] }.each_pair do |key, value| %>
   **<%= value[:name] %>**<%= " <span class='private'>private</span>" if value[:private] %><%= " <span class='deprecated'>deprecated</span>" if value[:deprecated] %> | <%= value[:type] %> | <%= value[:description] %> | <%= value[:required] %>
 <% end %>
 

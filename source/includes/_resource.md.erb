@@ -15,7 +15,7 @@
 
 | Attribute                            | Type          | Description  | Readonly
 | ------------------------------------ | ------------- | ------------ | ----------
-<% t(".attributes", scope: resource).each_pair do |key, value| %>
+<% t(".attributes", scope: resource).reject{ |k,v| v[:private] }.each_pair do |key, value| %>
 **<%= value[:name] %>**<%= " <span class='private'>private</span>" if value[:private] %> <%= " <span class='deprecated'>deprecated</span>" if value[:deprecated] %> | <%= value[:type] %> | <%= value[:description] %> | <%= value[:readonly] %>
 <% end %>
 
