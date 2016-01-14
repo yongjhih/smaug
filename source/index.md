@@ -65,8 +65,8 @@ Build tools that solve problems for millions of wholesale and retail businesses 
 
 You can view code examples in the dark area to the right; switch the programming language of the examples with the tabs in the top right.
 
-If anything is missing or seems wrong, please check the [GitHub issues](https://github.com/tradegecko/smaug/issues)
-for existing known issues or [create a new issue](https://github.com/tradegecko/smaug/issues/new).
+If anything is missing or seems wrong, please check the [GitHub issues](https://github.com/tradegecko/tradegecko.github.io/issues)
+for existing known issues or [create a new issue](https://github.com/tradegecko/tradegecko.github.io/issues/new).
 
 # Authentication
 
