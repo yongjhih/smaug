@@ -6,7 +6,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://go.tradegecko.com/register'>Signup for an account</a>
+  - <a href='https://go.tradegecko.com/register'>Sign up for an account</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
