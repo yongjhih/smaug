@@ -157,6 +157,10 @@ html, body {
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 200ms;
+    a {
+      color: $nav-text;
+      text-decoration: none;
+    }
   }
 
   // This is the currently selected ToC entry
