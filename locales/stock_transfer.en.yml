@@ -6,7 +6,7 @@ en:
     resource_article: "a"
     resource_klass: "StockTransfer"
     resource_name: "stock_transfer"
-    resource_plural: "stock_transfer"
+    resource_plural: "stock_transfers"
     json: [
       {
         id: 2,

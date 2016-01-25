@@ -7,7 +7,7 @@ en:
     resource_article: "an"
     resource_klass: "Invoice"
     resource_name: "invoice"
-    resource_plural: "invoice"
+    resource_plural: "invoices"
     json: [
       {
         id: 1,

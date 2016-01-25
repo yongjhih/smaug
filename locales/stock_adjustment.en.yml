@@ -6,7 +6,7 @@ en:
     resource_article: "a"
     resource_klass: "StockAdjustment"
     resource_name: "stock_adjustment"
-    resource_plural: "stock_adjustment"
+    resource_plural: "stock_adjustments"
     json: [
       {
         id: 2,
