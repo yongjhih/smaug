@@ -5,7 +5,7 @@ en:
     resource_article: "an"
     resource_klass: "Order"
     resource_name: "order"
-    resource_plural: "order"
+    resource_plural: "orders"
     json: [
       {
         "id":                     2,
