@@ -12,7 +12,7 @@ gecko.<%= t(".resource_klass", scope: resource) %>.create(<%= t('.gecko.create',
 
 ```shell
 curl -X POST -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>"
-https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/ -d '{"<%= t(".resource_name", scope: resource) %>":<%= t('.gecko.create', scope: resource).to_json %>'
+https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/ -d '{"<%= t(".resource_name", scope: resource) %>":<%= t('.gecko.create', scope: resource).to_json %>'}
 ```
 
 ```json
