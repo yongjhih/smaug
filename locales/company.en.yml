@@ -182,7 +182,7 @@ en:
       default_tax_rate: {
         name: "default_tax_rate",
         type: "String",
-        description: "",
+        description: "Alias to default_tax_type#effective_rate",
         updatable: true,
         creatable: true,
         deprecated: true
