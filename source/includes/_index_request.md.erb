@@ -31,7 +31,8 @@ Returns a list of <%= t(".resource_plural", scope: resource) %> you’ve previou
 | **created_at_max** | ISO 8601 format (e.g. 2015-11-04)
 | **updated_at_min** | ISO 8601 format (e.g. 2015-11-04)
 | **updated_at_max** | ISO 8601 format (e.g. 2015-11-04)
-| **limit**          | default is 100
+| **limit**          | used for pagination (default is 100)
+| **page**           | used for pagination (default is 1)
 <% t(".attributes", scope: resource).select{ |k,v| v[:filterable] }.each_pair do |key, value| %>
   **<%= value[:name] %>** | <%= value[:filterable].is_a?(String) ? value[:filterable] : nil %>
 <% end %>
