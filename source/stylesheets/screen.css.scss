@@ -4,9 +4,7 @@
 @import url("//fonts.googleapis.com/css?family=Raleway:300,500,700");
 
 @import 'normalize';
-@import 'compass';
 // @import 'variables'; revert to tripit defaults
-@import 'syntax';
 @import 'variables2'; // tradegecko overrides
 @import 'icon-font';
 
@@ -84,6 +82,7 @@ html, body {
   // This is the logo at the top of the ToC
   &>img {
     display: block;
+    max-width: 100%;
   }
 
   &>.search {
@@ -610,4 +609,11 @@ html, body {
 
   @extend %label-font;
     border-radius: 3px;
+}
+.highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #909090;
+}
+
+.highlight, .highlight .w {
+  background-color: $code-bg;
 }
