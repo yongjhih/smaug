@@ -21,9 +21,10 @@ https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/ -d '{"
 }
 ```
 
-Creates a new <%= t(".resource_name", scope: resource) %> object. This endpoint also accept embedded <%= t(".resource_plural", scope: resource) %>.
-<%= t(".resource_klass", scope: resource) %> are not required to be nested, but if they are nested, they do have required attributes.
-
+Creates a new <%= t(".resource_name", scope: resource) %> object.
+<% unless t('.child', scope: resource).to_s.include?("missing") %>
+This endpoint also accepts embedded <%= t(".child", scope: resource) %>s.
+<% end %>
 ### Arguments
 
 | Attribute                      | Type          | Description                | Required
