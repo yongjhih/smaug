@@ -54,7 +54,9 @@ en:
         "tracking_number":        nil,
         "url":                    nil,
         "source_id":              nil,
-        "invoice_numbers":        {},
+        "invoice_numbers":        {
+          1: "INV001"
+        },
         "order_line_item_ids":    [1,2]
       },
       {
@@ -104,7 +106,9 @@ en:
         "tracking_number":        nil,
         "url":                    nil,
         "source_id":              nil,
-        "invoice_numbers":        {},
+        "invoice_numbers":        {
+          1: "INV001"
+        },
         "order_line_item_ids":    []
       }
     ]
@@ -336,7 +340,7 @@ en:
         type: "String",
         description: "",
         readonly: true,
-        filterable: "e.g. unfulfilled, partial or fulfilled"
+        filterable: "e.g. unshipped, partial or shipped"
       },
       return_status: {
         name: "return_status",
@@ -404,7 +408,7 @@ en:
       },
       invoice_numbers: {
         name: "invoice_numbers",
-        type: "Array",
+        type: "Hash",
         description: "",
         readonly: true
       },
