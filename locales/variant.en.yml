@@ -163,14 +163,18 @@ en:
     ]
     gecko:
       create: {
-        quantity: "12.0",
-        order_id: 1,
-        tax_type_id: 1,
-        price: "10.0"
+        product_id: 1,
+        initial_cost_price: 25,
+        initial_stock_level: 100,
+        initial_stock_location_id: 1,
+        retail_price: "10.0",
+        name: "Sample Variant",
+        sku: "SV1234"
       }
       update: {
-        quantity: "22.0",
-        price: "12.0"
+        retail_price: "12.0",
+        name: "Sample Variant",
+        sku: "SV1234"
       }
 
     attributes: {
