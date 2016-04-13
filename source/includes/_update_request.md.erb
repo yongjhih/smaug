@@ -16,7 +16,7 @@ gecko.access_token = access_token
 
 ```shell
 curl -X PUT -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>"
-https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/1 -d '{"<%= t(".resource_name", scope: resource) %>":<%= t('.gecko.update', scope: resource).to_json %>'}
+https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/1 -d '{"<%= t(".resource_name", scope: resource) %>":<%= t('.gecko.update', scope: resource).to_json %>}'
 ```
 
 > Response
