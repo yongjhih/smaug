@@ -3405,7 +3405,7 @@ https://api.tradegecko.com/currencies/1
 </tr>
 </tbody></table>
 
-<h2 id="list-all-fulfillment">List all fulfillment</h2>
+<h2 id="list-all-fulfillments">List all fulfillments</h2>
 
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'gecko-ruby'</span>
 <span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
@@ -3416,11 +3416,11 @@ https://api.tradegecko.com/currencies/1
 </code></pre>
 
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span>
-https://api.tradegecko.com/fulfillment/
+https://api.tradegecko.com/fulfillments/
 </code></pre>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"fulfillment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"fulfillments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-02T01:22:25.524Z"</span><span class="p">,</span><span class="w">
@@ -3454,7 +3454,7 @@ https://api.tradegecko.com/fulfillment/
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of fulfillment you’ve previously created. The fulfillment are returned in sorted order, with the most recent fulfillment appearing first.</p>
+<p>Returns a list of fulfillments you’ve previously created. The fulfillments are returned in sorted order, with the most recent fulfillments appearing first.</p>
 
 <h3 id="filters">Filters</h3>
 
@@ -3520,7 +3520,7 @@ https://api.tradegecko.com/fulfillment/
 
 <h3 id="http-request">HTTP Request:</h3>
 
-<p><code class="prettyprint">GET  https://api.tradegecko.com/fulfillment</code></p>
+<p><code class="prettyprint">GET  https://api.tradegecko.com/fulfillments</code></p>
 
 <p><h2 id="create-a-new-fulfillment">Create a new fulfillment</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
@@ -3530,7 +3530,7 @@ https://api.tradegecko.com/fulfillment/
 <span class="n">gecko</span><span class="o">.</span><span class="no">Fulfillment</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span><span class="ss">:order_id</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="ss">:packed_at</span><span class="o">=&gt;</span><span class="s2">&quot;Time.now&quot;</span><span class="p">,</span> <span class="ss">:billing_address_id</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="ss">:shipping_address_id</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">})</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X POST -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
-https://api.tradegecko.com/fulfillment/ -d <span class="s1">&#39;{&quot;fulfillment&quot;:{&quot;order_id&quot;:1,&quot;packed_at&quot;:&quot;Time.now&quot;,&quot;billing_address_id&quot;:1,&quot;shipping_address_id&quot;:1}&#39;</span><span class="o">}</span>
+https://api.tradegecko.com/fulfillments/ -d <span class="s1">&#39;{&quot;fulfillment&quot;:{&quot;order_id&quot;:1,&quot;packed_at&quot;:&quot;Time.now&quot;,&quot;billing_address_id&quot;:1,&quot;shipping_address_id&quot;:1}&#39;</span><span class="o">}</span>
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;fulfillment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3714,7 +3714,7 @@ This endpoint also accepts embedded fulfillment_line_items.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.tradegecko.com/fulfillment/</code></p>
+<p><code class="prettyprint">POST https://api.tradegecko.com/fulfillments/</code></p>
 
 <h2 id="retrieve-a-particular-fulfillment">Retrieve a particular fulfillment</h2>
 
@@ -3726,7 +3726,7 @@ This endpoint also accepts embedded fulfillment_line_items.</p>
 </code></pre>
 
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span>
-https://api.tradegecko.com/fulfillment/1
+https://api.tradegecko.com/fulfillments/1
 </code></pre>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3766,7 +3766,7 @@ https://api.tradegecko.com/fulfillment/1
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.tradegecko.com/fulfillment/{RESOURCE_ID}</code></p>
+<p><code class="prettyprint">GET https://api.tradegecko.com/fulfillments/{RESOURCE_ID}</code></p>
 
 <p><h2 id="update-a-fulfillment">Update a fulfillment</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
@@ -3780,7 +3780,7 @@ https://api.tradegecko.com/fulfillment/1
 <span class="n">fulfillment</span><span class="p">.</span><span class="nf">save</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
-https://api.tradegecko.com/fulfillment/1 -d <span class="s1">&#39;{&quot;fulfillment&quot;:{&quot;tracking_company&quot;:&quot;GeckoShip&quot;,&quot;tracking_number&quot;:&quot;123TrackMe&quot;}}&#39;</span>
+https://api.tradegecko.com/fulfillments/1 -d <span class="s1">&#39;{&quot;fulfillment&quot;:{&quot;tracking_company&quot;:&quot;GeckoShip&quot;,&quot;tracking_number&quot;:&quot;123TrackMe&quot;}}&#39;</span>
 </code></pre></p>
 
 <blockquote>
@@ -3796,7 +3796,7 @@ This request accepts the same arguments as the fulfillment creation call.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PUT https://api.tradegecko.com/fulfillment/{RESOURCE_ID}</code></p>
+<p><code class="prettyprint">PUT https://api.tradegecko.com/fulfillments/{RESOURCE_ID}</code></p>
 
 <p><h2 id="delete-a-fulfillment">Delete a fulfillment</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
@@ -3807,7 +3807,7 @@ This request accepts the same arguments as the fulfillment creation call.</p>
 <span class="nf">fulfillment</span><span class="p">.</span><span class="nf">destroy</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X DELETE -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
-https://api.tradegecko.com/fulfillment/1
+https://api.tradegecko.com/fulfillments/1
 </code></pre></p>
 
 <blockquote>
@@ -3820,7 +3820,7 @@ https://api.tradegecko.com/fulfillment/1
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://api.tradegecko.com/fulfillment/{RESOURCE_ID}/</code></p>
+<p><code class="prettyprint">DELETE https://api.tradegecko.com/fulfillments/{RESOURCE_ID}/</code></p>
 
           <h1 id="fulfillmentlineitem">FulfillmentLineItem</h1>
 
@@ -6438,6 +6438,10 @@ https://api.tradegecko.com/orders/
 <tr>
 <td><strong>source_id</strong></td>
 <td>Internal ID of the OAuth application that created the order (if not via web interface)</td>
+</tr>
+<tr>
+<td><strong>order_number</strong></td>
+<td></td>
 </tr>
 <tr>
 <td><strong>tags</strong></td>
