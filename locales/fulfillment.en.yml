@@ -7,7 +7,7 @@ en:
     resource_article: "a"
     resource_klass: "Fulfillment"
     resource_name: "fulfillment"
-    resource_plural: "fulfillment"
+    resource_plural: "fulfillments"
     json: [
       {
         id: 1,
