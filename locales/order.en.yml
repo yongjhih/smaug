@@ -234,7 +234,6 @@ en:
         name: "default_price_list_id",
         type: "String",
         description: "",
-        filterable: false,
         creatable: true,
         updatable: true
       },
@@ -262,6 +261,7 @@ en:
         name: "order_number",
         type: "String",
         description: "",
+        filterable: true,
         creatable: true,
         updatable: true
       },
