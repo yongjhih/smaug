@@ -50,8 +50,11 @@ under the License.
         <%= image_tag('navbar-2.png') %>
       </span>
     </a>
+
     <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo', width: "200px" %>
+      <a href="/" title="Back to API documentation">
+        <%= image_tag "logo.png", width: "200px" %>
+      </a>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -91,6 +94,9 @@ under the License.
             <li><%= footer %></li>
           <% end %>
         </ul>
+      <% end %>
+      <% unless current_page.data.home %>
+        <a href="/">Back to documentation</a>
       <% end %>
     </div>
     <div class="page-wrapper">
