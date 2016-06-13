@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>TradeGecko API Changelog</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+    <link href="/images/favicon.ico" rel="icon" type="image/ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="changes" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        <img src="images/navbar-2.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <a href="/" title="Back to API documentation">
+        <img width="200px" src="images/logo.png" />
+      </a>
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+        <a class="faux-toc-link" href="/">Back to documentation</a>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://go.tradegecko.com/register'>Sign up for an account</a></li>
+            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="tradegecko-api-changelog">TradeGecko API Changelog</h1>
+
+<p>Build tools that solve problems for millions of wholesale and retail businesses worldwide.</p>
+
+<p>You can view code examples in the dark area to the right; switch the programming language of the examples with the tabs in the top right.</p>
+
+<p>If anything is missing or seems incorrect, please check the <a href="https://github.com/tradegecko/smaug/issues">GitHub issues</a>
+for existing known issues or <a href="https://github.com/tradegecko/smaug/issues/new">create a new issue</a>.</p>
+
+<h1 id="deprecations-for-1-0">Deprecations for 1.0</h1>
+
+<h2 id="pagination-limits">Pagination Limits</h2>
+
+<p>Default pagination is 50 and the maximum will be set as 250 items. We will begin returning a 400 Bad Request on larger requests.</p>
+
+<p>Previously we hadn&rsquo;t been enforcing our API pagination limits, very soon we will start to do so as to make sure all our customers receive a great experience.</p>
+
+<h2 id="deprecated-fields">Deprecated fields</h2>
+
+<h3 id="purchase-order">Purchase Order</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>tax_type</strong></td>
+<td><strong>tax_treatment</strong></td>
+</tr>
+<tr>
+<td><strong>default_price_type_id</strong></td>
+<td><strong>default_price_list_id</strong></td>
+</tr>
+<tr>
+<td><strong>cached_total</strong></td>
+<td><strong>total</strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="purchase-order-line-item">Purchase Order Line Item</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>tax_rate</strong></td>
+<td><strong>tax_rate_override</strong></td>
+</tr>
+</tbody></table>
+
+<p>This has been renamed to denote it&rsquo;s actual nature -&gt; you should technically use tax_type_id, but if for some reason you want to override it with a specific value, you can use this.</p>
+
+<h3 id="order">Order</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>due_at</strong></td>
+<td><strong>ship_at</strong></td>
+</tr>
+<tr>
+<td><strong>url</strong></td>
+<td><strong>source_url</strong></td>
+</tr>
+<tr>
+<td><strong>tax_type</strong></td>
+<td><strong>tax_treatment</strong></td>
+</tr>
+<tr>
+<td><strong>default_price_type_id</strong></td>
+<td><strong>default_price_list_id</strong></td>
+</tr>
+</tbody></table>
+
+<p>Tax Type has been renamed to tax_treatment (inclusive vs exclusive) as tax_type now represents an object
+with multiple tax_components.</p>
+
+<h3 id="order-line-item">Order Line Item</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>tax_rate</strong></td>
+<td><strong>tax_rate_override</strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="contact">Contact</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>phone</strong></td>
+<td><strong>phone_number</strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="company">Company</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>default_price_type_id</strong></td>
+<td><strong>default_price_list_id</strong></td>
+</tr>
+<tr>
+<td><strong>default_tax_rate</strong></td>
+<td><strong>default_tax_type_id</strong> (1)</td>
+</tr>
+</tbody></table>
+
+<p>1 - Tax rate has been deprecated site wide in preference of tax_type_id, as this allows multiple tax lines.</p>
+
+<h3 id="account">Account</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>default_tax_type</strong></td>
+<td><strong>default_tax_treatment</strong></td>
+</tr>
+<tr>
+<td><strong>default_tax_type_id</strong></td>
+<td><strong>default_sales_order_tax_type_id</strong></td>
+</tr>
+<tr>
+<td><strong>default_order_price_type_id</strong></td>
+<td><strong>default_order_price_list_id</strong></td>
+</tr>
+<tr>
+<td><strong>default_purchase_order_price_type_id</strong></td>
+<td><strong>default_purchase_order_price_list_id</strong></td>
+</tr>
+<tr>
+<td><strong>logo_url</strong></td>
+<td>N/A (1)</td>
+</tr>
+</tbody></table>
+
+<p>1 - Accounts no longer have logos.</p>
+
+<h3 id="users">Users</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>mobile_phone</strong></td>
+<td><strong>mobile</strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="product">Product</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>vendor</strong></td>
+<td><strong>supplier_id</strong></td>
+</tr>
+<tr>
+<td><strong>supplier</strong></td>
+<td><strong>supplier_id</strong></td>
+</tr>
+</tbody></table>
+
+<p>Vendor was deprecated for supplier, then supplier was deprecated in order to enable multiple suppliers per variant (not yet released). Previously, vendor and supplier were just names and stored as strings, now they reference a company within your TradeGecko system.</p>
+
+<h3 id="variants">Variants</h3>
+
+<table><thead>
+<tr>
+<th>Initial</th>
+<th>Updated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is_online</strong></td>
+<td>N/A (1)</td>
+</tr>
+<tr>
+<td><strong>prices</strong></td>
+<td><strong>variant_prices</strong> (2)</td>
+</tr>
+<tr>
+<td><strong>stock_levels</strong></td>
+<td><strong>locations</strong> (3)</td>
+</tr>
+<tr>
+<td><strong>committed_stock_levels</strong></td>
+<td><strong>locations</strong> (3)</td>
+</tr>
+</tbody></table>
+
+<p>1 - With the addition of multiple sales channels, is_online became restrictive. A variant may be online on Shopify, but not Amazon. GET <code class="prettyprint">https://api.tradegecko.com/variants/:id/channels</code> will let you know what channels the product is published to.</p>
+<pre class="highlight plaintext"><code>Old format
+
+prices: {
+  2: "200.0",
+  3: "150.0",
+  4: "100.0"
+},
+</code></pre>
+<pre class="highlight plaintext"><code>New format
+
+variant_prices: [
+  {
+    price_list_id: "2",
+    value: "200.0"
+  },
+  {
+    price_list_id: "3",
+    value: "4.0"
+  },
+  {
+    price_list_id: "buy",
+    value: "100.0"
+  }
+],
+</code></pre>
+
+<p>2 - Prices has not just been renamed, the syntax is updated to be more in line with other embedded objects in our API.</p>
+<pre class="highlight plaintext"><code>Old format
+
+stock_levels: {
+  1: 5
+},
+
+committed_stock_levels: {
+  1: 2
+}
+</code></pre>
+<pre class="highlight plaintext"><code>New format
+
+locations: [
+  {
+    location_id: 1,
+    stock_on_hand: "5",
+    committed: 2,
+    incoming: null,
+    bin_location: null,
+    reorder_point: null
+  }
+],
+</code></pre>
+
+<p>3 - This is the same deal as prices, the locations hash has replaced stock_levels and committed_stock_levels hashes.</p>
+
+<p>And that&rsquo;s about it! We have updated the documentation and Ruby gems with the new syntax. Please provide thoughts and feedback in the comments below.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
