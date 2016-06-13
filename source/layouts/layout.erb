@@ -43,7 +43,9 @@ under the License.
       </span>
     </a>
     <div class="tocify-wrapper">
-      <%= image_tag "logo.png", width: "200px" %>
+      <a href="/" title="Back to API documentation">
+        <%= image_tag "logo.png", width: "200px" %>
+      </a>
       <% if language_tabs %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -61,6 +63,11 @@ under the License.
         </div>
         <ul class="search-results"></ul>
       <% end %>
+      <% if current_page.data.home %>
+        <a class="faux-toc-link" href="/changes.html">API Change log</a>
+      <% else %>
+        <a class="faux-toc-link" href="/">Back to documentation</a>
+      <% end %>
       <div id="toc">
       </div>
       <% if current_page.data.toc_footers %>
@@ -75,9 +82,6 @@ under the License.
       <div class="dark-box"></div>
       <div class="content">
         <%= yield %>
-        <%= partial "includes/getting_started" %>
-        <%= partial "includes/guides" %>
-        <%= partial "includes/errors" %>
         <% current_page.data.resources && current_page.data.resources.each do |resource| %>
           <%= partial "includes/resource", locals: { resource: resource } %>
         <% end %>
