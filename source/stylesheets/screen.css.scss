@@ -617,3 +617,10 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+.faux-toc-link {
+  @extend %nav-font;
+  padding: 10px;
+  text-decoration: none;
+  color: $tg-slate;
+}

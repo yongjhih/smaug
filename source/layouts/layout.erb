@@ -63,6 +63,11 @@ under the License.
         </div>
         <ul class="search-results"></ul>
       <% end %>
+      <% if current_page.data.home %>
+        <a class="faux-toc-link" href="/changes.html">API Change log</a>
+      <% else %>
+        <a class="faux-toc-link" href="/">Back to documentation</a>
+      <% end %>
       <div id="toc">
       </div>
       <% if current_page.data.toc_footers %>
@@ -71,9 +76,6 @@ under the License.
             <li><%= footer %></li>
           <% end %>
         </ul>
-      <% end %>
-      <% unless current_page.data.home %>
-        <a href="/">Back to documentation</a>
       <% end %>
     </div>
     <div class="page-wrapper">
