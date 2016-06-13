@@ -635,3 +635,10 @@ html, body {
   padding: 1px $nav-v-padding;
   border-radius: 3px;
 }
+
+.faux-toc-link {
+  @extend %nav-font;
+  padding: 10px;
+  text-decoration: none;
+  color: $tg-slate;
+}
