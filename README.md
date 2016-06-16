@@ -20,16 +20,16 @@ name: {
 
 ### To Do
 
-FulfillmentReturn
-LedgerAccount
-Login
-Payment
-Procurement
-Refund
-StockAdjustment
-StockTransfer
-TaxComponent
-Webhook
+- FulfillmentReturn
+- LedgerAccount
+- Login
+- Payment
+- Procurement
+- Refund
+- StockAdjustment
+- StockTransfer
+- TaxComponent
+- Webhook
 
 ### Add a new resource with
 
@@ -43,3 +43,24 @@ OAUTH_TOKEN=xxx
 ```
 
 In your .env.
+
+### Add to Changelog
+
+Look in changes.html
+
+### Customise content of a resource
+
+Look in the appropriate .yml file.
+
+# Deploy
+
+./deploy.sh
+
+# Rebase with upstream
+
+git remote set upstream git@github.com:lord/slate.git
+
+git fetch upstream
+
+git merge upstream/master
+
