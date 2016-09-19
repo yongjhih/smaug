@@ -73,7 +73,6 @@ en:
             reorder_point: null
           }
         ],
-        channels: [ ],
         prices: {
           retail: "22.0",
           wholesale: "12.0",
@@ -149,7 +148,6 @@ en:
             reorder_point: null
           }
         ],
-        channels: [ ],
         prices: {
           retail: "24.0",
           wholesale: "12.0",
@@ -451,13 +449,6 @@ en:
         type: "Array",
         description: "An array of per-warehouse data about current variant.",
         readonly: true,
-      },
-      channels: {
-        name: "channels",
-        type: "Array",
-        description: "The channels this variant is published on",
-        readonly: true,
-        private: true
       },
       prices: {
         name: "prices",
