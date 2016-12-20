@@ -34,6 +34,13 @@ Returns a list of <%= t(".resource_plural", scope: resource) %> you’ve previou
 | **created_at_max** | ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)
 | **updated_at_min** | ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)
 | **updated_at_max** | ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)
+<% if t(".attributes", scope: resource).key?(:status) %>
+  <% if !["company", "product", "purchase_order","fulfillment","order"].include?(t(".resource_name", scope: resource)) %>
+    **status** | Possible options are: `active`, `archived`. Default is `active`
+  <% elsif ["company", "product", "purchase_order"].include?(t(".resource_name", scope: resource)) %>
+    **status** | Possible options are: `active`, `disabled`, `archived`. Default is `active`
+  <% end %>
+<% end %>
 <% t(".attributes", scope: resource).select{ |k,v| v[:filterable] }.each_pair do |key, value| %>
   **<%= value[:name] %>** | <%= value[:filterable].is_a?(String) ? value[:filterable] : nil %>
 <% end %>

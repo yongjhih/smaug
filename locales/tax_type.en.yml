@@ -67,7 +67,6 @@ en:
         name: "status",
         type: "String",
         description: "Tells whether the resource is 'active' or 'archived'",
-        filterable: true,
         readonly: true
       },
       code: {
