@@ -163,7 +163,7 @@ en:
         name: "status",
         type: "String",
         description: "One of packed or fulfilled. Will update to deleted or void if deleted, respectively.",
-        filterable: true,
+        filterable: "Possible options: `packed`, or `fulfilled`",
         updatable: true,
         creatable: true,
       },

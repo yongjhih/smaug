@@ -104,7 +104,6 @@ en:
         name: "status",
         type: "String",
         description: "Tells whether the resource is 'active', 'disabled' or 'archived'",
-        filterable: true,
         updatable: true,
       },
       assignee_id: {
