@@ -38,7 +38,7 @@ Returns a list of <%= t(".resource_plural", scope: resource) %> you’ve previou
   <% if !["company", "product", "purchase_order","fulfillment","order"].include?(t(".resource_name", scope: resource)) %>
     **status** | Possible options are: `active`, `archived`. Default is `active`
   <% elsif ["company", "product", "purchase_order"].include?(t(".resource_name", scope: resource)) %>
-    **status** | Possible options are: `active`, `disabled`, `archived`. Default is `active`
+    **status** | Possible options are: `active`, `disabled`, `archived`. Default returns all not `archived`
   <% end %>
 <% end %>
 <% t(".attributes", scope: resource).select{ |k,v| v[:filterable] }.each_pair do |key, value| %>
