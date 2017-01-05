@@ -42,6 +42,8 @@ As shown in the example above, requests can be batched together to get products 
 
 The above API call will return an array of products with brand ABC or brand XYC.
 
+Such batching using filters can be done for other objects.
+
 ### Using Different Filters Together
 You can use different filters in a single API call. For example:
 
