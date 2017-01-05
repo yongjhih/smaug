@@ -109,7 +109,9 @@ en:
         "invoice_numbers":        {
           1: "INV001"
         },
-        "order_line_item_ids":    []
+        "order_line_item_ids":    [
+          
+        ]
       }
     ]
     gecko:
@@ -117,7 +119,11 @@ en:
         company_id: 1,
         issued_at: Time.now,
         billing_address_id: 1,
-        shipping_address_id: 1
+        shipping_address_id: 1,
+        order_line_items: [
+          {variant_id: 123, quantity: 2},
+          {variant_id: 456, quantity: 5}
+        ]
       }
       update: {
         status: "active",
