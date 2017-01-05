@@ -12,7 +12,7 @@
     "status": "active",
     "issued_at": "21-02-2014",
     "order_line_items": [
-      { "variant_id": 14, "quantity": 1 }
+      { "variant_id": 14, "quantity": 1 },
       { "variant_id": 15, "quantity": 2 }
     ]
   }
