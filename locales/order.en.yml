@@ -311,6 +311,7 @@ en:
         name: "status",
         type: "String",
         description: "Signifies the current state of the order, can be set as 'draft', 'active' or 'finalized'",
+        filterable: "Possible options are `draft`, `active`, `finalized`",
         creatable: true,
         updatable: true
       },
