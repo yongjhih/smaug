@@ -27,12 +27,20 @@ Returns a list of <%= t(".resource_plural", scope: resource) %> you’ve previou
 
 | Arguments          | Description
 |--------------------|--------------------
+| **ids**            | An array of <%= t(".resource_name", scope: resource) %> IDs. See [Getting Started](#filtering "Filtering") for examples.
 | **limit**          | used for pagination (default is 100)
 | **page**           | used for pagination (default is 1)
 | **created_at_min** | ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)
 | **created_at_max** | ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)
 | **updated_at_min** | ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)
 | **updated_at_max** | ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)
+<% if t(".attributes", scope: resource).key?(:status) %>
+  <% if !["company", "product", "purchase_order","fulfillment","order"].include?(t(".resource_name", scope: resource)) %>
+    **status** | Default is `active`
+  <% elsif ["company", "product", "purchase_order"].include?(t(".resource_name", scope: resource)) %>
+    **status** | Possible options are: `active`, `disabled`.
+  <% end %>
+<% end %>
 <% t(".attributes", scope: resource).select{ |k,v| v[:filterable] }.each_pair do |key, value| %>
   **<%= value[:name] %>** | <%= value[:filterable].is_a?(String) ? value[:filterable] : nil %>
 <% end %>

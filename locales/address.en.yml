@@ -86,7 +86,6 @@ en:
         name: "status",
         type: "String",
         description: "",
-        filterable: true,
         readonly: true
       },
       company_id: {
