@@ -76,7 +76,11 @@ en:
         company_id: 1,
         issued_at: Time.now,
         billing_address_id: 1,
-        shipping_address_id: 1
+        shipping_address_id: 1,
+        purchase_order_line_items: [
+          { variant_id: 123, price: "10.0", quantity: 1 },
+          { variant_id: 456, price: "25.0",  quantity: 2 }
+    ]
       }
       update: {
         status: "active",
