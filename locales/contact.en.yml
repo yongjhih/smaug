@@ -152,7 +152,7 @@ en:
       },
       position: {
         name: "position",
-        type: "Integer",
+        type: "String",
         description: "",
         updatable: true,
         creatable: true,
