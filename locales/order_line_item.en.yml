@@ -151,6 +151,7 @@ en:
       price: {
         name: "price",
         type: "String",
+        description: "Price of a single item. If not provided, we will attempt to pull the price from the parent order's default price list",
         updatable: true,
         creatable: true,
         required: true
