@@ -2578,7 +2578,7 @@ https://api.tradegecko.com/companies/1
 </tr>
 <tr>
 <td><strong>position</strong></td>
-<td>Integer</td>
+<td>String</td>
 <td></td>
 <td></td>
 </tr>
@@ -2814,7 +2814,7 @@ https://api.tradegecko.com/contacts/ -d <span class="s1">&#39;{&quot;contact&quo
 </tr>
 <tr>
 <td><strong>position</strong></td>
-<td>Integer</td>
+<td>String</td>
 <td></td>
 <td></td>
 </tr>
@@ -6852,7 +6852,7 @@ This endpoint also accepts embedded order_line_items.</p>
 <tr>
 <td><strong>price</strong></td>
 <td>String</td>
-<td></td>
+<td>Price of a single item. If not provided, we will attempt to pull the price from the parent order&rsquo;s default price list</td>
 <td>true</td>
 </tr>
 <tr>
@@ -7116,7 +7116,7 @@ https://api.tradegecko.com/orders/1
 <tr>
 <td><strong>price</strong></td>
 <td>String</td>
-<td></td>
+<td>Price of a single item. If not provided, we will attempt to pull the price from the parent order&rsquo;s default price list</td>
 <td></td>
 </tr>
 <tr>
@@ -7397,7 +7397,7 @@ https://api.tradegecko.com/order_line_items/ -d <span class="s1">&#39;{&quot;ord
 <tr>
 <td><strong>price</strong></td>
 <td>String</td>
-<td></td>
+<td>Price of a single item. If not provided, we will attempt to pull the price from the parent order&rsquo;s default price list</td>
 <td>true</td>
 </tr>
 <tr>
@@ -8246,7 +8246,7 @@ This endpoint also accepts embedded variants.</p>
 <tr>
 <td><strong>manage_stock</strong></td>
 <td>Boolean</td>
-<td></td>
+<td>For composite variants, the value of manage_stock will always be true</td>
 <td></td>
 </tr>
 <tr>
@@ -10513,7 +10513,7 @@ https://api.tradegecko.com/users/current
 <tr>
 <td><strong>manage_stock</strong></td>
 <td>Boolean</td>
-<td></td>
+<td>For composite variants, the value of manage_stock will always be true</td>
 <td></td>
 </tr>
 <tr>
@@ -10761,9 +10761,6 @@ https://api.tradegecko.com/variants/
         </span><span class="nt">"reorder_point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-    </span><span class="p">],</span><span class="w">
     </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"retail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"wholesale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.0"</span><span class="p">,</span><span class="w">
@@ -10840,9 +10837,6 @@ https://api.tradegecko.com/variants/
         </span><span class="nt">"bin_location"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nt">"reorder_point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"retail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24.0"</span><span class="p">,</span><span class="w">
@@ -10991,9 +10985,6 @@ https://api.tradegecko.com/variants/ -d <span class="s1">&#39;{&quot;variant&quo
       </span><span class="nt">&quot;reorder_point&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></p>
-
-<p></span><span class="p">],</span><span class="w">
   </span><span class="nt">&quot;prices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;retail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;22.0&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nt">&quot;wholesale&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span><span class="w">
@@ -11066,7 +11057,7 @@ https://api.tradegecko.com/variants/ -d <span class="s1">&#39;{&quot;variant&quo
 <tr>
 <td><strong>manage_stock</strong></td>
 <td>Boolean</td>
-<td></td>
+<td>For composite variants, the value of manage_stock will always be true</td>
 <td></td>
 </tr>
 <tr>
@@ -11255,9 +11246,6 @@ https://api.tradegecko.com/variants/1
       </span><span class="nt">"bin_location"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"reorder_point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"retail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.0"</span><span class="p">,</span><span class="w">
