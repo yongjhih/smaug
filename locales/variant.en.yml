@@ -274,7 +274,7 @@ en:
       manage_stock: {
         name: "manage_stock",
         type: "Boolean",
-        description: "",
+        description: "For composite variants, the value of manage_stock will always be true",
         updatable: true,
         creatable: true,
       },
