@@ -432,7 +432,9 @@ https://api.tradegecko.com/users?limit<span class="o">=</span>20&amp;page<span c
 </code></pre>
 
 <p>The TradeGecko API enables pagination by allowing users to include &lsquo;limit&rsquo;
-and &lsquo;page&rsquo; parameters on GET requests to index pages. </p>
+and &lsquo;page&rsquo; parameters on GET requests to index pages.</p>
+
+<p>Pagination data, such as total number of records when a query is run against a particular class, is available in a HTTP header(in the response) named X-Pagination. </p>
 
 <p><h2 id="filtering">Filtering</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
