@@ -14,6 +14,8 @@ access_token = OAuth2::AccessToken.new(gecko.oauth_client, <ACCESS_TOKEN>)
 gecko.access_token = access_token
 gecko.User.where(limit: 5, page: 2)
 ```
- 
+
 The TradeGecko API enables pagination by allowing users to include 'limit'
-and 'page' parameters on GET requests to index pages. 
+and 'page' parameters on GET requests to index pages.
+
+In addition, the pagination data is available in a HTTP header(in the response) named 'X-Pagination.
