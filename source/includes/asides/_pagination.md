@@ -18,4 +18,4 @@ gecko.User.where(limit: 5, page: 2)
 The TradeGecko API enables pagination by allowing users to include 'limit'
 and 'page' parameters on GET requests to index pages.
 
-In addition, the pagination data is available in a HTTP header(in the response) named 'X-Pagination.
+Pagination data, such as total number of records when a query is run against a particular class, is available in a HTTP header(in the response) named X-Pagination. 
