@@ -1,4 +1,4 @@
-## Requesting for an Access Token
+## Requesting an Access Token
 
 ```shell
 curl -H "Content-type: application/json" -X POST https://api.tradegecko.com/oauth/token -d '{"client_id": "d38abea2ef61c916a1e131de9fd04146579578f", "client_secret":"2kj2kd07e197f9942ca1876d759e9e9c45bdcdc", "redirect_uri": "https://my.application.com/auth/app/callback", "code": "c3d11b23992f53d748c7b25148da1ac4d838919", "grant_type": "authorization_code"}'

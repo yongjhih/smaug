@@ -1,4 +1,4 @@
-## Getting an Authorization Code
+## Refresh Token Flow
 
 An authorization code is the key used to retrieve the access token. 
 In order to acquire an authorization code, you need to send your user

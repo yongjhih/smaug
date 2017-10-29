@@ -1,4 +1,4 @@
-## Testing with Oauth
+## Testing with OAuth
 ### Setting up the client
 
 To test TradeGecko API, first make sure you have installed the oauth2

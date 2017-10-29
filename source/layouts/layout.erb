@@ -73,12 +73,9 @@ under the License.
         <ul class="search-results"></ul>
       <% end %>
       <div id="toc" class="toc-list-h1">
-        <% if current_page.data.home %>
-          <a class="faux-toc-link" href="/changes.html">API Change log</a>
-        <% else %>
+        <% unless current_page.data.home %>
           <a class="faux-toc-link" href="/">Back to documentation</a>
         <% end %>
-
         <% toc_data(page_content).each do |h1| %>
           <li>
             <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content] %>"><%= h1[:content] %></a>
@@ -93,7 +90,12 @@ under the License.
             <% end %>
           </li>
         <% end %>
+
+        <% if current_page.data.home %>
+          <a class="faux-toc-link" href="/changes.html">API Change log</a>
+        <% end %>
       </div>
+
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>

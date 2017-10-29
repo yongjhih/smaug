@@ -1,4 +1,4 @@
-## Refreshing Access Tokens
+## Refreshing an Access Token
 
 The refresh token is a unique key used to request for a new access token whenever
 the current access token becomes expired. In order to refresh an access token, user must make a POST request to

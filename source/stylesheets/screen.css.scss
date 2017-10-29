@@ -4,7 +4,7 @@
 @import url("//fonts.googleapis.com/css?family=Raleway:300,500,700");
 
 @import 'normalize';
-// @import 'variables'; revert to tripit defaults
+@import 'variables'; //revert to tripit defaults
 @import 'variables2'; // tradegecko overrides
 @import 'icon-font';
 
@@ -52,7 +52,7 @@ html, body {
   width: 20px;
 }
 
-.tocify-wrapper {
+.toc-wrapper {
   transition: left 0.3s ease-in-out;
 
   overflow-y: auto;
@@ -149,11 +149,11 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
+    line-height: 36px;
   }
 
   li {
     color: $nav-text;
-    padding: 0 0 0 $nav-padding;
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 200ms;
@@ -188,7 +188,7 @@ html, body {
   }
 
   .toc-footer {
-    padding: $nav-padding;
+    padding: $nav-padding 0;
     margin-top: 1em;
     border-top: $dotted-border;
 
@@ -352,7 +352,7 @@ html, body {
     padding-left: $main-padding + 15px;
   }
 
-  // the div is the tocify hidden div for placeholding stuff
+  // the div is the toc hidden div for placeholding stuff
   &>h1, &>h2, &>div {
     clear:both;
   }
@@ -482,6 +482,7 @@ html, body {
     padding-bottom: 1em;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
+    background: $tg-teal;
     line-height: 1.6;
   }
 
@@ -639,6 +640,7 @@ html, body {
 .faux-toc-link {
   @extend %nav-font;
   padding: 10px;
+  line-height: 36px;
   text-decoration: none;
   color: $tg-slate;
 }

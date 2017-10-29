@@ -13,7 +13,7 @@ gecko.access_token = access_token
 gecko.Account.where()
 ```
 
-The TradeGecko API is entirely JSON based. In order to make an authenticated call
+The TradeGecko API is JSON based. In order to make an authenticated call
 to the API, you must include your access token with the call.
 OAuth2 uses a BEARER token that is passed along in an Authorization
 header.

@@ -1,6 +1,6 @@
-## The Ordering flow
+## Creating a Sales Order
 
-> 1 . Create the Order
+1 . Create the Order
 `POST /orders`
 
 ```json
