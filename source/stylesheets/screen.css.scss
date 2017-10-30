@@ -482,8 +482,16 @@ html, body {
     padding-bottom: 1em;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    background: $tg-teal;
+    background: $aside-notice-bg;
     line-height: 1.6;
+
+    &.warning {
+      background-color: $aside-warning-bg;
+    }
+
+    &.success {
+      background-color: $aside-success-bg;
+    }
   }
 
   aside:before {

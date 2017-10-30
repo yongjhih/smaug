@@ -1,4 +1,7 @@
-## Filtering
+# Filtering Collections
+
+The TradeGecko API allows filtering of records by passing along query parameters.  
+These are some of the filters currently allowed by the API (where relevant).
 
 ```shell
 curl -X GET -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>"
@@ -14,37 +17,38 @@ gecko.access_token = access_token
 gecko.Product.where(created_at_min: "2015-11-04")
 ```
 
-The API also allows filtering of records by passing query parameters
-These are the filters currently allowed by the API (where relevant)
-
 ###  Index Filters
 
 | Arguments          | Description
 |--------------------|--------------------
-| **ids**            | An array of object IDs
+| **ids**            | An array of object IDs, see [Batching Requests](#batching-requests)
 | **created_at_min** | Return objects only created since
 | **created_at_max** | Return objects only created before
 | **updated_at_min** | Return objects only updated since
 | **updated_at_max** | Return objects only updated before
-| **order**          | The order to return the collection i.e "created_at desc"
-| **limit**          | See the pagination docs (default is 100)
-| **page**           | See the pagination docs
+| **order**          | The order to return the collection i.e "?order=created_at desc"
+| **limit**          | See [Pagination](#pagination) (default is 100)
+| **page**           | See [Pagination](#pagination)
 
-Each object has their own specific filters; we cover those filters in their respective sections.
-
-### HTTP Request
-`GET  https://api.tradegecko.com/products?ids=1,2,3&order=created_at+desc&limit=3`
+In addition, each record type has their own specific filters; 
+these filters are covered in their respective sections.
 
 ### Batching Requests
-As shown in the example above, requests can be batched together to get products with different IDs in a single API call. Similarly, batching can be done on a number of objects by applying filters. Batching this way using filters can cut down on the number of API calls needed. For example, a single API call can return products with different brands:
+Requests can be batched together to get records with different IDs in a single API call.  
+`GET https://api.tradegecko.com/products?ids[]=1&ids[]=2`
 
+Batching can also be done to return the results of multiple possible values.  
+For example, a single API call can return products with multiple brands:  
 `GET https://api.tradegecko.com/products?brand[]=ABC&brand[]=XYZ`
 
-The above API call will return an array of products with brand ABC or brand XYC.
+Or statuses:  
+`GET https://api.tradegecko.com/orders?status[]=draft&status[]=active`
 
-Such batching using filters can be done for other objects.
+### Comma-separated support for Integer filters.
+For ID based filters, optionally a comma-separated collection can be used instead for brevity.  
+`GET https://api.tradegecko.com/products?ids=1,2`, or  
+`GET https://api.tradegecko.com/variants?product_id=1,2`
 
-### Using Different Filters Together
-You can use different filters in a single API call. For example:
-
-`GET https://api.tradegecko.com/companies?company_status=active&company_type=supplier&order=created_at+desc&limit=20`
+### Combining Multiple Filters in a Single call.
+You can combine filters in a single API call to return tighter subsets of results.  
+`GET https://api.tradegecko.com/companies?company_status=active&company_type=supplier&order=created_at+desc&page=2&limit=20`

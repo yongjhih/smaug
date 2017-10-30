@@ -14,4 +14,4 @@ unique keys:
   Make sure to keep these keys secret.
 </aside>
 
-These keys are needed in order to obtain an access token to make the API calls.
+These two keys are subsequently used to obtain access tokens for making API calls.

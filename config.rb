@@ -101,8 +101,6 @@ redirect "developer/privileged-access-tokens/",       to: "#privileged-access-to
 redirect "developer/rate-limiting/",                  to: "#rate-limiting"
 redirect "developer/refresh-an-access-token/",        to: "#refresh-an-access-token"
 redirect "developer/requesting-for-an-access-token/", to: "#requesting-for-an-access-token"
-redirect "developer/testing-with-oauth2-gem/",        to: "#testing-with-oauth"
-redirect "developer/tradegecko-omniauth-strategy/",   to: "#tradegecko-omniauth-strategy"
 redirect "resources/",                                to: ""
 redirect "resource/",                                 to: ""
 redirect "getting-started/",                          to: "#getting-started"

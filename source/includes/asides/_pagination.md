@@ -1,10 +1,10 @@
-## Pagination
+# Pagination
 
 > The default limit is 100 items.
 
 ```shell
 curl -X GET -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>"
-https://api.tradegecko.com/users?limit=20&page=1
+https://api.tradegecko.com/users?limit=5&page=2
 ```
 
 ```ruby
@@ -15,5 +15,5 @@ gecko.access_token = access_token
 gecko.User.where(limit: 5, page: 2)
 ```
  
-The TradeGecko API enables pagination by allowing users to include 'limit'
-and 'page' parameters on GET requests to index pages. 
+The TradeGecko API enables pagination via `limit`
+and `page` query parameters on GET requests to index pages. 
