@@ -2,6 +2,9 @@
 en:
   account:
     current: true
+    disable_create: true
+    disable_index: true
+    disable_show: true
     resource_article: "an"
     resource_klass: "Account"
     resource_name: "account"

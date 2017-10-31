@@ -19,13 +19,21 @@
 **<%= value[:name] %>**<%= " <span class='private'>private</span>" if value[:private] %> <%= " <span class='deprecated'>deprecated</span>" if value[:deprecated] %> | <%= value[:type] %> | <%= value[:description] %> | <%= value[:readonly] %>
 <% end %>
 
-<%= partial "includes/index_request", locals: { resource: resource, json_all: json_all }  %>
+<% unless t(".disable_index", scope: resource) == true %>
+  <%= partial "includes/index_request", locals: { resource: resource, json_all: json_all }  %>
+<% end %>
 
 <% unless t(".disable_create", scope: resource) == true %>
   <%= partial "includes/create_request", locals: { resource: resource, json_single: json_single } %>
 <% end %>
 
-<%= partial "includes/show_request", locals: { resource: resource, json_single: json_single }  %>
+<% unless t(".disable_show", scope: resource) == true %>
+  <%= partial "includes/show_request", locals: { resource: resource, json_single: json_single }  %>
+<% end %>
+
+<% if t('.current', scope: resource) == true %>
+  <%= partial "includes/current_request", locals: { resource: resource, json_single: json_single }  %>
+<% end %>
 
 <% unless t(".disable_update", scope: resource) == true %>
   <%= partial "includes/update_request", locals: { resource: resource } %>
@@ -33,8 +41,4 @@
 
 <% unless t(".disable_destroy", scope: resource) == true %>
   <%= partial "includes/destroy_request", locals: { resource: resource } %>
-<% end %>
-
-<% if t('.current', scope: resource) == true %>
-  <%= partial "includes/current_request", locals: { resource: resource, json_single: json_single }  %>
 <% end %>

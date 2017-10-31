@@ -6,7 +6,8 @@ require 'gecko-ruby'
 gecko = Gecko::Client.new(<OAUTH_ID>, <OAUTH_SECRET>)
 access_token = OAuth2::AccessToken.new(gecko.oauth_client, <ACCESS_TOKEN>)
 gecko.access_token = access_token
-gecko.<%= t(".resource_klass", scope: resource) %>.create(<%= t('.gecko.create', scope: resource) %>)
+<%= t(".resource_name", scope: resource) %> = gecko.<%= t(".resource_klass", scope: resource) %>.build(<%= t('.gecko.create', scope: resource) %>)
+<%= t(".resource_name", scope: resource) %>.save
 ```
 <% end %>
 

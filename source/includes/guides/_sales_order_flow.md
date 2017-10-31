@@ -1,4 +1,4 @@
-## Creating a Sales Order
+## Sales Order Flow
 
 1 . Create the Order
 `POST /orders`

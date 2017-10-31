@@ -633,7 +633,7 @@ html, body {
 }
 
 .highlight, .highlight .w {
-  background-color: $code-bg;
+  background-color: $code-annotation-bg;
 }
 
 .private, .deprecated {
@@ -670,5 +670,14 @@ a[data-title=Resources] {
     padding-top: 0.6em;
     margin-top: 0px;
     border-top: 0;
+  }
+}
+
+.content pre.tab-json--inline {
+  float: left;
+  clear: none;
+  background-color: $nav-bg;
+  .w {
+    background-color: $nav-bg;
   }
 }
