@@ -23,8 +23,7 @@ https://api.tradegecko.com/accounts/current
 ```ruby
 require 'gecko-ruby'
 gecko = Gecko::Client.new(<OAUTH_ID>, <OAUTH_SECRET>)
-access_token = OAuth2::AccessToken.new(gecko.oauth_client, <PRIVILEGED_ACCESS_TOKEN>)
-gecko.access_token = access_token
+gecko.authorize_from_existing(<PRIVILEGED_ACCESS_TOKEN>, nil, nil)
 gecko.Account.current
 ```
 
@@ -39,5 +38,6 @@ If you have already registered your application, you can add a privileged token 
 finding your application in your [TradeGecko App List](https://go.tradegecko.com/oauth/applications).
 
 <aside class="notice">
-Important: The Privileged Access Tokens provide unfettered access to your TradeGecko account, be very careful not to share them.
+Important: The Privileged Access Tokens provide unfettered access to your TradeGecko 
+account, be very careful to store them securely.
 </aside>
