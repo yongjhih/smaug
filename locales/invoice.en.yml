@@ -50,14 +50,13 @@ en:
         shipping_address_id: 1,
         invoice_line_items: [
         {
-         "quantity": "1.0",
-         "order_line_item_id": 123
-       },
+          quantity: "1.0",
+          order_line_item_id: 123
+        },
         {
-         "quantity": "1.0",
-         "order_line_item_id": 456
-       }
-        ]
+          quantity: "1.0",
+          order_line_item_id: 456
+        }]
       }
       update: {
         billing_address_id: 2,
