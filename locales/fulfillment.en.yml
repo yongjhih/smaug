@@ -43,7 +43,11 @@ en:
         order_id: 1,
         packed_at: Time.now,
         billing_address_id: 1,
-        shipping_address_id: 1
+        shipping_address_id: 1,
+        fulfillment_line_items: [
+          order_line_item_id: 1,
+          order_line_item_id: 2,
+        ]
       }
       update: {
         tracking_company: "GeckoShip",
