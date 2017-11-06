@@ -24,7 +24,7 @@
 <% end %>
 
 <% unless t(".disable_create", scope: resource) == true %>
-  <%= partial "includes/create_request", locals: { resource: resource, json_single: json_single } %>
+  <%= partial "includes/create_request", locals: { resource_name: resource, json_single: json_single } %>
 <% end %>
 
 <% unless t(".disable_show", scope: resource) == true %>

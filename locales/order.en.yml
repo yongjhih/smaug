@@ -2,6 +2,7 @@
 en:
   order:
     child: "order_line_item"
+    child_nestable: true
     resource_article: "an"
     resource_klass: "Order"
     resource_name: "order"

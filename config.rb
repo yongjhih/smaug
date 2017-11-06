@@ -60,6 +60,7 @@ set :port, 4567
 
 helpers do
   require './lib/toc_data.rb'
+  require './lib/resource_wrapper.rb'
 end
 
 redirect "changelog/",                          to: "https://github.com/tradegecko/smaug/commits"
