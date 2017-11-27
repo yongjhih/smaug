@@ -434,8 +434,9 @@ en:
       image_ids: {
         name: "image_ids",
         type: "Array",
-        description: "",
-        readonly: true,
+        description: "Images assigned to the variant. The order of the Image IDs here is the position of the images on the variant.",
+        updatable: true,
+        creatable: true,
       },
       variant_prices: {
         name: "variant_prices",

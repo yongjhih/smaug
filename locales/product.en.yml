@@ -26,6 +26,10 @@ en:
         supplier_ids: [
           3
         ],
+        image_ids: [
+          1,
+          2
+        ],
         tags: "candy,chocolate",
         variant_ids: [
           4,
@@ -54,6 +58,7 @@ en:
         supplier_ids: [
           3
         ],
+        image_ids: [],
         tags: "candy,summer",
         variant_ids: [
           2,
@@ -115,7 +120,7 @@ en:
       image_url: {
         name: "image_url",
         type: "String",
-        description: "First image of children variants (sorted on position)",
+        description: "First image of the product (sorted on position)",
         readonly: true,
       },
       name: {
@@ -184,6 +189,14 @@ en:
         description: "Should currently only be one ID for backwards compatibility purposes",
         updatable: true,
         creatable: true,
+        beta: true,
+      },
+      image_ids: {
+        name: "image_ids",
+        type: "Array",
+        description: "The IDs of all the images linked to the product",
+        updatable: true,
+        creatable: false,
         beta: true,
       },
       tags: {
