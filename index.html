@@ -223,10 +223,10 @@
                     <a href="#batching-requests" class="toc-h2 toc-link" data-title="Batching Requests">Batching Requests</a>
                   </li>
                   <li>
-                    <a href="#comma-separated-support-for-integer-filters" class="toc-h2 toc-link" data-title="Comma-separated support for Integer filters.">Comma-separated support for Integer filters.</a>
+                    <a href="#comma-separated-support-for-integer-filters" class="toc-h2 toc-link" data-title="Comma-separated support for Integer filters">Comma-separated support for Integer filters</a>
                   </li>
                   <li>
-                    <a href="#combining-multiple-filters-in-a-single-call" class="toc-h2 toc-link" data-title="Combining Multiple Filters in a Single call.">Combining Multiple Filters in a Single call.</a>
+                    <a href="#combining-multiple-filters-in-a-single-call" class="toc-h2 toc-link" data-title="Combining Multiple Filters in a Single call">Combining Multiple Filters in a Single call</a>
                   </li>
               </ul>
           </li>
@@ -246,6 +246,12 @@
           </li>
           <li>
             <a href="#idempotency-tokens" class="toc-h1 toc-link" data-title="Idempotency Tokens">Idempotency Tokens</a>
+          </li>
+          <li>
+            <a href="#soft-deletion" class="toc-h1 toc-link" data-title="Soft Deletion">Soft Deletion</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
           <li>
             <a href="#guides" class="toc-h1 toc-link" data-title="Guides">Guides</a>
@@ -733,12 +739,6 @@
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
-          <li>
-            <a href="#soft-deletion" class="toc-h1 toc-link" data-title="Soft Deletion">Soft Deletion</a>
-          </li>
-          <li>
             <a href="#libraries" class="toc-h1 toc-link" data-title="Libraries">Libraries</a>
           </li>
 
@@ -1067,13 +1067,13 @@ For example, a single API call can return products with multiple brands:<br>
 <p>Or statuses:<br>
 <code>GET https://api.tradegecko.com/orders?status[]=draft&amp;status[]=active</code></p>
 
-<h3 id='comma-separated-support-for-integer-filters'>Comma-separated support for Integer filters.</h3>
+<h3 id='comma-separated-support-for-integer-filters'>Comma-separated support for Integer filters</h3>
 
 <p>For ID based filters, optionally a comma-separated collection can be used instead for brevity.<br>
 <code>GET https://api.tradegecko.com/products?ids=1,2</code>, or<br>
 <code>GET https://api.tradegecko.com/variants?product_id=1,2</code></p>
 
-<h3 id='combining-multiple-filters-in-a-single-call'>Combining Multiple Filters in a Single call.</h3>
+<h3 id='combining-multiple-filters-in-a-single-call'>Combining Multiple Filters in a Single call</h3>
 
 <p>You can combine filters in a single API call to return tighter subsets of results.<br>
 <code>GET https://api.tradegecko.com/companies?company_status=active&amp;company_type=supplier&amp;order=created_at+desc&amp;page=2&amp;limit=20</code></p>
@@ -1163,6 +1163,63 @@ By providing a unique Idempotency key in your POST or PUT requests the API can
 guarantee that a specific operation is only performed once.</p></p>
 
 <p>The keys expire after 24 hours.</p>
+
+<p><h1 id='soft-deletion'>Soft Deletion</h1>
+<p>TradeGecko uses soft-deletion for most of its records. 
+In the API, a soft-deleted object will have a status of <code>archived</code>. 
+These records will not be returned by default, but can be accessed using filters to 
+specifically return records with a status of <code>archived</code>.</p></p>
+
+<p><h1 id='errors'>Errors</h1>
+<p>The TradeGecko API uses the following error codes:</p></p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- You have passed a malformed request</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is incorrect</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Payment Required -- Your subscription has lapsed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The resource requested is not available with your permissions</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified resource could not be found</td>
+</tr>
+<tr>
+<td>414</td>
+<td>Request URI too long -- You have applied too many filters on a GET request</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity -- Your request is invalid</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You are allowed <a href="#rate-limiting" title="Rate Limiting">300 requests per 300 seconds</a></td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable (Time out) -- The server is overloaded or down for maintenance</td>
+</tr>
+</tbody></table>
 
 <h1 id='guides'>Guides</h1>
 
@@ -4421,9 +4478,21 @@ https://api.tradegecko.com/fulfillment_line_items/1
 <td>true</td>
 </tr>
 <tr>
-<td><strong>variant_id</strong></td>
+<td><strong>product_id</strong></td>
+<td>Integer</td>
+<td>The product to which the image belongs.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>variant_id</strong>  <span class='deprecated'>deprecated</span></td>
 <td>Integer</td>
 <td>The variant to which the image belongs.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>variant_ids</strong></td>
+<td>Array</td>
+<td>The variants to which the image belongs.</td>
 <td></td>
 </tr>
 <tr>
@@ -4488,7 +4557,12 @@ https://api.tradegecko.com/images/
   </span><span class="s2">&quot;images&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;product_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;variant_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">&quot;uploader_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -4501,7 +4575,12 @@ https://api.tradegecko.com/images/
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;product_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;variant_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">&quot;uploader_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -4555,7 +4634,15 @@ https://api.tradegecko.com/images/
 <td>ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)</td>
 </tr>
 <tr>
+<td><strong>product_id</strong></td>
+<td>Filter images by product</td>
+</tr>
+<tr>
 <td><strong>variant_id</strong></td>
+<td>Filter images by variant</td>
+</tr>
+<tr>
+<td><strong>variant_ids</strong></td>
 <td>Filter images by variant</td>
 </tr>
 <tr>
@@ -4572,14 +4659,19 @@ https://api.tradegecko.com/images/
 <span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Image</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span><span class="ss">:variant_id</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="ss">:url</span><span class="o">=&gt;</span><span class="s2">&quot;http://www.thisismyimage.com/image.png&quot;</span><span class="p">})</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Image</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span><span class="ss">:product_id</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="ss">:variant_ids</span><span class="o">=&gt;</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="ss">:url</span><span class="o">=&gt;</span><span class="s2">&quot;http://www.thisismyimage.com/image.png&quot;</span><span class="p">})</span>
 <span class="n">image</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
-https://api.tradegecko.com/images/ -d <span class="s1">&#39;{&quot;image&quot;:{&quot;variant_id&quot;:1,&quot;url&quot;:&quot;http://www.thisismyimage.com/image.png&quot;}&#39;</span><span class="o">}</span>
+https://api.tradegecko.com/images/ -d <span class="s1">&#39;{&quot;image&quot;:{&quot;product_id&quot;:1,&quot;variant_ids&quot;:[1,2],&quot;url&quot;:&quot;http://www.thisismyimage.com/image.png&quot;}&#39;</span><span class="o">}</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;product_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;variant_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="s2">&quot;uploader_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -4605,9 +4697,21 @@ https://api.tradegecko.com/images/ -d <span class="s1">&#39;{&quot;image&quot;:{
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>variant_id</strong></td>
+<td><strong>product_id</strong></td>
+<td>Integer</td>
+<td>The product to which the image belongs.</td>
+<td>true</td>
+</tr>
+<tr>
+<td><strong>variant_id</strong> <span class='deprecated'>deprecated</span></td>
 <td>Integer</td>
 <td>The variant to which the image belongs.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>variant_ids</strong></td>
+<td>Array</td>
+<td>The variants to which the image belongs.</td>
 <td>true</td>
 </tr>
 <tr>
@@ -4632,7 +4736,12 @@ https://api.tradegecko.com/images/1
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;product_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;variant_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="s2">&quot;uploader_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -7873,7 +7982,7 @@ https://api.tradegecko.com/payment_terms/1
 <tr>
 <td><strong>image_url</strong></td>
 <td>String</td>
-<td>First image of children variants (sorted on position)</td>
+<td>First image of the product (sorted on position)</td>
 <td>true</td>
 </tr>
 <tr>
@@ -7925,6 +8034,12 @@ https://api.tradegecko.com/payment_terms/1
 <td></td>
 </tr>
 <tr>
+<td><strong>image_ids</strong></td>
+<td>Array</td>
+<td>The IDs of all the images linked to the product</td>
+<td></td>
+</tr>
+<tr>
 <td><strong>tags</strong></td>
 <td>Array</td>
 <td>Product tags for easier filtering and searching</td>
@@ -7973,6 +8088,10 @@ https://api.tradegecko.com/products/
     </span><span class="s2">&quot;supplier_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mi">3</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="s2">&quot;image_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;candy,chocolate&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;variant_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -8001,6 +8120,9 @@ https://api.tradegecko.com/products/
     </span><span class="s2">&quot;supplier_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mi">3</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="s2">&quot;image_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></p>
+
+<p></span><span class="p">],</span><span class="w">
     </span><span class="s2">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;candy,summer&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;variant_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -8098,6 +8220,10 @@ https://api.tradegecko.com/products/ -d <span class="s1">&#39;{&quot;product&quo
   </span><span class="s2">&quot;supplier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Wonka Candy&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;supplier_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">3</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">&quot;image_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;candy,chocolate&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;variant_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -8352,6 +8478,12 @@ This endpoint also accepts embedded variants.</p>
 <td></td>
 </tr>
 <tr>
+<td><strong>image_ids</strong></td>
+<td>Array</td>
+<td>Images assigned to the variant. The order of the Image IDs here is the position of the images on the variant.</td>
+<td></td>
+</tr>
+<tr>
 <td><strong>variant_prices</strong></td>
 <td>Array</td>
 <td>An array of prices with price list IDs and the price value.</td>
@@ -8389,6 +8521,10 @@ https://api.tradegecko.com/products/1
   </span><span class="s2">&quot;supplier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Wonka Candy&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;supplier_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">3</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">&quot;image_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;candy,chocolate&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;variant_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -10550,8 +10686,8 @@ https://api.tradegecko.com/users/1
 <tr>
 <td><strong>image_ids</strong></td>
 <td>Array</td>
+<td>Images assigned to the variant. The order of the Image IDs here is the position of the images on the variant.</td>
 <td></td>
-<td>true</td>
 </tr>
 <tr>
 <td><strong>variant_prices</strong></td>
@@ -11052,6 +11188,12 @@ https://api.tradegecko.com/variants/ -d <span class="s1">&#39;{&quot;variant&quo
 <td></td>
 </tr>
 <tr>
+<td><strong>image_ids</strong></td>
+<td>Array</td>
+<td>Images assigned to the variant. The order of the Image IDs here is the position of the images on the variant.</td>
+<td></td>
+</tr>
+<tr>
 <td><strong>variant_prices</strong></td>
 <td>Array</td>
 <td>An array of prices with price list IDs and the price value.</td>
@@ -11205,61 +11347,6 @@ https://api.tradegecko.com/variants/1
 <h3 id='http-request'>HTTP Request</h3>
 
 <p><code>DELETE https://api.tradegecko.com/variants/{RESOURCE_ID}/</code></p>
-<h1 id='errors'>Errors</h1>
-<p>The TradeGecko API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- You have passed a malformed request</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is incorrect</td>
-</tr>
-<tr>
-<td>402</td>
-<td>Payment Required -- Your subscription has lapsed</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The resource requested is not available with your permissions</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified resource could not be found</td>
-</tr>
-<tr>
-<td>414</td>
-<td>Request URI too long -- You have applied too many filters on a GET request</td>
-</tr>
-<tr>
-<td>422</td>
-<td>Unprocessable Entity -- Your request is invalid</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You are allowed <a href="#rate-limiting" title="Rate Limiting">300 requests per 300 seconds</a></td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable (Time out) -- The server is overloaded or down for maintenance</td>
-</tr>
-</tbody></table>
-<h1 id='soft-deletion'>Soft Deletion</h1>
-<p>TradeGecko uses soft-deletion for most of its records. 
-In the API, a soft-deleted object will have a status of <code>archived</code>. 
-These records will not be returned by default, but can be accessed using filters to 
-specifically return records with a status of <code>archived</code>.</p>
 <h1 id='libraries'>Libraries</h1>
 <ul>
 <li><a href="https://github.com/tradegecko/gecko-ruby">Official Rubygem</a></li>
