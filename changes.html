@@ -189,15 +189,12 @@
           <a class="faux-toc-link" href="/">Back to documentation</a>
           <li>
             <a href="#tradegecko-api-changelog" class="toc-h1 toc-link" data-title="TradeGecko API Changelog">TradeGecko API Changelog</a>
-          </li>
-          <li>
-            <a href="#deprecations-for-1-0" class="toc-h1 toc-link" data-title="Deprecations for 1.0">Deprecations for 1.0</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#pagination-limits" class="toc-h2 toc-link" data-title="Pagination Limits">Pagination Limits</a>
+                    <a href="#changelog" class="toc-h2 toc-link" data-title="Changelog">Changelog</a>
                   </li>
                   <li>
-                    <a href="#deprecated-fields" class="toc-h2 toc-link" data-title="Deprecated fields">Deprecated fields</a>
+                    <a href="#api-deprecations" class="toc-h2 toc-link" data-title="API Deprecations">API Deprecations</a>
                   </li>
               </ul>
           </li>
@@ -219,11 +216,26 @@
 
 <p>If anything is missing or seems incorrect, please check the <a href="https://github.com/tradegecko/smaug/issues">GitHub issues</a>
 for existing known issues or <a href="https://github.com/tradegecko/smaug/issues/new">create a new issue</a>.</p>
-<h1 id='deprecations-for-1-0'>Deprecations for 1.0</h1><h2 id='pagination-limits'>Pagination Limits</h2>
+<h2 id='changelog'>Changelog</h2><h3 id='nov-2017-images-moving-from-managed-to-product-level'>Nov 2017 - Images moving from managed to Product Level</h3>
+<p>We have moved image management from the variant level to the product level.
+This allows the same product image to be shared between multiple variants of a product.
+All of the changes are backwards compatible.</p>
+
+<p>The related changes to the APIs are:
+- Added: <code>Product#image_ids</code>.<br>
+- Added: <code>Image#product_id</code>.<br>
+- Added: <code>Image#variant_ids</code>.<br>
+- Deprecated: <code>Image#variant_id</code> now returns the variant&#39;s first image.  </p>
+<h2 id='api-deprecations'>API Deprecations</h2>
+<p>There are a few edge cases of the API that we will be removing as we hit 1.0.
+We will endeavour to only remove APIs that have been deprecated for at least 12 months in the v1.0 release.</p>
+<h3 id='nov-2017-image-ids'>Nov 2017 - Image IDs</h3>
+<p><code>Image#variant_id</code> has been replaced with <code>Image#variant_ids</code> and <code>Image#product_id</code> now that an image can belong to multiple variants.</p>
+<h3 id='jan-2016-pagination-limits'>Jan 2016 - Pagination Limits</h3>
 <p>Default pagination is 50 and the maximum will be set as 250 items. We will begin returning a 400 Bad Request on larger requests.</p>
 
 <p>Previously we hadn&#39;t been enforcing our API pagination limits, very soon we will start to do so as to make sure all our customers receive a great experience.</p>
-<h2 id='deprecated-fields'>Deprecated fields</h2><h3 id='purchase-order'>Purchase Order</h3>
+<h3 id='jan-2016-purchase-order'>Jan 2016 - Purchase Order</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -243,7 +255,7 @@ for existing known issues or <a href="https://github.com/tradegecko/smaug/issues
 <td><strong>total</strong></td>
 </tr>
 </tbody></table>
-<h3 id='purchase-order-line-item'>Purchase Order Line Item</h3>
+<h3 id='jan-2016-purchase-order-line-item'>Jan 2016 - Purchase Order Line Item</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -257,7 +269,7 @@ for existing known issues or <a href="https://github.com/tradegecko/smaug/issues
 </tbody></table>
 
 <p>This has been renamed to denote it&#39;s actual nature -&gt; you should technically use tax_type_id, but if for some reason you want to override it with a specific value, you can use this.</p>
-<h3 id='order'>Order</h3>
+<h3 id='jan-2016-order'>Jan 2016 - Order</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -284,7 +296,7 @@ for existing known issues or <a href="https://github.com/tradegecko/smaug/issues
 
 <p>Tax Type has been renamed to tax_treatment (inclusive vs exclusive) as tax_type now represents an object
 with multiple tax_components.</p>
-<h3 id='order-line-item'>Order Line Item</h3>
+<h3 id='jan-2016-order-line-item'>Jan 2016 - Order Line Item</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -296,7 +308,7 @@ with multiple tax_components.</p>
 <td><strong>tax_rate_override</strong></td>
 </tr>
 </tbody></table>
-<h3 id='contact'>Contact</h3>
+<h3 id='jan-2016-contact'>Jan 2016 - Contact</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -308,7 +320,7 @@ with multiple tax_components.</p>
 <td><strong>phone_number</strong></td>
 </tr>
 </tbody></table>
-<h3 id='company'>Company</h3>
+<h3 id='jan-2016-company'>Jan 2016 - Company</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -326,7 +338,7 @@ with multiple tax_components.</p>
 </tbody></table>
 
 <p>1 - Tax rate has been deprecated site wide in preference of tax_type_id, as this allows multiple tax lines.</p>
-<h3 id='account'>Account</h3>
+<h3 id='jan-2016-account'>Jan 2016 - Account</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -356,7 +368,7 @@ with multiple tax_components.</p>
 </tbody></table>
 
 <p>1 - Accounts no longer have logos.</p>
-<h3 id='users'>Users</h3>
+<h3 id='jan-2016-users'>Jan 2016 - Users</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -368,7 +380,7 @@ with multiple tax_components.</p>
 <td><strong>mobile</strong></td>
 </tr>
 </tbody></table>
-<h3 id='product'>Product</h3>
+<h3 id='jan-2016-product'>Jan 2016 - Product</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -386,7 +398,7 @@ with multiple tax_components.</p>
 </tbody></table>
 
 <p>Vendor was deprecated for supplier, then supplier was deprecated in order to enable multiple suppliers per variant (not yet released). Previously, vendor and supplier were just names and stored as strings, now they reference a company within your TradeGecko system.</p>
-<h3 id='variants'>Variants</h3>
+<h3 id='jan-2016-variants'>Jan 2016 - Variants</h3>
 <table><thead>
 <tr>
 <th>Initial</th>
@@ -460,8 +472,6 @@ locations: [
 ],
 </code></pre>
 <p>3 - This is the same deal as prices, the locations hash has replaced stock_levels and committed_stock_levels hashes.</p>
-
-<p>And that&#39;s about it! We have updated the documentation and Ruby gems with the new syntax. Please provide thoughts and feedback in the comments below.</p>
 
       </div>
       <div class="dark-box">
