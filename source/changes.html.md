@@ -17,17 +17,36 @@ You can view code examples in the dark area to the right; switch the programming
 If anything is missing or seems incorrect, please check the [GitHub issues](https://github.com/tradegecko/smaug/issues)
 for existing known issues or [create a new issue](https://github.com/tradegecko/smaug/issues/new).
 
-# Deprecations for 1.0
+## Changelog
 
-## Pagination Limits
+### Nov 2017 - Images moving from managed to Product Level
+We have moved image management from the variant level to the product level.
+This allows the same product image to be shared between multiple variants of a product.
+All of the changes are backwards compatible.
+
+The related changes to the APIs are:
+- Added: `Product#image_ids`.  
+- Added: `Image#product_id`.  
+- Added: `Image#variant_ids`.  
+- Deprecated: `Image#variant_id` now returns the variant's first image.  
+
+
+
+## API Deprecations
+
+There are a few edge cases of the API that we will be removing as we hit 1.0.
+We will endeavour to only remove APIs that have been deprecated for at least 12 months in the v1.0 release.
+
+### Nov 2017 - Image IDs
+`Image#variant_id` has been replaced with `Image#variant_ids` and `Image#product_id` now that an image can belong to multiple variants.
+
+### Jan 2016 - Pagination Limits
 
 Default pagination is 50 and the maximum will be set as 250 items. We will begin returning a 400 Bad Request on larger requests.
 
 Previously we hadn't been enforcing our API pagination limits, very soon we will start to do so as to make sure all our customers receive a great experience.
 
-## Deprecated fields
-
-### Purchase Order
+### Jan 2016 - Purchase Order
 
 | Initial                   | Updated                   |
 | ------------------------- | -------                   |
@@ -35,7 +54,7 @@ Previously we hadn't been enforcing our API pagination limits, very soon we will
 | **default_price_type_id** | **default_price_list_id** |
 | **cached_total**          | **total**                 |
 
-### Purchase Order Line Item
+### Jan 2016 - Purchase Order Line Item
 
 | Initial      | Updated                   |
 | -------      | -------                   |
@@ -43,7 +62,7 @@ Previously we hadn't been enforcing our API pagination limits, very soon we will
 
 This has been renamed to denote it's actual nature -> you should technically use tax_type_id, but if for some reason you want to override it with a specific value, you can use this.
 
-### Order
+### Jan 2016 - Order
 
 | Initial                   | Updated                   |
 | -------                   | -------                   |
@@ -55,19 +74,19 @@ This has been renamed to denote it's actual nature -> you should technically use
 Tax Type has been renamed to tax_treatment (inclusive vs exclusive) as tax_type now represents an object
 with multiple tax_components.
 
-### Order Line Item
+### Jan 2016 - Order Line Item
 
 | Initial      | Updated               |
 | -------      | -------               |
 | **tax_rate** | **tax_rate_override** |
 
-### Contact
+### Jan 2016 - Contact
 
 | Initial   | Updated          |
 | -------   | -------          |
 | **phone** | **phone_number** |
 
-### Company
+### Jan 2016 - Company
 
 | Initial                   | Updated                     |
 | -------                   | -------                     |
@@ -76,7 +95,7 @@ with multiple tax_components.
 
 1 - Tax rate has been deprecated site wide in preference of tax_type_id, as this allows multiple tax lines.
 
-### Account
+### Jan 2016 - Account
 
 | Initial                                  | Updated                                  |
 | -------                                  | -------                                  |
@@ -88,13 +107,13 @@ with multiple tax_components.
 
 1 - Accounts no longer have logos.
 
-### Users
+### Jan 2016 - Users
 
 | Initial          | Updated    |
 | -------          | -------    |
 | **mobile_phone** | **mobile** |
 
-### Product
+### Jan 2016 - Product
 
 | Initial        | Updated         |
 | -------        | -------         |
@@ -103,7 +122,7 @@ with multiple tax_components.
 
 Vendor was deprecated for supplier, then supplier was deprecated in order to enable multiple suppliers per variant (not yet released). Previously, vendor and supplier were just names and stored as strings, now they reference a company within your TradeGecko system.
 
-### Variants
+### Jan 2016 - Variants
 
 | Initial                     | Updated    |
 | --------------------------- | ---------- |
@@ -174,5 +193,3 @@ locations: [
 ```
 
 3 - This is the same deal as prices, the locations hash has replaced stock_levels and committed_stock_levels hashes.
-
-And that's about it! We have updated the documentation and Ruby gems with the new syntax. Please provide thoughts and feedback in the comments below.
