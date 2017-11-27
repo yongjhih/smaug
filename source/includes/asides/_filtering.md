@@ -44,11 +44,11 @@ For example, a single API call can return products with multiple brands:
 Or statuses:  
 `GET https://api.tradegecko.com/orders?status[]=draft&status[]=active`
 
-### Comma-separated support for Integer filters.
+### Comma-separated support for Integer filters
 For ID based filters, optionally a comma-separated collection can be used instead for brevity.  
 `GET https://api.tradegecko.com/products?ids=1,2`, or  
 `GET https://api.tradegecko.com/variants?product_id=1,2`
 
-### Combining Multiple Filters in a Single call.
+### Combining Multiple Filters in a Single call
 You can combine filters in a single API call to return tighter subsets of results.  
 `GET https://api.tradegecko.com/companies?company_status=active&company_type=supplier&order=created_at+desc&page=2&limit=20`
