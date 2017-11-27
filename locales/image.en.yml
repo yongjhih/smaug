@@ -13,7 +13,9 @@ en:
     json: [
       {
         id: 2,
+        product_id: 1,
         variant_id: 1,
+        variant_ids: [1, 2],
         uploader_id: 1,
         name: "",
         position: 1,
@@ -26,7 +28,9 @@ en:
       },
       {
         id: 1,
+        product_id: 1,
         variant_id: 1,
+        variant_ids: [1, 2],
         uploader_id: 1,
         name: null,
         position: 1,
@@ -41,7 +45,8 @@ en:
     ]
     gecko:
       create: {
-        variant_id: 1,
+        product_id: 1,
+        variant_ids: [1, 2],
         url: "http://www.thisismyimage.com/image.png"
       }
 
@@ -52,10 +57,26 @@ en:
         description: "A unique identifier for the resource.",
         readonly: true,
       },
+      product_id: {
+        name: "product_id",
+        type: "Integer",
+        description: "The product to which the image belongs.",
+        filterable: "Filter images by product",
+        creatable: true,
+        required: true,
+      },
       variant_id: {
         name: "variant_id",
         type: "Integer",
         description: "The variant to which the image belongs.",
+        filterable: "Filter images by variant",
+        creatable: true,
+        deprecated: true,
+      },
+      variant_ids: {
+        name: "variant_ids",
+        type: "Array",
+        description: "The variants to which the image belongs.",
         filterable: "Filter images by variant",
         creatable: true,
         required: true,
