@@ -19,16 +19,17 @@ for existing known issues or [create a new issue](https://github.com/tradegecko/
 
 ## Changelog
 
-### Nov 2017 - Images moving from managed to Product Level
+### Nov 2017 - Image management moved from Variant to the Product Level
 We have moved image management from the variant level to the product level.
 This allows the same product image to be shared between multiple variants of a product.
 All of the changes are backwards compatible.
 
 The related changes to the APIs are:
+
 - Added: `Product#image_ids`.  
 - Added: `Image#product_id`.  
 - Added: `Image#variant_ids`.  
-- Deprecated: `Image#variant_id` now returns the variant's first image.  
+- Deprecated: `Image#variant_id` now returns the image's first variant.  
 
 
 
