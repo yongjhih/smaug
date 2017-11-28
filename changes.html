@@ -216,16 +216,19 @@
 
 <p>If anything is missing or seems incorrect, please check the <a href="https://github.com/tradegecko/smaug/issues">GitHub issues</a>
 for existing known issues or <a href="https://github.com/tradegecko/smaug/issues/new">create a new issue</a>.</p>
-<h2 id='changelog'>Changelog</h2><h3 id='nov-2017-images-moving-from-managed-to-product-level'>Nov 2017 - Images moving from managed to Product Level</h3>
+<h2 id='changelog'>Changelog</h2><h3 id='nov-2017-image-management-moved-from-variant-to-the-product-level'>Nov 2017 - Image management moved from Variant to the Product Level</h3>
 <p>We have moved image management from the variant level to the product level.
 This allows the same product image to be shared between multiple variants of a product.
 All of the changes are backwards compatible.</p>
 
-<p>The related changes to the APIs are:
-- Added: <code>Product#image_ids</code>.<br>
-- Added: <code>Image#product_id</code>.<br>
-- Added: <code>Image#variant_ids</code>.<br>
-- Deprecated: <code>Image#variant_id</code> now returns the variant&#39;s first image.  </p>
+<p>The related changes to the APIs are:</p>
+
+<ul>
+<li>Added: <code>Product#image_ids</code>.<br></li>
+<li>Added: <code>Image#product_id</code>.<br></li>
+<li>Added: <code>Image#variant_ids</code>.<br></li>
+<li>Deprecated: <code>Image#variant_id</code> now returns the image&#39;s first variant.<br></li>
+</ul>
 <h2 id='api-deprecations'>API Deprecations</h2>
 <p>There are a few edge cases of the API that we will be removing as we hit 1.0.
 We will endeavour to only remove APIs that have been deprecated for at least 12 months in the v1.0 release.</p>
