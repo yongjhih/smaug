@@ -15,7 +15,7 @@ Your current rate limit quota is provided in the response headers of every reque
 | -------------------------- | ------------- 
 | **X-Rate-Limit-Limit**     | Number of requests available for this application (always 300)       .
 | **X-Rate-Limit-Remaining** | Number of requests remaining in quota
-| **X-Rate-Limit-Reset**     | The timestamp (as ms since epoch) when the quota will reset.
+| **X-Rate-Limit-Reset**     | The timestamp (as seconds since epoch) when the quota will reset.
 
 If you go over this limit the API will return a response with a status code of 429 until the reset time.
 
