@@ -29,6 +29,7 @@ en:
         status: "active",
         tax_number: null,
         website: null,
+        tags: [],
         address_ids: [6],
         contact_ids: [7],
         note_ids: [ ],
@@ -57,6 +58,7 @@ en:
         status: "active",
         tax_number: null,
         website: "http://williamwonkacandyltd.com",
+        tags: [],
         address_ids: [
           4,
           5
@@ -244,6 +246,13 @@ en:
         name: "website",
         type: "String",
         description: "",
+        updatable: true,
+        creatable: true,
+      },
+      tags: {
+        name: "tags",
+        type: "Array[String]",
+        description: "Company tags for easier filtering and searching",
         updatable: true,
         creatable: true,
       },
