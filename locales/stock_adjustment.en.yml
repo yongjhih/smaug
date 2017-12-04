@@ -89,6 +89,19 @@ en:
         updatable: true,
         creatable: true,
       },
+      reason_label: {
+        name: "reason_label",
+        type: "String",
+        description: "Display label of the stock adjustment's reason (unifies the `reason` and `stock_adjustment_reason_id` fields)",
+        updatable: false,
+        creatable: false,
+      },
+      stock_adjustment_reason_id: {
+        name: "stock_adjustment_reason_id",
+        type: "Integer",
+        description: "Internal ID of Custom stock adjustment reasons. See https://go.tradegecko.com/account/stock_adjustment_reasons for your accounts reasons",
+        filterable: true,
+      },
       stock_location_id: {
         name: "stock_location_id",
         type: "Integer",
