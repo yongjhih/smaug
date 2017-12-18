@@ -1,16 +1,16 @@
 ## Resource Owner Password Credentials flow
 
-The TradeGecko API also supports the Resource Owner Password Credentials flow 
+The TradeGecko API also supports the Resource Owner Password Credentials flow
 through the concept of Privileged Access Tokens.
 
-These tokens are generated through the TradeGecko UI and do not expire. 
-This means that you can access the API using the privileged token without the need 
-to use browser redirects or manage refresh tokens. 
+These tokens are generated through the TradeGecko UI and do not expire.
+This means that you can access the API using the privileged token without the need
+to use browser redirects or manage refresh tokens.
 
-However you will need to manually manage key rotation yourselves if your privileged 
+However you will need to manually manage key rotation yourselves if your privileged
 key gets compromised in any way.
 
-Because of the inherent higher safety risks involved in storing privileged access tokens, 
+Because of the inherent higher safety risks involved in storing privileged access tokens,
 the Resource Owner Password Credentials flow is only available on single-account Applications.
 
 > Once you have obtained your Privileged Access Token, you can use cURL or Ruby to check if it is working.
@@ -29,15 +29,17 @@ gecko.Account.current
 
 ### Phase 1: Privileged Access Token Generation
 
-As the application developer, after [registering your application](#registering-for-an-access-token), 
+As the application developer, after [registering your application](#registering-for-an-access-token),
 you will see a button to "Create a Privileged Token" for the application.
 
-[INSERT SCREENSHOT HERE]
+<div class="screenshot">
+  <img src="images/token-screenshot.png">
+</div>
 
-If you have already registered your application, you can add a privileged token by 
+If you have already registered your application, you can add a privileged token by
 finding your application in your [TradeGecko App List](https://go.tradegecko.com/oauth/applications).
 
 <aside class="notice">
-Important: The Privileged Access Tokens provide unfettered access to your TradeGecko 
+Important: The Privileged Access Tokens provide unfettered access to your TradeGecko
 account, be very careful to store them securely.
 </aside>
