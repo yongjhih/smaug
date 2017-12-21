@@ -1,7 +1,7 @@
 ## Authorization Code with Refresh Token
 
-The Authorization Code flow is a redirection-based flow, 
-which means the application must be able to redirect the application user 
+The Authorization Code flow is a redirection-based flow,
+which means the application must be able to redirect the application user
 and receive authorization codes via a web browser.
 
 
@@ -24,15 +24,15 @@ open https://go.tradegecko.com/oauth/authorize?client_id=<CLIENT_ID>&redirect_ur
 
 > Make sure to replace `<OAUTH_ID>`, `<OAUTH_SECRET>` `<REDIRECT_URI>` with your details.
 
-An authorization code is the key used to retrieve the access token. 
-In order to acquire an authorization code, you need to redirect the user's 
+An authorization code is the key used to retrieve the access token.
+In order to acquire an authorization code, you need to redirect the user's
 browser to the authorization endpoint.
 
 `https://api.tradegecko.com/oauth/authorize?response_type=code&client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>`
 
 - `https://api.tradegecko.com/oauth/authorize`: indicates the API authorization endpoint.
 - `response_type=code`: specifies that your application is requesting an authorization code grant.
-- `client_id=<CLIENT_ID>`: the application's client ID provided when [registering your application](#registering-an-application). 
+- `client_id=<CLIENT_ID>`: the application's client ID provided when [registering your application](#registering-an-application).
 - `redirect_uri=<REDIRECT_URI>`: should be set to a URL in your application where
 the user will be redirected back to after the request is authorized.
 
@@ -43,8 +43,9 @@ the user will be redirected back to after the request is authorized.
 Once directed to the above link, the user will be asked to log in to their TradeGecko account (if they're not already logged in).
 They will then be asked to authorize or deny the authentication request.
 
-[INSERT SCREENSHOT HERE]
-
+<div class="screenshot">
+  <img src="images/auth-screenshot.png" style="max-width: 400px">
+</div>
 
 
 ### Phase 3: Authorization Code response
@@ -89,8 +90,8 @@ In order to get an access token, the application must make a POST request to
 
 - `https://api.tradegecko.com/oauth/token`: indicates the API token endpoint.
 - `grant_type=authorization_code`: specifies that your application is requesting an authorization code.
-- `client_id=<CLIENT_ID>`: the application's client ID provided when [registering your application](#registering-an-application). 
-- `client_secret=<CLIENT_SECRET>`: the application's client secret provided when [registering your application](#registering-an-application). 
+- `client_id=<CLIENT_ID>`: the application's client ID provided when [registering your application](#registering-an-application).
+- `client_secret=<CLIENT_SECRET>`: the application's client secret provided when [registering your application](#registering-an-application).
 - `redirect_uri=<REDIRECT_URI>`: should be set to a URL in your application where the code will be received.
 - `code=<CODE>`  must match the authorization code returned by the authorization endpoint in Phase 3
 
@@ -132,7 +133,7 @@ gecko.authorize_from_refresh_token("<REFRESH_TOKEN>")
 gecko.access_token.to_hash # For storage
 ```
 
-A refresh token is a unique token returned when creating an access token that can be 
+A refresh token is a unique token returned when creating an access token that can be
 used to request a new access token when the existing current access token expires.
 
 To refresh an access token, the application must make a POST request to
@@ -141,8 +142,8 @@ To refresh an access token, the application must make a POST request to
 
 - `https://api.tradegecko.com/oauth/token`: indicates the API token endpoint.
 - `grant_type=refresh_token`: specifies that your application is requesting an refresh token.
-- `client_id=<CLIENT_ID>`: the application's client ID provided when [registering your application](#registering-an-application). 
-- `client_secret=<CLIENT_SECRET>`: the application's client secret provided when [registering your application](#registering-an-application). 
+- `client_id=<CLIENT_ID>`: the application's client ID provided when [registering your application](#registering-an-application).
+- `client_secret=<CLIENT_SECRET>`: the application's client secret provided when [registering your application](#registering-an-application).
 - `redirect_uri=<REDIRECT_URI>`: should be set to a URL in your application where the code will be received.
 - `refresh_token`: must match the refresh token returned by the authorization endpoint in Phase 4
 
@@ -152,4 +153,3 @@ To refresh an access token, the application must make a POST request to
 generated and this should be stored and used the next time the token is refreshed is invoked.
 Using an expired refresh token will return an error.
 </aside>
-
