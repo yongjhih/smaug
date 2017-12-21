@@ -821,8 +821,8 @@ unique keys: </p>
 <p>If you plan on building an application that will be used by multiple TradeGecko accounts, you MUST use the <a href="#authorization-code">Authorization Code with Refresh token</a> flow.</p>
 
 <p><h2 id='authorization-code-with-refresh-token'>Authorization Code with Refresh Token</h2>
-<p>The Authorization Code flow is a redirection-based flow, 
-which means the application must be able to redirect the application user 
+<p>The Authorization Code flow is a redirection-based flow,
+which means the application must be able to redirect the application user
 and receive authorization codes via a web browser.</p>
 <h3 id='phase-1-authorization-phase'>Phase 1: Authorization Phase</h3>
 <blockquote>
@@ -839,8 +839,8 @@ and receive authorization codes via a web browser.</p>
 <p>Make sure to replace <code>&lt;OAUTH_ID&gt;</code>, <code>&lt;OAUTH_SECRET&gt;</code> <code>&lt;REDIRECT_URI&gt;</code> with your details.</p>
 </blockquote></p>
 
-<p>An authorization code is the key used to retrieve the access token. 
-In order to acquire an authorization code, you need to redirect the user&#39;s 
+<p>An authorization code is the key used to retrieve the access token.
+In order to acquire an authorization code, you need to redirect the user&#39;s
 browser to the authorization endpoint.</p>
 
 <p><code>https://api.tradegecko.com/oauth/authorize?response_type=code&amp;client_id=&lt;CLIENT_ID&gt;&amp;redirect_uri=&lt;REDIRECT_URI&gt;</code></p>
@@ -848,7 +848,7 @@ browser to the authorization endpoint.</p>
 <ul>
 <li><code>https://api.tradegecko.com/oauth/authorize</code>: indicates the API authorization endpoint.</li>
 <li><code>response_type=code</code>: specifies that your application is requesting an authorization code grant.</li>
-<li><code>client_id=&lt;CLIENT_ID&gt;</code>: the application&#39;s client ID provided when <a href="#registering-an-application">registering your application</a>. </li>
+<li><code>client_id=&lt;CLIENT_ID&gt;</code>: the application&#39;s client ID provided when <a href="#registering-an-application">registering your application</a>.</li>
 <li><code>redirect_uri=&lt;REDIRECT_URI&gt;</code>: should be set to a URL in your application where
 the user will be redirected back to after the request is authorized.</li>
 </ul>
@@ -858,7 +858,9 @@ the user will be redirected back to after the request is authorized.</li>
 <p>Once directed to the above link, the user will be asked to log in to their TradeGecko account (if they&#39;re not already logged in).
 They will then be asked to authorize or deny the authentication request.</p>
 
-<p>[INSERT SCREENSHOT HERE]</p>
+<div class="screenshot">
+  <img src="images/auth-screenshot.png" style="max-width: 400px">
+</div>
 
 <h3 id='phase-3-authorization-code-response'>Phase 3: Authorization Code response</h3>
 
@@ -891,8 +893,8 @@ the provided <code>redirect_uri</code> with the authorization code as a query pa
 <ul>
 <li><code>https://api.tradegecko.com/oauth/token</code>: indicates the API token endpoint.</li>
 <li><code>grant_type=authorization_code</code>: specifies that your application is requesting an authorization code.</li>
-<li><code>client_id=&lt;CLIENT_ID&gt;</code>: the application&#39;s client ID provided when <a href="#registering-an-application">registering your application</a>. </li>
-<li><code>client_secret=&lt;CLIENT_SECRET&gt;</code>: the application&#39;s client secret provided when <a href="#registering-an-application">registering your application</a>. </li>
+<li><code>client_id=&lt;CLIENT_ID&gt;</code>: the application&#39;s client ID provided when <a href="#registering-an-application">registering your application</a>.</li>
+<li><code>client_secret=&lt;CLIENT_SECRET&gt;</code>: the application&#39;s client secret provided when <a href="#registering-an-application">registering your application</a>.</li>
 <li><code>redirect_uri=&lt;REDIRECT_URI&gt;</code>: should be set to a URL in your application where the code will be received.</li>
 <li><code>code=&lt;CODE&gt;</code>  must match the authorization code returned by the authorization endpoint in Phase 3</li>
 </ul>
@@ -921,7 +923,7 @@ the <code>access_token</code> and <code>refresh_token</code> parameters returned
 <span class="n">gecko</span><span class="p">.</span><span class="nf">authorize_from_refresh_token</span><span class="p">(</span><span class="s2">"&lt;REFRESH_TOKEN&gt;"</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span><span class="p">.</span><span class="nf">to_hash</span> <span class="c1"># For storage</span>
 </code></pre>
-<p>A refresh token is a unique token returned when creating an access token that can be 
+<p>A refresh token is a unique token returned when creating an access token that can be
 used to request a new access token when the existing current access token expires.</p>
 
 <p>To refresh an access token, the application must make a POST request to
@@ -931,8 +933,8 @@ used to request a new access token when the existing current access token expire
 <ul>
 <li><code>https://api.tradegecko.com/oauth/token</code>: indicates the API token endpoint.</li>
 <li><code>grant_type=refresh_token</code>: specifies that your application is requesting an refresh token.</li>
-<li><code>client_id=&lt;CLIENT_ID&gt;</code>: the application&#39;s client ID provided when <a href="#registering-an-application">registering your application</a>. </li>
-<li><code>client_secret=&lt;CLIENT_SECRET&gt;</code>: the application&#39;s client secret provided when <a href="#registering-an-application">registering your application</a>. </li>
+<li><code>client_id=&lt;CLIENT_ID&gt;</code>: the application&#39;s client ID provided when <a href="#registering-an-application">registering your application</a>.</li>
+<li><code>client_secret=&lt;CLIENT_SECRET&gt;</code>: the application&#39;s client secret provided when <a href="#registering-an-application">registering your application</a>.</li>
 <li><code>redirect_uri=&lt;REDIRECT_URI&gt;</code>: should be set to a URL in your application where the code will be received.</li>
 <li><code>refresh_token</code>: must match the refresh token returned by the authorization endpoint in Phase 4</li>
 </ul>
@@ -944,17 +946,17 @@ Using an expired refresh token will return an error.
 </aside>
 
   <h2 id='resource-owner-password-credentials-flow'>Resource Owner Password Credentials flow</h2>
-<p>The TradeGecko API also supports the Resource Owner Password Credentials flow 
+<p>The TradeGecko API also supports the Resource Owner Password Credentials flow
 through the concept of Privileged Access Tokens.</p>
 
-<p>These tokens are generated through the TradeGecko UI and do not expire. 
-This means that you can access the API using the privileged token without the need 
-to use browser redirects or manage refresh tokens. </p>
+<p>These tokens are generated through the TradeGecko UI and do not expire.
+This means that you can access the API using the privileged token without the need
+to use browser redirects or manage refresh tokens.</p>
 
-<p>However you will need to manually manage key rotation yourselves if your privileged 
+<p>However you will need to manually manage key rotation yourselves if your privileged
 key gets compromised in any way.</p>
 
-<p>Because of the inherent higher safety risks involved in storing privileged access tokens, 
+<p>Because of the inherent higher safety risks involved in storing privileged access tokens,
 the Resource Owner Password Credentials flow is only available on single-account Applications.</p>
 
 <blockquote>
@@ -968,16 +970,18 @@ https://api.tradegecko.com/accounts/current
 <span class="n">gecko</span><span class="o">.</span><span class="no">Account</span><span class="p">.</span><span class="nf">current</span>
 </code></pre><h3 id='phase-1-privileged-access-token-generation'>Phase 1: Privileged Access Token Generation</h3>
 
-<p>As the application developer, after <a href="#registering-for-an-access-token">registering your application</a>, 
+<p>As the application developer, after <a href="#registering-for-an-access-token">registering your application</a>,
 you will see a button to &quot;Create a Privileged Token&quot; for the application.</p>
 
-<p>[INSERT SCREENSHOT HERE]</p>
+<div class="screenshot">
+  <img src="images/token-screenshot.png">
+</div>
 
-<p>If you have already registered your application, you can add a privileged token by 
+<p>If you have already registered your application, you can add a privileged token by
 finding your application in your <a href="https://go.tradegecko.com/oauth/applications">TradeGecko App List</a>.</p>
 
 <aside class="notice">
-Important: The Privileged Access Tokens provide unfettered access to your TradeGecko 
+Important: The Privileged Access Tokens provide unfettered access to your TradeGecko
 account, be very careful to store them securely.
 </aside>
 
