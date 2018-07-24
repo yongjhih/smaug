@@ -8,7 +8,7 @@ If you need to contact us about a specific request, please make sure to include 
 ## Pagination Links
 
 ```
-curl -IXGET https://api.tradegecko.com/products?page=1 -H "Content-type: application/json" -H "Authorization: Bearer 7f2ba72ae693b57e181ad3b0961d88782c5c5cb050554407e5db3fb118f6912a" | grep X-Pagination  
+curl -IXGET https://api.tradegecko.com/products?page=1 -H "Content-type: application/json" -H "Authorization: Bearer <PRIVILEGED_ACCESS_TOKEN>" | grep X-Pagination  
 X-Pagination: {"total_records":3103,"total_pages":32,"first_page":true,"last_page":false,"out_of_bounds":false,"offset":0}
 ```
 
