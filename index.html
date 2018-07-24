@@ -1087,7 +1087,7 @@ For example, a single API call can return products with multiple brands:<br>
 <h2 id='request-ids'>Request IDs</h2>
 <p>Every response will include an <code>X-Request-ID</code> parameter unique to that specific request.
 If you need to contact us about a specific request, please make sure to include the specific request ID in any communication with us to help speed up investigations.</p>
-<h2 id='pagination-links'>Pagination Links</h2><pre class="highlight plaintext"><code>curl -IXGET https://api.tradegecko.com/products?page=1 -H &quot;Content-type: application/json&quot; -H &quot;Authorization: Bearer 7f2ba72ae693b57e181ad3b0961d88782c5c5cb050554407e5db3fb118f6912a&quot; | grep X-Pagination<br>
+<h2 id='pagination-links'>Pagination Links</h2><pre class="highlight plaintext"><code>curl -IXGET https://api.tradegecko.com/products?page=1 -H &quot;Content-type: application/json&quot; -H &quot;Authorization: Bearer &lt;PRIVILEGED_ACCESS_TOKEN&gt;&quot; | grep X-Pagination<br>
 X-Pagination: {&quot;total_records&quot;:3103,&quot;total_pages&quot;:32,&quot;first_page&quot;:true,&quot;last_page&quot;:false,&quot;out_of_bounds&quot;:false,&quot;offset&quot;:0}
 </code></pre>
 
@@ -6531,7 +6531,7 @@ https://api.tradegecko.com/orders/
     </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2015-11-12T08:06:01.561Z&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2015-11-12T08:06:01.561Z&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://api.lvh.me:3000/d/not-a-real-token-2&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://go.tradegecko.com/d/not-a-real-token-2&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;assignee_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nil&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;billing_address_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;company_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -6600,7 +6600,7 @@ https://api.tradegecko.com/orders/
     </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2015-11-12T08:06:00.561Z&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2015-11-12T08:06:00.561Z&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://api.lvh.me:3000/d/not-a-real-token&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://go.tradegecko.com/d/not-a-real-token&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;assignee_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nil&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;billing_address_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;company_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -6808,7 +6808,7 @@ https://api.tradegecko.com/orders/ -d <span class="s1">&#39;{&quot;order&quot;:{
   </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2015-11-12T08:06:01.561Z&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2015-11-12T08:06:01.561Z&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://api.lvh.me:3000/d/not-a-real-token-2&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://go.tradegecko.com/d/not-a-real-token-2&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;assignee_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nil&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;billing_address_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;company_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -7104,7 +7104,7 @@ https://api.tradegecko.com/orders/1
   </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2015-11-12T08:06:01.561Z&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2015-11-12T08:06:01.561Z&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://api.lvh.me:3000/d/not-a-real-token-2&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://go.tradegecko.com/d/not-a-real-token-2&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;assignee_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nil&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;billing_address_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;company_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
