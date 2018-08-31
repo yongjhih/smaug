@@ -6,13 +6,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>TradeGecko API Documentation</title>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P2LGV7S');</script>
-    <!-- End Google Tag Manager -->
+
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -177,10 +171,6 @@
   </head>
 
   <body class="index" data-languages="[&quot;ruby&quot;,&quot;shell&quot;]">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2LGV7S"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <a href="#" id="nav-button">
       <span>
         <img src="images/navbar-2.png" alt="Navbar 2" />
@@ -1750,9 +1740,9 @@ https://api.tradegecko.com/accounts/current
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">account</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Account</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">account</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">account</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">account</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/accounts/1 -d <span class="s1">&#39;{&quot;account&quot;:{&quot;country&quot;:&quot;US&quot;}}&#39;</span>
@@ -2175,9 +2165,9 @@ https://api.tradegecko.com/addresses/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">address</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Address</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">address</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">address</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">address</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/addresses/1 -d <span class="s1">&#39;{&quot;address&quot;:{&quot;address1&quot;:&quot;12 Park Ave&quot;,&quot;city&quot;:&quot;Singapore&quot;,&quot;label&quot;:&quot;Main Office&quot;}}&#39;</span>
@@ -2811,9 +2801,9 @@ https://api.tradegecko.com/companies/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">company</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Company</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">company</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">company</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">company</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/companies/1 -d <span class="s1">&#39;{&quot;company&quot;:{&quot;name&quot;:&quot;Elephant&quot;,&quot;email&quot;:&quot;hello@tradegecko.com&quot;,&quot;website&quot;:&quot;http://tradegecko.com&quot;}}&#39;</span>
@@ -3240,9 +3230,9 @@ https://api.tradegecko.com/contacts/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">contact</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Contact</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">contact</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">contact</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">contact</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/contacts/1 -d <span class="s1">&#39;{&quot;contact&quot;:{&quot;last_name&quot;:&quot;Rogers&quot;}}&#39;</span>
@@ -3591,9 +3581,9 @@ https://api.tradegecko.com/currencies/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">currency</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Currency</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">currency</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">currency</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">currency</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/currencies/1 -d <span class="s1">&#39;{&quot;currency&quot;:{&quot;separator&quot;:&quot;.&quot;}}&#39;</span>
@@ -4132,9 +4122,9 @@ https://api.tradegecko.com/fulfillments/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">fulfillment</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Fulfillment</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fulfillment</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">fulfillment</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">fulfillment</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/fulfillments/1 -d <span class="s1">&#39;{&quot;fulfillment&quot;:{&quot;tracking_company&quot;:&quot;GeckoShip&quot;,&quot;tracking_number&quot;:&quot;123TrackMe&quot;}}&#39;</span>
@@ -4449,9 +4439,9 @@ https://api.tradegecko.com/fulfillment_line_items/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">fulfillment_line_item</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">FulfillmentLineItem</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fulfillment_line_item</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">fulfillment_line_item</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">fulfillment_line_item</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/fulfillment_line_items/1 -d <span class="s1">&#39;{&quot;fulfillment_line_item&quot;:{&quot;quantity&quot;:&quot;22.0&quot;}}&#39;</span>
@@ -5290,9 +5280,9 @@ https://api.tradegecko.com/invoices/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">invoice</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Invoice</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">invoice</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">invoice</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">invoice</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/invoices/1 -d <span class="s1">&#39;{&quot;invoice&quot;:{&quot;billing_address_id&quot;:2,&quot;payment_term_id&quot;:1}}&#39;</span>
@@ -5595,9 +5585,9 @@ https://api.tradegecko.com/invoice_line_items/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">invoice_line_item</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">InvoiceLineItem</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">invoice_line_item</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">invoice_line_item</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">invoice_line_item</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/invoice_line_items/1 -d <span class="s1">&#39;{&quot;invoice_line_item&quot;:{&quot;quantity&quot;:&quot;22.0&quot;}}&#39;</span>
@@ -5958,9 +5948,9 @@ https://api.tradegecko.com/locations/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">location</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Location</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">location</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">location</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">location</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/locations/1 -d <span class="s1">&#39;{&quot;location&quot;:{&quot;address1&quot;:&quot;121 Telok Ayer Street&quot;}}&#39;</span>
@@ -6215,9 +6205,9 @@ https://api.tradegecko.com/notes/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">note</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Note</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">note</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">note</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">note</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/notes/1 -d <span class="s1">&#39;{&quot;note&quot;:{&quot;body&quot;:&quot;Cupcakes are for champions&quot;}}&#39;</span>
@@ -7192,9 +7182,9 @@ https://api.tradegecko.com/orders/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">order</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Order</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">order</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">order</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">order</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/orders/1 -d <span class="s1">&#39;{&quot;order&quot;:{&quot;status&quot;:&quot;active&quot;,&quot;email&quot;:&quot;hello@tradegecko.com&quot;,&quot;billing_address_id&quot;:2}}&#39;</span>
@@ -7673,9 +7663,9 @@ https://api.tradegecko.com/order_line_items/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">order_line_item</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">OrderLineItem</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">order_line_item</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">order_line_item</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">order_line_item</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/order_line_items/1 -d <span class="s1">&#39;{&quot;order_line_item&quot;:{&quot;quantity&quot;:&quot;22.0&quot;,&quot;price&quot;:&quot;12.0&quot;}}&#39;</span>
@@ -7927,9 +7917,9 @@ https://api.tradegecko.com/payment_terms/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">payment_term</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">PaymentTerm</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">payment_term</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">payment_term</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">payment_term</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/payment_terms/1 -d <span class="s1">&#39;{&quot;payment_term&quot;:{&quot;from&quot;:&quot;now&quot;}}&#39;</span>
@@ -8602,9 +8592,9 @@ https://api.tradegecko.com/products/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">product</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Product</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">product</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">product</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">product</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/products/1 -d <span class="s1">&#39;{&quot;product&quot;:{&quot;opt2&quot;:&quot;Size&quot;,&quot;opt3&quot;:&quot;Weight&quot;}}&#39;</span>
@@ -9329,9 +9319,9 @@ https://api.tradegecko.com/purchase_orders/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">purchase_order</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">PurchaseOrder</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">purchase_order</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">purchase_order</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">purchase_order</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/purchase_orders/1 -d <span class="s1">&#39;{&quot;purchase_order&quot;:{&quot;status&quot;:&quot;active&quot;,&quot;email&quot;:&quot;hello@tradegecko.com&quot;,&quot;billing_address_id&quot;:2}}&#39;</span>
@@ -9795,9 +9785,9 @@ https://api.tradegecko.com/purchase_order_line_items/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">purchase_order_line_item</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">PurchaseOrderLineItem</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">purchase_order_line_item</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">purchase_order_line_item</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">purchase_order_line_item</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/purchase_order_line_items/1 -d <span class="s1">&#39;{&quot;purchase_order_line_item&quot;:{&quot;quantity&quot;:&quot;22.0&quot;,&quot;price&quot;:&quot;12.0&quot;}}&#39;</span>
@@ -10085,9 +10075,9 @@ https://api.tradegecko.com/tax_types/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">tax_type</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">TaxType</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">tax_type</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">tax_type</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">tax_type</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/tax_types/1 -d <span class="s1">&#39;{&quot;tax_type&quot;:{&quot;name&quot;:&quot;Wholesale&quot;,&quot;code&quot;:&quot;WHOLESALE&quot;}}&#39;</span>
@@ -10461,9 +10451,9 @@ https://api.tradegecko.com/users/current
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">user</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">User</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/users/1 -d <span class="s1">&#39;{&quot;user&quot;:{&quot;first_name&quot;:&quot;Gordon&quot;}}&#39;</span>
@@ -11377,9 +11367,9 @@ https://api.tradegecko.com/variants/1
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
 <span class="n">variant</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Variant</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">variant</span><span class="p">.</span><span class="nf">attributes</span><span class="p">({</span>
+<span class="n">variant</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="p">}</span>
 <span class="n">variant</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
 https://api.tradegecko.com/variants/1 -d <span class="s1">&#39;{&quot;variant&quot;:{&quot;retail_price&quot;:&quot;12.0&quot;,&quot;name&quot;:&quot;Sample Variant&quot;,&quot;sku&quot;:&quot;SV1234&quot;}}&#39;</span>
@@ -11436,11 +11426,5 @@ https://api.tradegecko.com/variants/1
           </div>
       </div>
     </div>
-    <script>
-      window.intercomSettings = {
-        app_id: "i0krnes0"
-      };
-    </script>
-    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i0krnes0';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
   </body>
 </html>
