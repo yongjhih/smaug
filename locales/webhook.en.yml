@@ -5,6 +5,30 @@ en:
     resource_klass: "Webhook"
     resource_name: "webhook"
     resource_plural: "webhooks"
+    create_extra_table:
+      enable: true
+      title: 'List of Available Events'
+      column_headers: ['Resource', 'Event']
+      columns: [
+        ['account', 'account.update'],
+        ['addresss', 'address.create, address.update'],
+        ['company', 'company.create, company.update'],
+        ['contact', 'contact.create, contact.update'],
+        ['document_theme', 'document_theme.update'],
+        ['fulfillment', 'fulfillment.create, fulfillment.fulfilled'],
+        ['fulfillment_return', 'fulfillment_return.create'],
+        ['invoice', 'invoice.create'],
+        ['location', 'location.create, location.update'],
+        ['order', 'order.create, order.finalized, order.fulfilled'],
+        ['payment', 'payment.create'],
+        ['product', 'product.create'],
+        ['procurement', 'procurement.create'],
+        ['purchase_order', 'purchase_order.create'],
+        ['stock_adjustment', 'stock_adjustment.create'],
+        ['stock_transfer', 'stock_transfer.create'],
+        ['variant', 'variant.create'],
+        ['image', 'image.create'],
+      ]
     json: [
       {
         id: 1,
