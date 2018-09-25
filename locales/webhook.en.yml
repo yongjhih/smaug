@@ -1,0 +1,96 @@
+---
+en:
+  webhook:
+    resource_article: "a"
+    resource_klass: "Webhook"
+    resource_name: "webhook"
+    resource_plural: "webhooks"
+    create_extra_table:
+      enable: true
+      title: 'List of Available Events'
+      column_headers: ['Resource', 'Event']
+      columns: [
+        ['account', 'account.update'],
+        ['addresss', 'address.create, address.update'],
+        ['company', 'company.create, company.update'],
+        ['contact', 'contact.create, contact.update'],
+        ['document_theme', 'document_theme.update'],
+        ['fulfillment', 'fulfillment.create, fulfillment.fulfilled'],
+        ['fulfillment_return', 'fulfillment_return.create'],
+        ['invoice', 'invoice.create'],
+        ['location', 'location.create, location.update'],
+        ['order', 'order.create, order.finalized, order.fulfilled'],
+        ['payment', 'payment.create'],
+        ['product', 'product.create'],
+        ['procurement', 'procurement.create'],
+        ['purchase_order', 'purchase_order.create'],
+        ['stock_adjustment', 'stock_adjustment.create'],
+        ['stock_transfer', 'stock_transfer.create'],
+        ['variant', 'variant.create'],
+        ['image', 'image.create'],
+      ]
+    json: [
+      {
+        id: 1,
+        created_at: "2018-09-24T11:12:49.244Z",
+        updated_at: "2018-09-24T11:12:49.244Z",
+        event: "product.create",
+        address: "https://mywebsite.com/webhooks",
+        oauth_application_id: 1
+      },
+      {
+        id: 2,
+        created_at: "2018-09-24T11:12:49.244Z",
+        updated_at: "2018-09-24T11:12:49.244Z",
+        event: "product.update",
+        address: "https://mywebsite.com/webhooks",
+        oauth_application_id: 1
+      }
+    ]
+
+    gecko:
+      create: {
+        address: "https://mywebsite.com/webhooks",
+        event: "product.create"
+      }
+      update: {
+        address: "https://mynewwebsite.com/webhooks",
+        event: "product.create"
+      }
+
+    attributes: {
+      id: {
+        name: "id",
+        type: "Integer",
+        description: "A unique identifier for the resource.",
+        readonly: true,
+      },
+      created_at: {
+        name: "created_at",
+        type: "String",
+        description: "Date and Time when the webhook was created.",
+        readonly: true
+      },
+      updated_at: {
+        name: "updated_at",
+        type: "String",
+        description: "Date and Time when the webhook was last updated.",
+        readonly: true
+      },
+      event: {
+        name: "event",
+        type: "String",
+        description: "Event which fires the webhook from TradeGecko to the specified address.",
+        updatable: true,
+        creatable: true,
+        required: true,
+      },
+      address: {
+        name: "address",
+        type: "String",
+        description: "URI where a POST request will be sent everytime an event occurs in TradeGecko",
+        updatable: true,
+        creatable: true,
+        required: true,
+      },
+    }
