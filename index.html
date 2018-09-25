@@ -749,6 +749,29 @@
               </ul>
           </li>
           <li>
+            <a href="#webhook" class="toc-h1 toc-link" data-title="Webhook">Webhook</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-webhook-object" class="toc-h2 toc-link" data-title="The Webhook object">The Webhook object</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-webhooks" class="toc-h2 toc-link" data-title="List all webhooks">List all webhooks</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-webhook" class="toc-h2 toc-link" data-title="Create a new webhook">Create a new webhook</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-particular-webhook" class="toc-h2 toc-link" data-title="Retrieve a particular webhook">Retrieve a particular webhook</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-webhook" class="toc-h2 toc-link" data-title="Update a webhook">Update a webhook</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-webhook" class="toc-h2 toc-link" data-title="Delete a webhook">Delete a webhook</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#libraries" class="toc-h1 toc-link" data-title="Libraries">Libraries</a>
           </li>
 
@@ -11421,6 +11444,329 @@ https://api.tradegecko.com/variants/1
 <h3 id='http-request'>HTTP Request</h3>
 
 <p><code>DELETE https://api.tradegecko.com/variants/{RESOURCE_ID}/</code></p>
+
+<p><h1 id='webhook'>Webhook</h1>
+<p>This is an object representing a webhook.</p>
+
+<h2 id='the-webhook-object'>The Webhook object</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Readonly</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Integer</td>
+<td>A unique identifier for the resource.</td>
+<td>true</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td>String</td>
+<td>Date and Time when the webhook was created.</td>
+<td>true</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong></td>
+<td>String</td>
+<td>Date and Time when the webhook was last updated.</td>
+<td>true</td>
+</tr>
+<tr>
+<td><strong>event</strong></td>
+<td>String</td>
+<td>Event which fires the webhook from TradeGecko to the specified address.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>String</td>
+<td>URI where a POST request will be sent everytime an event occurs in TradeGecko</td>
+<td></td>
+</tr>
+</tbody></table></p>
+
+<p><h2 id='list-all-webhooks'>List all webhooks</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
+<span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span></p>
+
+<p><span class="n">gecko</span><span class="o">.</span><span class="no">Webhook</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">limit: </span><span class="mi">25</span><span class="p">,</span> <span class="ss">status: </span><span class="s1">&#39;active&#39;</span><span class="p">)</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
+https://api.tradegecko.com/webhooks/
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;webhooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-09-24T11:12:49.244Z&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-09-24T11:12:49.244Z&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product.create&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://mywebsite.com/webhooks&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;oauth_application_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-09-24T11:12:49.244Z&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-09-24T11:12:49.244Z&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product.update&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://mywebsite.com/webhooks&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;oauth_application_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns a list of webhooks you’ve previously created. The webhooks are returned in sorted order, with the most recent webhooks appearing first.</p>
+
+<h3 id='filters'>Filters</h3>
+
+<table><thead>
+<tr>
+<th>Arguments</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>ids</strong></td>
+<td>An array of webhook IDs. See <a href="#filtering" title="Filtering">Getting Started</a> for examples.</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>used for pagination (default is 100)</td>
+</tr>
+<tr>
+<td><strong>page</strong></td>
+<td>used for pagination (default is 1)</td>
+</tr>
+<tr>
+<td><strong>created_at_min</strong></td>
+<td>ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)</td>
+</tr>
+<tr>
+<td><strong>created_at_max</strong></td>
+<td>ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)</td>
+</tr>
+<tr>
+<td><strong>updated_at_min</strong></td>
+<td>ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)</td>
+</tr>
+<tr>
+<td><strong>updated_at_max</strong></td>
+<td>ISO 8601 format (e.g. 2015-11-04T00:00:00.00Z)</td>
+</tr>
+</tbody></table>
+
+<h3 id='http-request'>HTTP Request:</h3>
+
+<p><code>GET  https://api.tradegecko.com/webhooks</code></p></p>
+
+<p><h2 id='create-a-new-webhook'>Create a new webhook</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
+<span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
+<span class="n">webhook</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Webhook</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span><span class="ss">:address</span><span class="o">=&gt;</span><span class="s2">&quot;https://mywebsite.com/webhooks&quot;</span><span class="p">,</span> <span class="ss">:event</span><span class="o">=&gt;</span><span class="s2">&quot;product.create&quot;</span><span class="p">})</span>
+<span class="n">webhook</span><span class="p">.</span><span class="nf">save</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
+https://api.tradegecko.com/webhooks/ -d <span class="s1">&#39;{&quot;webhook&quot;:{&quot;address&quot;:&quot;https://mywebsite.com/webhooks&quot;,&quot;event&quot;:&quot;product.create&quot;}&#39;</span><span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;webhook&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-09-24T11:12:49.244Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-09-24T11:12:49.244Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product.create&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://mywebsite.com/webhooks&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;oauth_application_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates a new webhook object.</p>
+
+<h3 id='arguments'>Arguments</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>event</strong></td>
+<td>String</td>
+<td>Event which fires the webhook from TradeGecko to the specified address.</td>
+<td>true</td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>String</td>
+<td>URI where a POST request will be sent everytime an event occurs in TradeGecko</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h3 id='list-of-available-events'>List of Available Events</h3>
+
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Event</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account</td>
+<td>account.update</td>
+</tr>
+<tr>
+<td>addresss</td>
+<td>address.create, address.update</td>
+</tr>
+<tr>
+<td>company</td>
+<td>company.create, company.update</td>
+</tr>
+<tr>
+<td>contact</td>
+<td>contact.create, contact.update</td>
+</tr>
+<tr>
+<td>document_theme</td>
+<td>document_theme.update</td>
+</tr>
+<tr>
+<td>fulfillment</td>
+<td>fulfillment.create, fulfillment.fulfilled</td>
+</tr>
+<tr>
+<td>fulfillment_return</td>
+<td>fulfillment_return.create</td>
+</tr>
+<tr>
+<td>invoice</td>
+<td>invoice.create</td>
+</tr>
+<tr>
+<td>location</td>
+<td>location.create, location.update</td>
+</tr>
+<tr>
+<td>order</td>
+<td>order.create, order.finalized, order.fulfilled</td>
+</tr>
+<tr>
+<td>payment</td>
+<td>payment.create</td>
+</tr>
+<tr>
+<td>product</td>
+<td>product.create</td>
+</tr>
+<tr>
+<td>procurement</td>
+<td>procurement.create</td>
+</tr>
+<tr>
+<td>purchase_order</td>
+<td>purchase_order.create</td>
+</tr>
+<tr>
+<td>stock_adjustment</td>
+<td>stock_adjustment.create</td>
+</tr>
+<tr>
+<td>stock_transfer</td>
+<td>stock_transfer.create</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>variant.create</td>
+</tr>
+<tr>
+<td>image</td>
+<td>image.create</td>
+</tr>
+</tbody></table>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST https://api.tradegecko.com/webhooks/</code></p></p>
+
+<p><h2 id='retrieve-a-particular-webhook'>Retrieve a particular webhook</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
+<span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
+<span class="n">gecko</span><span class="o">.</span><span class="no">Webhook</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
+https://api.tradegecko.com/webhooks/1
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;webhook&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-09-24T11:12:49.244Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-09-24T11:12:49.244Z&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product.create&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://mywebsite.com/webhooks&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;oauth_application_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves the details of an existing webhook. You need only supply the unique webhook identifier that was returned upon webhook creation.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>GET https://api.tradegecko.com/webhooks/{RESOURCE_ID}</code></p></p>
+
+<p><h2 id='update-a-webhook'>Update a webhook</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
+<span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
+<span class="n">webhook</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Webhook</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">webhook</span><span class="p">.</span><span class="nf">attributes</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">rate: </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">webhook</span><span class="p">.</span><span class="nf">save</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
+https://api.tradegecko.com/webhooks/1 -d <span class="s1">&#39;{&quot;webhook&quot;:{&quot;address&quot;:&quot;https://mynewwebsite.com/webhooks&quot;,&quot;event&quot;:&quot;product.create&quot;}}&#39;</span>
+</code></pre>
+<blockquote>
+<p>Response</p></p>
+
+<p>Returns 204 status when the webhook gets updated successfully.</p>
+
+<p></blockquote></p>
+
+<p>Updates the specified webhook by setting the values of the parameters passed.</p>
+
+<p>Any parameters not provided will be left unchanged.
+This request accepts the same arguments as the webhook creation call.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>PUT https://api.tradegecko.com/webhooks/{RESOURCE_ID}</code></p>
+
+<p><h2 id='delete-a-webhook'>Delete a webhook</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
+<span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
+<span class="n">webhook</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Webhook</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span>
+<span class="nf">webhook</span><span class="p">.</span><span class="nf">destroy</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
+https://api.tradegecko.com/webhooks/1
+</code></pre>
+<blockquote>
+<p>Response</p></p>
+
+<p>Returns 204 status when the webhook gets deleted successfully.</p>
+
+<p></blockquote></p>
+
+<p>Permanently deletes a webhook. It cannot be undone. This webhook is no longer available for future Sales Orders.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>DELETE https://api.tradegecko.com/webhooks/{RESOURCE_ID}/</code></p>
 <h1 id='libraries'>Libraries</h1>
 <ul>
 <li><a href="https://github.com/tradegecko/gecko-ruby">Official Rubygem</a></li>
