@@ -70,19 +70,19 @@ en:
       created_at: {
         name: "created_at",
         type: "String",
-        description: "",
+        description: "Date and time when the contact was created.",
         readonly: true
       },
       updated_at: {
         name: "updated_at",
         type: "String",
-        description: "",
+        description: "Date and time when the contact was last updated.",
         readonly: true
       },
       status: {
         name: "status",
         type: "String",
-        description: "Tells whether the resource is 'active' or 'archived'",
+        description: "Tells whether the resource is 'active' or 'archived'.",
         readonly: true
       },
       company_id: {
@@ -96,21 +96,21 @@ en:
       email: {
         name: "email",
         type: "String",
-        description: "",
+        description: "Email address of the contact.",
         updatable: true,
         creatable: true,
       },
       fax: {
         name: "fax",
         type: "String",
-        description: "",
+        description: "Fax number of the contact.",
         updatable: true,
         creatable: true,
       },
       first_name: {
         name: "first_name",
         type: "String",
-        description: "",
+        description: "First name of the contact.",
         updatable: true,
         creatable: true,
         required: true,
@@ -118,42 +118,42 @@ en:
       last_name: {
         name: "last_name",
         type: "String",
-        description: "",
+        description: "Last name of the contact.",
         updatable: true,
         creatable: true,
       },
       location: {
         name: "location",
         type: "String",
-        description: "",
+        description: "Department of the contact.",
         updatable: true,
         creatable: true,
       },
       mobile: {
         name: "mobile",
         type: "String",
-        description: "",
+        description: "Mobile number of the contact.",
         updatable: true,
         creatable: true,
       },
       notes: {
         name: "notes",
         type: "String",
-        description: "",
+        description: "Notes on the contact.",
         updatable: true,
         creatable: true,
       },
       phone_number: {
         name: "phone_number",
         type: "String",
-        description: "",
+        description: "Phone number of the contact.",
         updatable: true,
         creatable: true,
       },
       position: {
         name: "position",
         type: "String",
-        description: "",
+        description: "Job title of the contact.",
         updatable: true,
         creatable: true,
       },
@@ -168,8 +168,8 @@ en:
       },
       online_ordering: {
         name: "online_ordering",
-        type: "String",
-        description: "Tells whether this contact has access to your B2B store",
+        type: "Boolean",
+        description: "Tells whether this contact has access to your B2B store.",
         filterable: true,
         updatable: true,
         creatable: true,
