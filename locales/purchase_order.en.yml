@@ -1,6 +1,7 @@
 ---
 en:
   purchase_order:
+    enable_actions: true
     child: "purchase_order_line_item"
     resource_article: "a"
     resource_klass: "PurchaseOrder"
@@ -287,4 +288,13 @@ en:
         description: "",
         readonly: true
       },
+    }
+    actions: {
+      description: "Use the following endpoints to manage the receiving the purchase order. `POST /purchase_orders/[:purchase_order_id]/actions/<action>`",
+      endpoints: [
+        {
+          endpoint: "`receive`",
+          description: "Create a procurement for the purchase order"
+        }
+      ]
     }
