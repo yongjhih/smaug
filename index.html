@@ -261,6 +261,17 @@
             <a href="#soft-deletion" class="toc-h1 toc-link" data-title="Soft Deletion">Soft Deletion</a>
           </li>
           <li>
+            <a href="#sideloading-resources" class="toc-h1 toc-link" data-title="Sideloading Resources">Sideloading Resources</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#fetching-a-product" class="toc-h2 toc-link" data-title="Fetching a Product">Fetching a Product</a>
+                  </li>
+                  <li>
+                    <a href="#fetching-an-order" class="toc-h2 toc-link" data-title="Fetching an Order">Fetching an Order</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
           <li>
@@ -1207,6 +1218,110 @@ In the API, a soft-deleted object will have a status of <code>archived</code>.
 These records will not be returned by default, but can be accessed using filters to 
 specifically return records with a status of <code>archived</code>.</p></p>
 
+<p><h1 id='sideloading-resources'>Sideloading Resources</h1>
+<p>TradeGecko allows you retrieve associated resources as part of a single request.
+This can be done by adding an <code>include</code> parameter containing a comma-separated list of resources to load.</p></p>
+
+<aside class="notice">  
+  Sideloading for Orders and Purchase Orders are currently available only when retrieving a single order or purchase order. Using the `include` parameter won't work on index pages.
+</aside>
+
+<p>Here&#39;s a few examples:</p>
+
+<h3 id='fetching-a-product'>Fetching a Product</h3>
+
+<p><code>GET https://api.tradegecko.com/products/1?include=variants</code></p>
+
+<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span> https://api.tradegecko.com/products/153172?include<span class="o">=</span>variants
+</code></pre><pre class="highlight json tab-json--inline"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"variants"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">558277</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-11-18T03:00:38.459Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-05-23T08:02:29.569Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"product_id"</span><span class="p">:</span><span class="mi">153172</span><span class="p">,</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"product"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">153172</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-07-23T16:25:36.582Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-09-01T04:54:25.085Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Wiggly and squiggly. Watch out for the tail falling off!</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"image_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='fetching-an-order'>Fetching an Order</h3>
+<p><code>GET https://api.tradegecko.com/orders/160?include=order_line_items,shipping_address,billing_address,company</code></p>
+<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span> https://api.tradegecko.com/orders?include<span class="o">=</span>order_line_items,shipping_address,billing_address,company
+</code></pre><pre class="highlight json tab-json--inline"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"order_line_items"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">335</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:43.756Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-03-22T13:50:57.564Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"order_id"</span><span class="p">:</span><span class="mi">160</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"variant_id"</span><span class="p">:</span><span class="mi">1193</span><span class="p">,</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">336</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:43.765Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-03-22T13:50:57.507Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"order_id"</span><span class="p">:</span><span class="mi">160</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"variant_id"</span><span class="p">:</span><span class="mi">1199</span><span class="p">,</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">337</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:43.774Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-03-22T13:50:57.475Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"order_id"</span><span class="p">:</span><span class="mi">160</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"variant_id"</span><span class="p">:</span><span class="mi">1182</span><span class="p">,</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"addresses"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">147</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:42.462Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:42.462Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"company_id"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"address1"</span><span class="p">:</span><span class="s2">"1260 Billy Plaza"</span><span class="p">,</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">146</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:42.460Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:42.460Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"company_id"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"address1"</span><span class="p">:</span><span class="s2">"620 Pfannerstill Run"</span><span class="p">,</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"companies"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:42.457Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-03-22T13:50:30.892Z"</span><span class="p">,</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"order"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">160</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-02-23T07:54:43.683Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-09-24T03:29:30.759Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"assignee_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"billing_address_id"</span><span class="p">:</span><span class="mi">147</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"company_id"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p><h1 id='errors'>Errors</h1>
 <p>The TradeGecko API uses the following error codes:</p></p>
 
@@ -1818,19 +1933,19 @@ This request accepts the same arguments as the account creation call.</p>
 <tr>
 <td><strong>created_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Date and time when the address was created.</td>
 <td>true</td>
 </tr>
 <tr>
 <td><strong>updated_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Date and time when the address was last updated.</td>
 <td>true</td>
 </tr>
 <tr>
 <td><strong>status</strong></td>
 <td>String</td>
-<td></td>
+<td>Tells whether the resource is &#39;active&#39; or &#39;archived&#39;.</td>
 <td>true</td>
 </tr>
 <tr>
@@ -1842,79 +1957,79 @@ This request accepts the same arguments as the account creation call.</p>
 <tr>
 <td><strong>address1</strong></td>
 <td>String</td>
-<td></td>
+<td>First line of address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>address2</strong></td>
 <td>String</td>
-<td></td>
+<td>Second line of address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>city</strong></td>
 <td>String</td>
-<td></td>
+<td>City of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>company_name</strong></td>
 <td>String</td>
-<td>Attention to field of an address</td>
+<td>Attention to field of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>country</strong></td>
 <td>String</td>
-<td></td>
+<td>Country of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>email</strong></td>
 <td>String</td>
-<td></td>
+<td>Email of person associated with address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>first_name</strong></td>
 <td>String</td>
-<td></td>
+<td>First name of person associated with address. Used in attention to field.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>last_name</strong></td>
 <td>String</td>
-<td></td>
+<td>Last name of person associated with address. Used in attention to field.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>label</strong></td>
 <td>String</td>
-<td>A (unique per company) label for the address e.g. Shipping, Billing</td>
+<td>A (unique per company) label for the address e.g. Shipping, Billing.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>phone_number</strong></td>
 <td>String</td>
-<td></td>
+<td>Phone number of person associated with address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>state</strong></td>
 <td>String</td>
-<td></td>
+<td>State of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>suburb</strong></td>
 <td>String</td>
-<td></td>
+<td>Suburb of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>zip_code</strong></td>
 <td>String</td>
-<td></td>
+<td>Zip code of an address.</td>
 <td></td>
 </tr>
 </tbody></table></p>
@@ -2076,79 +2191,79 @@ https://api.tradegecko.com/addresses/ -d <span class="s1">&#39;{&quot;address&qu
 <tr>
 <td><strong>address1</strong></td>
 <td>String</td>
-<td></td>
+<td>First line of address.</td>
 <td>true</td>
 </tr>
 <tr>
 <td><strong>address2</strong></td>
 <td>String</td>
-<td></td>
+<td>Second line of address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>city</strong></td>
 <td>String</td>
-<td></td>
+<td>City of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>company_name</strong></td>
 <td>String</td>
-<td>Attention to field of an address</td>
+<td>Attention to field of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>country</strong></td>
 <td>String</td>
-<td></td>
+<td>Country of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>email</strong></td>
 <td>String</td>
-<td></td>
+<td>Email of person associated with address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>first_name</strong></td>
 <td>String</td>
-<td></td>
+<td>First name of person associated with address. Used in attention to field.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>last_name</strong></td>
 <td>String</td>
-<td></td>
+<td>Last name of person associated with address. Used in attention to field.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>label</strong></td>
 <td>String</td>
-<td>A (unique per company) label for the address e.g. Shipping, Billing</td>
+<td>A (unique per company) label for the address e.g. Shipping, Billing.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>phone_number</strong></td>
 <td>String</td>
-<td></td>
+<td>Phone number of person associated with address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>state</strong></td>
 <td>String</td>
-<td></td>
+<td>State of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>suburb</strong></td>
 <td>String</td>
-<td></td>
+<td>Suburb of an address.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>zip_code</strong></td>
 <td>String</td>
-<td></td>
+<td>Zip code of an address.</td>
 <td></td>
 </tr>
 </tbody></table>
