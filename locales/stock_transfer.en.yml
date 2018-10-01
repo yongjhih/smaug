@@ -1,6 +1,7 @@
 ---
 en:
   stock_transfer:
+    enable_actions: true
     child: "stock_transfer_line_item"
     disable_update: true
     resource_article: "a"
@@ -143,4 +144,17 @@ en:
         creatable: true,
         readonly: true,
       }
+    }
+    actions: {
+      description: "Use the following endpoints to manage the receiving or reverting of the stock transfer. `POST /stock_transfers/[:stock_transfer_id]/actions/<action>`",
+      endpoints: [
+        {
+          endpoint: "`receive`",
+          description: "Receive the stock transfer"
+        },
+        {
+          endpoint: "`revert`",
+          description: "Revert the stock transfer"
+        }
+      ]
     }

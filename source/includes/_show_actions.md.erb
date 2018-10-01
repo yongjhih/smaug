@@ -1,0 +1,9 @@
+## <%= t(".resource_klass", scope: resource).titleize %> actions
+
+<%= t(".actions.description", scope: resource) %>
+
+| Action                         | Description          
+| ------------------------------ | ------------- 
+<% t(".actions.endpoints", scope: resource).each do |endpoint| %>
+  <%= endpoint[:endpoint] %> | <%= endpoint[:description] %>
+<% end %>
