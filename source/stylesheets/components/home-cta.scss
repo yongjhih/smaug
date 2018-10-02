@@ -10,12 +10,11 @@
 
 .home-cta_button-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 10px;
 
-  .btn {
-    flex: 1 1 0;
-    max-width: 47%;
+  & .btn:first-child {
+    margin-right:10px;
   }
 }
 
