@@ -3,7 +3,7 @@ en:
   fulfillment_line_item:
     parent: "fulfillment"
     parent_article: "a"
-    parent_klass: "fulfillment"
+    parent_klass: "Fulfillment"
     parent_plural: "fulfillments"
     resource_article: "a"
     resource_klass: "FulfillmentLineItem"

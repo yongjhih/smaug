@@ -1,0 +1,143 @@
+---
+en:
+  fulfillment_return:
+    child: "fulfillment_return_line_item"
+    sideloaded: true
+    child_required: true
+    parent: "order"
+    parent_article: "an"
+    parent_klass: "Order"
+    parent_plural: "orders"
+    resource_article: "a"
+    resource_klass: "FulfillmentReturn"
+    resource_name: "fulfillment_return"
+    resource_plural: "fulfillment_returns"
+    json: [
+      {
+        id: 1,
+        created_at: "2015-11-02T01:22:25.535Z",
+        updated_at: "2015-11-02T01:22:25.535Z",
+        order_id: 1,
+        location_id: 1,
+        delivery_type: null,
+        exchange_rate: "1.0",
+        notes: null,
+        received_at: null,
+        tracking_company: null,
+        tracking_number: null,
+        tracking_url: null,
+        status: "returning",
+        credit_note_number: "CN0001",
+        order_number: "SO0001",
+        company_id: 1,
+      }
+    ]
+    gecko:
+      create: {
+        order_id: 1,
+        fulfillment_return_line_items: [
+          {order_line_item_id: 1, quantity: 1},
+          {order_line_item_id: 2, quantity: 1}
+        ]
+      }
+      update: {
+        location_id: 2
+      }
+
+    attributes: {
+      id: {
+        name: "id",
+        type: "Integer",
+        readonly: true,
+        description: "A unique identifier for the resource."
+      },
+      created_at: {
+        name: "created_at",
+        type: "String",
+        description: "Date and time when the fulfillment_return was created.",
+        readonly: true
+      },
+      updated_at: {
+        name: "updated_at",
+        type: "String",
+        description: "Date and time when the fulfillment_return was last updated.",
+        readonly: true
+      },
+      status: {
+        name: "status",
+        type: "String",
+        description: "Tells whether the resource is 'returning', 'received', 'void' or 'deleted'",
+      },
+      order_id: {
+        name: "order_id",
+        type: "Integer",
+        description: "The order to which the fulfillment_return belongs.",
+        filterable: true,
+        creatable: true,
+        required: true
+      },
+      location_id: {
+        name: "location_id",
+        type: "Integer",
+        description: "The location to which the fulfillment_return belongs.",
+        filterable: true,
+        creatable: true,
+        updatable: true
+      },
+      tracking_number: {
+        name: "tracking_number",
+        type: "String",
+        description: "Tracking number of fulfillment_return.",
+        creatable: true,
+        updatable: true
+      },
+      tracking_url: {
+        name: "tracking_url",
+        type: "String",
+        description: "Tracking url of fulfillment_return.",
+        creatable: true,
+        updatable: true
+      },
+      tracking_company: {
+        name: "tracking_company",
+        type: "String",
+        description: "Tracking company used for fulfillment_return.",
+        creatable: true,
+        updatable: true
+      },
+      delivery_type: {
+        name: "delivery_type",
+        type: "String",
+        description: "Mode of delivery.",
+        creatable: true,
+        updatable: true
+      },
+      notes: {
+        name: "notes",
+        type: "String",
+        description: "Additional notes.",
+        creatable: true,
+        updatable: true
+      },
+      exchange_rate: {
+        name: "exchange_rate",
+        type: "String",
+        description: "Currency exchange_rate at time of creation.",
+        creatable: true,
+        updatable: true
+      },
+      received_at: {
+        name: "received_at",
+        type: "String",
+        description: "Timestamp when fulfillment_return is received.",
+        creatable: true,
+        updatable: true
+      },
+      credit_note_number: {
+        name: "credit_note_number",
+        type: "String",
+        description: "After a fulfillment return is created, a credit note with this number is created for accounting purposes.",
+        creatable: true,
+        updatable: true
+      }
+    }
