@@ -447,6 +447,10 @@ en:
         {
           endpoint: "fulfil",
           description: "Create a fulfillment with status: `fulfilled`"
+        },
+        {
+          endpoint: "void",
+          description: "Void the order"
         }
       ]
     }
