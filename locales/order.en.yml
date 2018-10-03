@@ -430,23 +430,27 @@ en:
       },
     }
     actions: {
-      description: "Use the following endpoints to manage the order's invoice, payment and fulfillment. `POST /orders/[:order_id]/actions/<action>`",
+      description: "Use the following endpoints to manage the order's invoice, payment and fulfillment. `POST /orders/[:order_id]/actions/[:action]`",
       endpoints: [
         {
-          endpoint: "`invoice`",
+          endpoint: "invoice",
           description: "Invoice the order"
         },
         {
-          endpoint: "`pay`",
+          endpoint: "pay",
           description: "Pay for the order"
         },
         {
-          endpoint: "`pack`",
+          endpoint: "pack",
           description: "Create a fulfillment with status: `packed`"
         },
         {
-          endpoint: "`fulfil`",
+          endpoint: "fulfil",
           description: "Create a fulfillment with status: `fulfilled`"
+        },
+        {
+          endpoint: "void",
+          description: "Void the order"
         }
       ]
     }
