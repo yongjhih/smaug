@@ -146,14 +146,14 @@ en:
       }
     }
     actions: {
-      description: "Use the following endpoints to manage the receiving or reverting of the stock transfer. `POST /stock_transfers/[:stock_transfer_id]/actions/<action>`",
+      description: "Use the following endpoints to manage the receiving or reverting of the stock transfer. `POST /stock_transfers/[:stock_transfer_id]/actions/[:action]`",
       endpoints: [
         {
-          endpoint: "`receive`",
+          endpoint: "receive",
           description: "Receive the stock transfer"
         },
         {
-          endpoint: "`revert`",
+          endpoint: "revert",
           description: "Revert the stock transfer"
         }
       ]

@@ -129,10 +129,10 @@ en:
       }
     }
     actions: {
-      description: "Use the following endpoints to manage the reverting of the stock adjustment. `POST /stock_adjustments/[:stock_adjustment_id]/actions/<action>`",
+      description: "Use the following endpoints to manage the reverting of the stock adjustment. `POST /stock_adjustments/[:stock_adjustment_id]/actions/[:action]`",
       endpoints: [
         {
-          endpoint: "`revert`",
+          endpoint: "revert",
           description: "Revert the stock adjustment"
         }
       ]
