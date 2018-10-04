@@ -1,80 +1,102 @@
 ---
-title: TradeGecko API Documentation
+title: Tradegecko Developer Portal
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - ruby
-  - shell
+primary_cards:
+  - name:  Ecommerce Integration Guide
+    blurb: Build a sales channel integration with TradeGecko. Sync orders and products from your online stores and marketplaces.
+    url: /guides/sales.html
+    background_color: "#5784f7"
+    image:
+      url: /images/eCommerce@2x.png
+  - name: Fulfillment Service Integration Guide
+    blurb: Integrate TradeGecko with a fulfilment service to streamline your 3PL management and shipping workflows.
+    url: /guides/3pl.html
+    background_color: "#5bb4f9"
+    image:
+      url: /images/3PL@2x.png
+  - name: Warehouse Management Integration Guide
+    blurb: Sync inventory levels between your Warehouse Management System and TradeGecko.
+    url: /guides/warehouse.html
+    background_color: "#80dce2"
+    image:
+      url: /images/Warehouse@2x.png
 
-toc_footers:
-  - <a href='https://go.tradegecko.com/register'>Sign up for an Account</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - libraries
-
-guides:
-  - creating_a_sales_order
-  - fulfilling_a_sales_order
-
-asides:
-  - registering_an_application
-  - authentication_flows
-  - authorization_code
-  - privileged_access_token
-  - pagination
-  - filtering
-  - metadata
-  - rate_limiting
-  - idempotency_keys
-  - soft_deletion
-  - sideloading
-  - errors
-
-resources:
-  - account
-  - address
-  - company
-  - contact
-  - currency
-  - fulfillment
-  - fulfillment_line_item
-  - fulfillment_return
-  - fulfillment_return_line_item
-  - image
-  - invoice
-  - invoice_line_item
-  - location
-  - note
-  - order
-  - order_line_item
-  - payment_term
-  - product
-  - purchase_order
-  - purchase_order_line_item
-  - stock_adjustment
-  - stock_adjustment_line_item
-  - stock_transfer
-  - stock_transfer_line_item
-  - tax_type
-  - user
-  - variant
-  - webhook
+secondary_cards:
+  - name: Comprehensive API Docs
+    blurb: Build exactly what you need with our modern APIs and webhooks.
+    url: /docs.html
+    cta: Explore docs
+  - name: Detailed Guides and Tutorials
+    blurb: TradeGecko’s thorough use cases provide step-by-step instructions to build integrations quickly and easily.
+    url: /docs.html#guides
+    cta: Explore guides
+  - name: Dedicated Support
+    blurb: Get dedicated developer support through our forum or by contacting our support team.
+    url: https://support.tradegecko.com
+    cta: Learn more
 
 search: true
 home: true
 ---
+<div class="index-page">
+  <div class="row index-page__section cta-section">
+    <div class="col-12">
+        <%= partial "includes/home_cta" %>
+    </div>
+  </div>
 
-# TradeGecko API Reference
+  <div class="row index-page__section">
+    <div class="card-list">
+      <% current_page.data.primary_cards.each do |study| %>
+        <div class="study-card" style="background-color: <%=study.background_color%> ">
+          <div class="study-card__image-wrapper">
+            <img src="<%=study.image.url%>" />
+          </div>
+          <div class="study-blurb">
+            <h2><%=study.name%></h2>
+            <p><%=study.blurb%></p>
+            <a href="<%=study.url%>" class="btn btn-big btn-primary card__sticky-button" >
+              Read More
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-This website documents the public API for [TradeGecko](https://www.tradegecko.com)
+  <div class="row index-page__section">
+    <h1> Start building with TradeGecko API in minutes...</h1>
+  </div>
 
-You can view code examples in the dark area to the right; switch the programming language of the examples with the tabs in the top right.
+  <div class="row">
+    <div class="card-list">
+      <% current_page.data.secondary_cards.each do |study| %>
+        <div class="study-card secondary-card">
+          <div class="study-blurb">
+            <h2><%=study.name%></h2>
+            <p><%=study.blurb%></p>
+            <a href="<%= study.url %>" class="plain-link card__sticky-button" >
+              <%= study.cta %> <i class="fa fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-If anything is missing or seems incorrect, please check the [GitHub issues](https://github.com/tradegecko/smaug/issues)
-for existing known issues or [create a new issue](https://github.com/tradegecko/smaug/issues/new).
-
-<%= partial "includes/authentication" %>
-<%= partial "includes/guides" %>
-
-# Resources
-<%= partial "includes/resources" %>
+  <div class="row index-page__section">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-3 become-partner__image">
+    </div>
+    <div class="col-md-7 become-partner__details">
+      <h1> Sign up for a partner account to get started</h1>
+      <p>Discover how our Partner Program can help your clients build the business of their dreams and make you money in the process</p>
+      <a href="https://partners.tradegecko.com/register" target="blank_" class="btn btn-big btn-primary" >
+        Become a partner
+      </a>
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+</div>

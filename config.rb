@@ -32,7 +32,7 @@ ready do
 end
 
 activate :sprockets
-
+sprockets.append_path 'node_modules'
 activate :autoprefixer do |config|
   config.browsers = ['last 2 version', 'Firefox ESR']
   config.cascade  = false
@@ -53,6 +53,8 @@ configure :build do
   # activate :asset_hash
   activate :gzip
 end
+
+page "/docs.html", :layout => "docs"
 
 # Deploy Configuration
 # If you want Middleman to listen on a different port, you can set that below

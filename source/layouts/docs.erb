@@ -13,7 +13,7 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 %>
-<% language_tabs = current_page.data.language_tabs || ["ruby","shell"] %>
+<% language_tabs = current_page.data.language_tabs || [] %>
 <% page_content = yield %>
 <%
   if current_page.data.includes
@@ -41,11 +41,14 @@ under the License.
       <%= Rouge::Theme.find('base16.monokai').render(scope: '.highlight') %>
       <%= Rouge::Theme.find('base16.solarized').render(scope: '.tab-json--inline') %>
     </style>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
     <%= favicon_tag 'images/favicon.ico' %>
-    <%= javascript_include_tag  "all" %>
+    <% if current_page.data.search %>
+      <%= javascript_include_tag  "all" %>
+    <% else %>
+      <%= javascript_include_tag  "all_nosearch" %>
+    <% end %>
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
@@ -53,18 +56,84 @@ under the License.
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2LGV7S"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <a href="#" id="nav-button">
+      <span>
+        <%= image_tag('navbar-2.png') %>
+      </span>
+    </a>
 
-    <div class="base">
-      <%= partial "includes/header" %>
-      <div class="base__body">
-        <div class="container <% unless current_page.data.home? %>content<% end %>">
-          <%= page_content %>
+    <div class="toc-wrapper">
+      <a href="/" title="Back to API documentation">
+        <%= image_tag "logo.png", width: "200px" %>
+      </a>
+      <% if language_tabs.any? %>
+        <div class="lang-selector">
+          <% language_tabs.each do |lang| %>
+            <% if lang.is_a? Hash %>
+              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+            <% else %>
+              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+            <% end %>
+          <% end %>
         </div>
-      </div>
-      <%= partial "includes/footer" %>
-    </div>
+      <% end %>
+      <% if current_page.data.search %>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <% end %>
+      <div id="toc" class="toc-list-h1">
+        <% unless current_page.data.home %>
+          <a class="faux-toc-link" href="/">Back to documentation</a>
+        <% end %>
+        <% toc_data(page_content).each do |h1| %>
+          <li>
+            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content] %>"><%= h1[:content] %></a>
+            <% if h1[:children].length > 0 %>
+              <ul class="toc-list-h2">
+                <% h1[:children].each do |h2| %>
+                  <li>
+                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:content] %>"><%= h2[:content] %></a>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </li>
+        <% end %>
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700' rel='stylesheet' type='text/css'>
+        <% if current_page.data.home %>
+          <a class="faux-toc-link" href="/changes.html">API Change log</a>
+        <% end %>
+      </div>
+
+      <% if current_page.data.toc_footers %>
+        <ul class="toc-footer">
+          <% current_page.data.toc_footers.each do |footer| %>
+            <li><%= footer %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <div class="page-wrapper code-page">
+      <div class="dark-box"></div>
+      <div class="content">
+        <%= page_content %>
+      </div>
+      <div class="dark-box">
+        <% if language_tabs.any? %>
+          <div class="lang-selector">
+            <% language_tabs.each do |lang| %>
+              <% if lang.is_a? Hash %>
+                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+              <% else %>
+                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <script>
       window.intercomSettings = {
         app_id: "i0krnes0"
@@ -72,23 +141,4 @@ under the License.
     </script>
     <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i0krnes0';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
   </body>
-  <script>
-    var state = false;
-    var nav = document.querySelector('nav');
-    var burger = document.querySelector('.burger');
-    burger.onclick = function(){
-      let display = state ? 'none' : 'block';
-      nav.style.display = display;
-      state = !state;
-    }
-
-    var mql = window.matchMedia('(min-width: 767px)');
-
-    function screenTest() {
-      nav.style.display = null;
-    }
-
-    mql.addListener(screenTest);
-
-  </script>
 </html>
