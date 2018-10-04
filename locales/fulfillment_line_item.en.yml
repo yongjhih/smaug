@@ -91,8 +91,8 @@ en:
       base_price: {
         name: "base_price",
         type: "String",
-        description: "",
-        filterable: "Sales value of the variant in base currency at fulfillment shipped_at date",
+        description: "Sales value of the variant in base currency at fulfillment shipped_at date.",
+        filterable: "",
         updatable: true,
         creatable: true,
         readonly: true
@@ -100,7 +100,7 @@ en:
       position: {
         name: "position",
         type: "Integer",
-        description: "",
+        description: "Display order.",
         filterable: "",
         updatable: true,
         creatable: true,
@@ -108,7 +108,7 @@ en:
       quantity: {
         name: "quantity",
         type: "String",
-        description: "",
+        description: "Quantity of the variant fulfilled.",
         filterable: "",
         updatable: true,
         creatable: true,
