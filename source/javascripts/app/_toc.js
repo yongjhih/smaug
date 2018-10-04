@@ -43,6 +43,12 @@
     };
 
     var refreshToc = function() {
+      $(".nav-link").each(function(_, link) {
+        if (link.href == window.location.href) {
+          $(link).addClass("active");
+        }
+      });
+
       var currentTop = $(document).scrollTop() + scrollOffset;
 
       if (currentTop + windowHeight >= pageHeight) {
