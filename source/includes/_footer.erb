@@ -85,7 +85,7 @@
       <div class="row">
         <% @links.each_pair do |key, value| %>
           <div class="col-2">
-          <h4><%= key.capitalize %></h4>
+          <h4><%= key.to_s.titleize %></h4>
             <ul class="link-list">
               <% value.each do |link| %>
                 <li><a href="<%= link[:url] %>" target="_blank"><%= link[:name] %></a></li>

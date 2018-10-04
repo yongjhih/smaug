@@ -85,7 +85,14 @@
 }
 
 .base__footer {
-  position:relative
+  position: relative;
+
+  .footer-wrapper {
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
 }
 
 $border-base: solid 1px $gray-3;
