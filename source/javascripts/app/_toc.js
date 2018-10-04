@@ -77,7 +77,10 @@
         $toc.find(tocListSelector).filter(":not(.active)").slideUp(150);
         $toc.find(tocListSelector).filter(".active").slideDown(150);
         // TODO remove classnames
-        document.title = $best.data("title") + " – " + originalTitle;
+        navInfo = $best.data("title");
+        if(navInfo) {
+          document.title = navInfo + " – " + originalTitle;
+        }
       }
     };
 

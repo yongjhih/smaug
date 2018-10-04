@@ -2,7 +2,7 @@
   position: relative;
 
   .search-results {
-    // has 40 because content has 30 for some reason
+    // has 40 because content has 30 🤔 🤷🏻‍♀️
     z-index: 40;
     border-top: none;
     border: 1px solid #F4F4F5;
@@ -52,7 +52,7 @@
       border: 0;
       width: 100%;
       outline: none;
-      border-radius: $border-radius; /* ios has a default border radius */
+      border-radius: 24px; /* ios has a default border radius */
       color: $nav-text;
     }
 

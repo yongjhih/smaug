@@ -1,10 +1,12 @@
 .site-header {
+  padding-top: 0;
+
   nav {
     margin-left: auto;
     display: flex;
     width: 40%;
     justify-content: space-between;
-    
+
     a {
       color: #70cf32;
       font-weight: 700;

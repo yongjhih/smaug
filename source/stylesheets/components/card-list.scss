@@ -74,6 +74,12 @@
 
 }
 
+@media (max-width: 575px) {
+  .study-card {
+    border-radius:0;
+  }
+}
+
 @media (max-width: 800px) {
   .study-card {
 
@@ -81,7 +87,7 @@
       margin-left: 15px;
       margin-right: 15px;
     }
-    border-radius:0;
+
     width: 100%;
     margin-bottom: 10px;
   }

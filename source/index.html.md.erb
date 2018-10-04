@@ -39,7 +39,7 @@ search: true
 home: true
 ---
 <div class="index-page">
-  <div class="row index-page__section">
+  <div class="row index-page__section cta-section">
     <div class="col-12">
         <%= partial "includes/home_cta" %>
     </div>
@@ -76,7 +76,7 @@ home: true
             <h2><%=study.name%></h2>
             <p><%=study.blurb%></p>
             <a href="<%= study.url %>" class="plain-link card__sticky-button" >
-              <%= study.cta %>
+              <%= study.cta %> <i class="fa fa-angle-right"></i>
             </a>
           </div>
         </div>

@@ -65,7 +65,6 @@
       var results = index.search(searchInput.value).filter(function(r) {
         return r.score > 0.0001;
       });
-      debugger
       if (results.length) {
         searchResults.empty();
         $.each(results, function (index, result) {

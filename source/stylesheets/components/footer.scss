@@ -23,15 +23,16 @@
     overflow: hidden;
 }
 
-@media (max-width: 999px) {
+@media (max-width: 768px) {
   .feedback-banner {
     h2 {
       display: none !important;
     }
   }
-}
-
-@media (max-width: 375px) {
+  
+  .corner-ribbon-bounds {
+    display: none;
+  }
   .footer-wrapper {
     display: none;
   }
