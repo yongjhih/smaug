@@ -1,0 +1,551 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Managing Warehouse Inventory Guide</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P2LGV7S');</script>
+    <!-- End Google Tag Manager -->
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+      .tab-json--inline table td { padding: 5px; }
+.tab-json--inline table pre { margin: 0; }
+.tab-json--inline, .tab-json--inline .w {
+  color: #586e75;
+}
+.tab-json--inline .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.tab-json--inline .c, .tab-json--inline .cd, .tab-json--inline .cm, .tab-json--inline .c1, .tab-json--inline .cs {
+  color: #657b83;
+}
+.tab-json--inline .cp {
+  color: #b58900;
+}
+.tab-json--inline .nt {
+  color: #b58900;
+}
+.tab-json--inline .o, .tab-json--inline .ow {
+  color: #93a1a1;
+}
+.tab-json--inline .p, .tab-json--inline .pi {
+  color: #93a1a1;
+}
+.tab-json--inline .gi {
+  color: #859900;
+}
+.tab-json--inline .gd {
+  color: #dc322f;
+}
+.tab-json--inline .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.tab-json--inline .k, .tab-json--inline .kn, .tab-json--inline .kp, .tab-json--inline .kr, .tab-json--inline .kv {
+  color: #6c71c4;
+}
+.tab-json--inline .kc {
+  color: #cb4b16;
+}
+.tab-json--inline .kt {
+  color: #cb4b16;
+}
+.tab-json--inline .kd {
+  color: #cb4b16;
+}
+.tab-json--inline .s, .tab-json--inline .sb, .tab-json--inline .sc, .tab-json--inline .sd, .tab-json--inline .s2, .tab-json--inline .sh, .tab-json--inline .sx, .tab-json--inline .s1 {
+  color: #859900;
+}
+.tab-json--inline .sr {
+  color: #2aa198;
+}
+.tab-json--inline .si {
+  color: #d33682;
+}
+.tab-json--inline .se {
+  color: #d33682;
+}
+.tab-json--inline .nn {
+  color: #b58900;
+}
+.tab-json--inline .nc {
+  color: #b58900;
+}
+.tab-json--inline .no {
+  color: #b58900;
+}
+.tab-json--inline .na {
+  color: #268bd2;
+}
+.tab-json--inline .m, .tab-json--inline .mf, .tab-json--inline .mh, .tab-json--inline .mi, .tab-json--inline .il, .tab-json--inline .mo, .tab-json--inline .mb, .tab-json--inline .mx {
+  color: #859900;
+}
+.tab-json--inline .ss {
+  color: #859900;
+}
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+    <link href="../images/favicon.ico" rel="icon" type="image/ico" />
+    <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="guides guides_warehouse" data-languages="[&quot;ruby&quot;,&quot;shell&quot;]">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2LGV7S"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="base">
+      <div class="base__header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <header class='site-header'>
+          <div class="site-header__branding col-sm p-0">
+            <a href="#" class="site-header__logo" ></a>
+            <a href="#" class="site-header__title" >
+                <strong class="site-header__title--strong">TradeGecko</strong> Developer
+            </a>
+            <i class="burger fas fa-bars" class="burger"></i>
+            <nav>
+              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/docs.html">Docs</a>
+              <a class="nav-link" href="https://go.tradegecko.com/apps" target="_blank">App Store</a>
+              <a class="nav-link" href="https://github.com/tradegecko/smaug/issues" target="_blank">Community</a>
+              <a class="nav-link" href="/changes.html">Change Log</a>
+            </nav>
+          </div>
+        </header>
+      </div>
+    </div>
+  </div>
+  <div style="background:#F4F4F5;padding:10px 20px;border-top: 1px solid #e2e6e8;">
+    <div class="container">
+      <div class="search-wrapper">
+  <div class="search">
+    <input type="text" class="search" id="input-search" placeholder="Search the API docs...">
+  </div>
+  <ul class="search-results" style="margin-top: 10px;"></ul>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="base__body">
+        <div class="container content">
+          <div class="guides-main-container">
+<div>
+  <h1 class="mt-2">Managing Warehouse Inventory Guide</h1>
+  <p>This guide explains how to manage inventory across different warehouse locations in TradeGecko.</p>
+
+  In this guide:
+  <ul class="mt-2">
+      <li><a href=#warehouse_resources>Warehouse Resources</a></li>
+      <li><a href=#how_sales_order_and_stock_control_affect_inventory>How Sales Order And Stock Control Affect Inventory</a></li>
+      <li><a href=#receiving_a_purchase_order>Receiving A Purchase Order</a></li>
+      <li><a href=#other_ways_of_changing_stock_levels>Other Ways Of Changing Stock Levels</a></li>
+      <li><a href=#additional_resources>Additional Resources</a></li>
+      <li><a href=#support>Support</a></li>
+  </ul>
+</div>
+
+<div id="warehouse_resources" class="guide-section">
+  <h2>Warehouse Resources</h2>
+  <p>Before you start working on a warehouse integration with TradeGecko, it’s helpful to understand some of the different warehouse-related resources.</p>
+  <ul class="mt-2">
+      <li class="mt-1"><b>Sales Order</b>:&nbsp;Contains information about a sales order, its associated order line items and fulfillments. Order line items contain information such as variants and tax types.</li>
+        <ul>
+            <li>An order in TradeGecko can have 1 of 6 statuses:&nbsp;<code>draft</code>, <code>active</code>, <code>finalized</code>, <code>fulfilled</code>, <code>void</code> or <code>deleted</code>.</li>
+        </ul>
+      <li class="mt-1"><b>Fulfillment</b>:&nbsp;Represents a shipment of one or more items in a sales order.</li>
+        <ul>
+            <li>A fulfillment in TradeGecko can have 1 of 4 statuses:&nbsp;<code>packed</code>, <code>fulfilled</code>, <code>void</code> or <code>deleted</code>.</li>
+        </ul>
+      <li class="mt-1"><b>Purchase Order</b>:&nbsp;Contains information about a purchase order and its associated purchase order line items. Purchase order line items contain information such as variants, quantity to procure, quantity to receive, item cost, tax, and landed cost.</li>
+        <ul>
+            <li>A purchase order in TradeGecko can have 1 of 5 statuses:&nbsp;<code>draft</code>, <code>active</code>, <code>received</code>, <code>void</code> or <code>deleted</code>.</li>
+            <li>After a purchase order is fully received, the purchase order status will be changed to <code>received</code>.</li>
+        </ul>
+      <li class="mt-1"><b>Address</b>:&nbsp;Represents a physical address of a merchant's supplier or customer created and stored in the TradeGecko Relationships section.</li>
+      <li class="mt-1"><b>Location</b>:&nbsp;Represents a geographical location where a merchant can receive, store and transfer goods.</li>
+      <li class="mt-1"><b>Product</b>:&nbsp;Represents a group of variants e.g. t-shirt.</li>
+      <li class="mt-1"><b>Variant</b>:&nbsp;Represents a variation of a product, based on specific attributes e.g. t-shirt in colour red and size small, t-shirt in colour blue and size large.</li>
+        <ul>
+            <li>In a sales order or purchase order, each line item always references a variant.</li>
+            <li>At TradeGecko, stock levels are on variants and not products.</li>
+        </ul>
+  </ul>
+</div>
+
+<div id="how_sales_order_and_stock_control_affect_inventory" class="guide-section">
+  <h2>How Sales Order and Stock Control Affect Inventory</h2>
+  <ul class="mt-2">
+      <li class="mt-1"><b>Stock Levels</b>:&nbsp;There are four types of stock levels in TradeGecko:&nbsp;</li>
+        <ul>
+            <li><b>Stock on Hand</b>:&nbsp; The stock that is present in a warehouse.</li>
+            <li><b>Committed Stock</b>:&nbsp; The stock that is committed for sales orders but has not been shipped yet.</li>
+            <li><b>Incoming Stock</b>:&nbsp; The stock that has been ordered through purchase orders but has not been received yet.</li>
+            <li><b>Available Stock</b>:&nbsp; The stock that is available for sale. It is calculated using:&nbsp; <b>Stock on Hand - Committed Stock</b></li>
+        </ul>
+      <li class="mt-1">When a variant is created, it has an attribute called <code>initial_stock_levels</code> where an array of hashes can be defined to set the initial stock level for each location. There is another attribute called <code>initial_cost_price</code> that will be the cost price associated with the initial stock.</li>
+      <li class="mt-1">There are 6 ways to change variant stock levels:&nbsp;</li>
+        <ul>
+            <li>Fulfillment of a Sales Order</li>
+            <li>Fulfillment Return of a Sales Order</li>
+            <li>Receiving a Purchase Order</li>
+            <li>Creating a Stock Adjustment</li>
+            <li>Receiving a Stock Transfer</li>
+            <li>Creating a Stocktake</li>
+        </ul>
+  </ul>
+</div>
+
+<div id="receiving_a_purchase_order" class="guide-section">
+  <h2>Receiving a Purchase Order</h2>
+  <div class="scenario-section">
+    <ul>
+      <li>Step 1:&nbsp;Receive a purchase order alert from <code>purchase_order.create</code> webhook.</li>
+      <li>Step 2:&nbsp;Query the purchase order to see the purchase order line items.</li>
+      <li>Step 3:&nbsp;Update purchase order status to <code>received</code>.</li>
+    </ul>
+    <div class="step-section">
+      <h3>Step 1:&nbsp;Receive a purchase order alert from <code>purchase_order.create</code> webhook.</h3>
+      <p>To get started, subscribe to the <code>purchase_order.create</code> webhook to be notified when a new purchase order is created by a merchant.</p>
+<div class="lang-selector">
+      <a href="#" data-language-name="ruby">ruby</a>
+      <a href="#" data-language-name="shell">shell</a>
+</div>
+
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'gecko-ruby'</span>
+<span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
+<span class="n">webhook</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Webhook</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="ss">:address</span><span class="o">=&gt;</span><span class="s2">"https://mywebsite.com/webhooks"</span><span class="p">,</span> <span class="ss">:event</span><span class="o">=&gt;</span><span class="s2">"purchase_order.create"</span><span class="p">)</span>
+<span class="n">webhook</span><span class="p">.</span><span class="nf">save</span>
+
+<span class="p">{</span>
+  <span class="s2">"webhook"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2018-09-24T11:12:49.244Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2018-09-24T11:12:49.244Z"</span><span class="p">,</span>
+    <span class="s2">"event"</span><span class="p">:</span> <span class="s2">"purchase_order.create"</span><span class="p">,</span>
+    <span class="s2">"address"</span><span class="p">:</span> <span class="s2">"https://mywebsite.com/webhooks"</span><span class="p">,</span>
+    <span class="s2">"oauth_application_id"</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span>
+https://api.tradegecko.com/webhooks/ -d <span class="s1">'{"webhook":{"address":"https://mywebsite.com/webhooks","event":"purchase_order.create"}}'</span>
+
+<span class="o">{</span>
+  <span class="s2">"webhook"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 1,
+    <span class="s2">"created_at"</span>: <span class="s2">"2018-09-24T11:12:49.244Z"</span>,
+    <span class="s2">"updated_at"</span>: <span class="s2">"2018-09-24T11:12:49.244Z"</span>,
+    <span class="s2">"event"</span>: <span class="s2">"purchase_order.create"</span>,
+    <span class="s2">"address"</span>: <span class="s2">"https://mywebsite.com/webhooks"</span>,
+    <span class="s2">"oauth_application_id"</span>: 1
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+
+<p></div>
+    <div class="step-section">
+      <h3>Step 2:&nbsp;Query the purchase order to see the purchase order line items.</h3></p>
+
+<div class="lang-selector">
+      <a href="#" data-language-name="ruby">ruby</a>
+      <a href="#" data-language-name="shell">shell</a>
+</div>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'gecko-ruby'</span>
+<span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
+<span class="n">gecko</span><span class="o">.</span><span class="no">PurchaseOrder</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="p">{</span>
+  <span class="s2">"purchase_order"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2015-11-02T01:22:25.524Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2015-12-02T01:11:25.524Z"</span><span class="p">,</span>
+    <span class="s2">"stock_location_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"purchase_line_item_ids"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="sr">//</span> <span class="n">more</span> <span class="n">fields</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span>
+https://api.tradegecko.com/purchase_orders/1?include<span class="o">=</span>purchase_order_line_items
+
+<span class="o">{</span>
+  <span class="s2">"purchase_order_line_items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"created_at"</span>: <span class="s2">"2015-11-02T01:22:25.524Z"</span>,
+      <span class="s2">"updated_at"</span>: <span class="s2">"2015-12-02T01:11:25.524Z"</span>,
+      // more fields
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"purchase_order"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 1,
+    <span class="s2">"created_at"</span>: <span class="s2">"2015-11-02T01:22:25.524Z"</span>,
+    <span class="s2">"updated_at"</span>: <span class="s2">"2015-12-02T01:11:25.524Z"</span>,
+    <span class="s2">"stock_location_id"</span>: 1,
+    <span class="s2">"purchase_line_item_ids"</span>: <span class="o">[</span>1],
+    // more fields
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p></div>
+    <div class="step-section">
+      <h3>Step 3:&nbsp;Update purchase order status to <code>received</code>.</h3>
+      <p>If you manage the procurement process for a merchant, once you have procured the items, you can update the original purchase order to <code>received</code> through an API call to <code>POST /purchase_orders/[:purchase_order_id]/actions/receive</code>. This will increase the <b>Stock On Hand</b> level of the procured items.</p></p>
+
+<div class="lang-selector">
+      <a href="#" data-language-name="ruby">ruby</a>
+      <a href="#" data-language-name="shell">shell</a>
+</div>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'gecko-ruby'</span>
+<span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
+<span class="n">purchase_order</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">PurchaseOrder</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">purchase_order</span><span class="p">.</span><span class="nf">receive</span>
+
+<span class="p">{</span>
+  <span class="s2">"procurement"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="sr">//</span> <span class="n">more</span> <span class="n">fields</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span>
+https://api.tradegecko.com/purchase_orders/1/actions/receive
+
+<span class="o">{</span>
+  <span class="s2">"procurement"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 1,
+    // more fields
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p><p>Note:&nbsp; Partial procurements are currently not supported. If you need an endpoint for partial procurements, let us know <a target="_blank" href="https://tradegecko.typeform.com/to/A2ewy0"> here</a>.</p>
+    </div>
+  </div>
+</div></p>
+
+<div id="other_ways_of_changing_stock_levels" class="guide-section">
+  <h2>Other Ways of Changing Stock Levels</h2>
+  <ol class="mt-2">
+      <li class="mt-1"><b>Creating a Stock Adjustment</b>:&nbsp; Used to update inventory levels when there are damaged goods, promotional goods or new products. <a target="_blank" href="https://developer.tradegecko.com/#create-a-new-stock_adjustment">Creating a stock adjustment</a> would affect the account's <a target="_blank" href="https://support.tradegecko.com/hc/en-us/articles/202820818-What-is-the-MAC-and-how-is-it-calculated-">Moving Average Cost</a>.</li>
+      <li class="mt-1"><b>Receiving a Stock Transfer</b>:&nbsp;Used to update inventory movements between warehouses. For example, you have 2 warehouses, one in New York and one in Chicago. When you transfer 20 items from New York to Chicago, you can <a target="_blank" href="https://developer.tradegecko.com/#create-a-new-stock_transfer">create a stock transfer</a>. Stock Transfers will not affect Moving Average Cost.</li>
+        <ul>
+          <li>You can subscribe to the <code>stock_transfer.create</code> webhook to be notified when a merchant creates a new stock transfer.</li>
+        </ul>
+      <li class="mt-1"><b>Creating a Stocktake</b>:&nbsp;Used to update inventory levels without changing the account’s Moving Average Cost. For example, your TradeGecko account indicates that you have 25 medium sized, white T-shirts in stock. When you go to the warehouse to do a physical stocktake, you realise that there are only 23 in stock. To account for this discrepancy, you should create a stocktake.</li>
+  </ol>
+</div>
+
+<div id="additional_resources" class="guide-section">
+  <h2>Additional Resources</h2>
+  <p>See these additional resources for more information about authorization, webhooks and order actions.</p>
+  <ul>
+    <li><a target="_blank" href="https://developer.tradegecko.com/#authentication">Getting API key for Authentication</a></li>
+    <li><a target="_blank" href="https://developer.tradegecko.com/#webhook">Using Webhooks</a></li>
+    <li><a target="_blank" href="https://developer.tradegecko.com/#sales-order-flow">Order Actions</a></li>
+    <li><a target="_blank" href="https://github.com/tradegecko/smaug/issues">TradeGecko API Forum</a></li>
+  </ul>
+</div>
+
+<div id="support" class="guide-section">
+  <h2>Support</h2>
+  <p>For API feature requests, bug reports and other questions related to API guides, contact <a href="mailto:support@tradegecko.com">support@tradegecko.com</a>.</p>
+</div>
+
+<p></div></p>
+
+        </div>
+      </div>
+      <div class="feedback-banner">
+    <h2>
+      Got Feedback we want to hear from you
+    </h2>
+    <a target="_blank" href="https://tradegecko.typeform.com/to/A2ewy0" class="btn btn-big btn-primary" >
+      Give Feedback
+    </a>
+</div>
+<div class="base__footer">
+  <div class="corner-ribbon-bounds corner-ribbon-bounds--loose">
+    <a class="corner-ribbon corner-ribbon--moko" target="_blank" href="https://www.tradegecko.com/jobs">
+      Were Hiring
+    </a>
+  </div>
+  <div class="footer-wrapper">
+    <div class="container">
+      <div class="row">
+          <div class="col-2">
+          <h4>Company</h4>
+            <ul class="link-list">
+                <li><a href="https://www.tradegecko.com/about-us" target="_blank">About us</a></li>
+                <li><a href="https://www.tradegecko.com/team" target="_blank">Meet the Team</a></li>
+                <li><a href="https://www.tradegecko.com/jobs" target="_blank">Careers</a></li>
+                <li><a href="https://www.tradegecko.com/press-kit" target="_blank">Press kit</a></li>
+            </ul>
+          </div>
+          <div class="col-2">
+          <h4>Contact</h4>
+            <ul class="link-list">
+                <li><a href="https://www.tradegecko.com/contact-us" target="_blank">Contact us</a></li>
+                <li><a href="mailto:hello@tradegecko.com" target="_blank">Email us</a></li>
+                <li><a href="https://www.tradegecko.com/contact-us" target="_blank">Visit us</a></li>
+            </ul>
+          </div>
+          <div class="col-2">
+          <h4>Getting Help</h4>
+            <ul class="link-list">
+                <li><a href="http://support.tradegecko.com" target="_blank">Help Desk</a></li>
+                <li><a href="https://www.tradegecko.com/faq" target="_blank">FAQ</a></li>
+                <li><a href="https://status.tradegecko.com" target="_blank">Staus</a></li>
+            </ul>
+          </div>
+          <div class="col-2">
+          <h4>Partners</h4>
+            <ul class="link-list">
+                <li><a href="https://www.tradegecko.com/partners" target="_blank">Become a partner</a></li>
+                <li><a href="https://partners.tradegecko.com/" target="_blank">Partner portal</a></li>
+                <li><a href="https://partners.tradegecko.com/directory" target="_blank">Find a partner</a></li>
+                <li><a href="https://developer.tradegecko.com/" target="_blank">Developers & API</a></li>
+            </ul>
+          </div>
+        <div class="col-4">
+          <button target="_blank" href="https://tradegecko.typeform.com/to/A2ewy0" class="btn btn-big btn-primary" >
+            Subscribe to our newsletter
+          </button>
+          <legend>
+            You'll get useful news from our blog, as well as periodic product update emails. Unsubscribe any time.
+          </legend>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 100px;">
+        <div class="footer-moko">
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700' rel='stylesheet' type='text/css'>
+    <script>
+      window.intercomSettings = {
+        app_id: "i0krnes0"
+      };
+    </script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i0krnes0';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+  </body>
+  <script>
+    var state = false;
+    var nav = document.querySelector('nav');
+    var burger = document.querySelector('.burger');
+    burger.onclick = function(){
+      let display = state ? 'none' : 'block';
+      nav.style.display = display;
+      state = !state;
+    }
+
+    var mql = window.matchMedia('(min-width: 767px)');
+
+    function screenTest() {
+      nav.style.display = null;
+    }
+
+    mql.addListener(screenTest);
+
+  </script>
+</html>
