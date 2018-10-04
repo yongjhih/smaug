@@ -139,5 +139,12 @@ en:
         description: "After a fulfillment return is created, a credit note with this number is created for accounting purposes.",
         creatable: true,
         updatable: true
-      }
+      },
+      company_id: {
+        name: "company_id",
+        type: "Integer",
+        description: "Company of associated order.",
+        filterable: true,
+        readonly: true,
+      },
     }
