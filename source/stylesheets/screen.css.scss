@@ -117,6 +117,10 @@ $border-radius: 3px;
   .base__body {
     overflow-x: hidden;
   }
+
+  .feedback-banner {
+    margin: 0;
+  }
 }
 
 @media (max-width: 992px) {
@@ -177,7 +181,7 @@ $border-radius: 3px;
       position: absolute;
       background: white;
       top: 80px;
-      z-index: 9;
+      z-index: 40;
 
       a {
         margin: 0;
