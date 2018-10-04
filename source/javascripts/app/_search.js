@@ -67,9 +67,10 @@
       });
       if (results.length) {
         searchResults.empty();
+        var prefix =  window.location.toString().indexOf('/docs') > -1 ? '' : '/docs.html';
         $.each(results, function (index, result) {
           var elem = document.getElementById(result.ref);
-          searchResults.append("<li><a href='#" + result.ref + "'>" + window.refHash[result.ref].title+ "</a></li>");
+          searchResults.append("<li><a href='"+prefix+"#" + result.ref + "'>" + window.refHash[result.ref].title+ "</a></li>");
         });
         highlight.call(searchInput);
       } else {
