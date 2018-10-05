@@ -258,7 +258,7 @@
 
   <div id="authorising_your_sales_channel_integration" class="guide-section">
     <h2>Authorising Your Sales Channel Integration</h2>
-    <p>TradeGecko uses OAuth to authorize third party integrations. As part of the OAuth flow, TradeGecko obtains the user’s authorization and issues an access token that your sales channel can use to interact with the API. To find out more, refer to our <a href="https://developer.tradegecko.com/docs.html#oauth-authentication-flows" target="_blank">OAuth docs</a>.</p>
+    <p>TradeGecko uses OAuth to authorize third party integrations. As part of the OAuth flow, TradeGecko obtains the user’s authorization and issues an access token that your sales channel can use to interact with the API. To find out more, refer to our <a href="/docs.html#oauth-authentication-flows" target="_blank">OAuth docs</a>.</p>
   </div>
 
   <div id="publishing_products_from_tradegecko_to_a_sales_channel" class="guide-section">
@@ -338,11 +338,11 @@
           <li>When a variant&#39;s <code>manage_stock</code> attribute is set to false, the variant&#39;s stock level will not be tracked by TradeGecko.</li>
           <li>When a variant&#39;s <code>keep_selling</code> attribute is set to true, the variant can continue to be sold even when the stock level is zero or negative.</li>
           <li>If the variant has a <code>max_online</code> value defined, the sales channel should not display stock levels higher than this value.</li>
-          <li>In TradeGecko, images belong to products. Each image can be assigned to multiple variants of the product. Use the <a target="_blank" href="https://developer.tradegecko.com/#retrieve-a-particular-image">image endpoint</a> to retrieve variant images.</li>
+          <li>In TradeGecko, images belong to products. Each image can be assigned to multiple variants of the product. Use the <a target="_blank" href="/docs.html#retrieve-a-particular-image">image endpoint</a> to retrieve variant images.</li>
           <li>Variants may have different prices across price lists. To determine the variant prices to be displayed on the sales channel, you may need to retrieve the merchant&#39;s price lists by making a GET request to the price lists endpoint (<code>GET /price_lists</code>). Some relevant price lists include:&nbsp;</li>
             <ul>
-                <li>The <code>default_order_price_list_id</code> which you can retrieve from the <a href="https://developer.tradegecko.com/#account" target="_blank">account endpoint.</a></li>
-                <li>The <code>default_price_list_id</code> which you can retrieve from the <a href="https://developer.tradegecko.com/#company" target="_blank">company endpoint.</a></li>
+                <li>The <code>default_order_price_list_id</code> which you can retrieve from the <a href="/docs.html#account" target="_blank">account endpoint.</a></li>
+                <li>The <code>default_price_list_id</code> which you can retrieve from the <a href="/docs.html#company" target="_blank">company endpoint.</a></li>
             </ul>
       </ul>
     </div></p>
@@ -487,7 +487,7 @@ https://api.tradegecko.com/webhooks/ -d <span class="s1">&#39;{&quot;webhook&quo
     <span class="o">}</span>
   <span class="o">}</span>
 </code></pre>
-<p><p>For an existing customer with a new address, you can embed the address when creating a sales order as seen below. Alternatively, you can manually create a new address using the <a href="https://developer.tradegecko.com/#create-a-new-address" target="_blank">address endpoint</a>.</p></p>
+<p><p>For an existing customer with a new address, you can embed the address when creating a sales order as seen below. Alternatively, you can manually create a new address using the <a href="/docs.html#create-a-new-address" target="_blank">address endpoint</a>.</p></p>
 
 <div class="lang-selector">
       <a href="#" data-language-name="ruby">ruby</a>
@@ -535,7 +535,7 @@ https://api.tradegecko.com/webhooks/ -d <span class="s1">&#39;{&quot;webhook&quo
     <span class="o">}</span>
   <span class="o">}</span>
 </code></pre>
-<p><p>For a new customer, you can embed the the company and shipping address when creating a sales order as seen below. Alternatively, you can manually create <a href="https://developer.tradegecko.com/#create-a-new-company" target="_blank">a new company</a> and <a href="https://developer.tradegecko.com/#create-a-new-address" target="_blank">a new address</a>.</p></p>
+<p><p>For a new customer, you can embed the the company and shipping address when creating a sales order as seen below. Alternatively, you can manually create <a href="/docs.html#create-a-new-company" target="_blank">a new company</a> and <a href="/docs.html#create-a-new-address" target="_blank">a new address</a>.</p></p>
 
 <div class="lang-selector">
       <a href="#" data-language-name="ruby">ruby</a>
@@ -589,7 +589,7 @@ https://api.tradegecko.com/webhooks/ -d <span class="s1">&#39;{&quot;webhook&quo
 <p><div class="step-section">
       <h3>Step 2 (optional):&nbsp;Invoice and mark the sales order as paid.</h3>
       <p></p>
-      <p>Create an invoice for a sales order by sending an API call to <code> POST /orders/[:order_id]/actions/invoice</code>. This will create an <a target="_blank" href="https://developer.tradegecko.com/#invoice">invoice</a> for the sales order. Once the customer has paid for the sales order, mark the sales order as paid by sending an API call to <code>POST /orders/[:order_id]/actions/pay</code>.</p>
+      <p>Create an invoice for a sales order by sending an API call to <code> POST /orders/[:order_id]/actions/invoice</code>. This will create an <a target="_blank" href="/docs.html#invoice">invoice</a> for the sales order. Once the customer has paid for the sales order, mark the sales order as paid by sending an API call to <code>POST /orders/[:order_id]/actions/pay</code>.</p>
       <p>For orders which are paid by credit card, you can send an API call to <code> POST /orders/[:order_id]/actions/pay</code> to both invoice and mark the sales order as paid in one step.</p>
       <p></p>
     </div></p>
@@ -692,7 +692,7 @@ https://api.tradegecko.com/webhooks/ -d <span class="s1">&#39;{&quot;webhook&quo
             <li>You cannot delete a fulfillment if there are any associated fulfillment returns.</li>
             <li>If a merchant is integrated with an accounting platform on TradeGecko, creating a fulfillment return would create a credit note on the accounting platform.</li>
             <li>Refunds are currently not supported. If you need an endpoint for the refund process, let us know <a target="_blank" href="https://tradegecko.typeform.com/to/A2ewy0">here</a>.</li>
-            <li>You can void an order via the <a target="_blank" href="https://developer.tradegecko.com/#order-actions">order&#39;s void endpoint</a>.</li>
+            <li>You can void an order via the <a target="_blank" href="/docs.html#order-actions">order&#39;s void endpoint</a>.</li>
         </ul>
       </div></p>
 
@@ -700,9 +700,9 @@ https://api.tradegecko.com/webhooks/ -d <span class="s1">&#39;{&quot;webhook&quo
   <h2>Additional Resources</h2>
   <p>See these additional resources for more information about authorization, webhooks and order actions.</p>
   <ul>
-    <li><a target="_blank" href="https://developer.tradegecko.com/docs.html#authentication">Getting API key for Authentication</a></li>
-    <li><a target="_blank" href="https://developer.tradegecko.com/docs.html#webhook">Using Webhooks</a></li>
-    <li><a target="_blank" href="https://developer.tradegecko.com/docs.html#order-actions">Order Actions</a></li>
+    <li><a target="_blank" href="/docs.html#authentication">Getting API key for Authentication</a></li>
+    <li><a target="_blank" href="/docs.html#webhook">Using Webhooks</a></li>
+    <li><a target="_blank" href="/docs.html#order-actions">Order Actions</a></li>
     <li><a target="_blank" href="https://github.com/tradegecko/smaug/issues">TradeGecko API Forum</a></li>
   </ul>
 </div></p>
