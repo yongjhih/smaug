@@ -3897,13 +3897,13 @@ https://api.tradegecko.com/currencies/1
 <tr>
 <td><strong>created_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Date and time when the fulfillment was created.</td>
 <td>true</td>
 </tr>
 <tr>
 <td><strong>updated_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Date and time when the fulfillment was last updated.</td>
 <td>true</td>
 </tr>
 <tr>
@@ -3915,7 +3915,7 @@ https://api.tradegecko.com/currencies/1
 <tr>
 <td><strong>shipping_address_id</strong></td>
 <td>Integer</td>
-<td>The shipping address for the fulfillment</td>
+<td>The shipping address for the fulfillment.</td>
 <td></td>
 </tr>
 <tr>
@@ -3933,85 +3933,85 @@ https://api.tradegecko.com/currencies/1
 <tr>
 <td><strong>delivery_type</strong></td>
 <td>String</td>
-<td></td>
+<td>Mode of delivery.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>exchange_rate</strong></td>
 <td>String</td>
-<td>Currency exchange_rate at time of creation</td>
+<td>Currency exchange_rate at time of creation.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>notes</strong></td>
 <td>String</td>
-<td></td>
+<td>Additional notes.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>packed_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Timestamp when fulfillment is packed.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>received_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Timestamp when fulfillment is received.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>service</strong></td>
 <td>String</td>
-<td>Dictates the service where this fulfillment was handled</td>
+<td>Dictates the service where this fulfillment was handled.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>shipped_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Timestamp when fulfillment is shipped.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>status</strong></td>
 <td>String</td>
-<td>One of packed or fulfilled. Will update to deleted or void if deleted, respectively.</td>
+<td>One of <code>packed</code> or <code>fulfilled</code>. Will update to <code>deleted</code> or <code>void</code> if deleted, respectively.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>tracking_company</strong></td>
 <td>String</td>
-<td>Service that is providing fulfillment</td>
+<td>Service that is providing fulfillment.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>tracking_number</strong></td>
 <td>String</td>
-<td>Tracking number provided by tracking company</td>
+<td>Tracking number provided by tracking company.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>tracking_url</strong></td>
 <td>String</td>
-<td>Link to tracking info</td>
+<td>Link to tracking info.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>order_number</strong></td>
 <td>String</td>
-<td>Order Number of associated order</td>
+<td>Order Number of associated order.</td>
 <td>true</td>
 </tr>
 <tr>
 <td><strong>company_id</strong></td>
 <td>Integer</td>
-<td></td>
+<td>Company of associated order.</td>
 <td>true</td>
 </tr>
 <tr>
 <td><strong>fulfillment_line_item_ids</strong></td>
 <td>Array</td>
-<td></td>
+<td>An array of IDs of the fulfillment&#39;s line items.</td>
 <td>true</td>
 </tr>
 </tbody></table></p>
@@ -4192,7 +4192,7 @@ This endpoint also accepts embedded fulfillment_line_items.</p>
 <tr>
 <td><strong>shipping_address_id</strong></td>
 <td>Integer</td>
-<td>The shipping address for the fulfillment</td>
+<td>The shipping address for the fulfillment.</td>
 <td></td>
 </tr>
 <tr>
@@ -4210,67 +4210,67 @@ This endpoint also accepts embedded fulfillment_line_items.</p>
 <tr>
 <td><strong>delivery_type</strong></td>
 <td>String</td>
-<td></td>
+<td>Mode of delivery.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>exchange_rate</strong></td>
 <td>String</td>
-<td>Currency exchange_rate at time of creation</td>
+<td>Currency exchange_rate at time of creation.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>notes</strong></td>
 <td>String</td>
-<td></td>
+<td>Additional notes.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>packed_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Timestamp when fulfillment is packed.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>received_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Timestamp when fulfillment is received.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>service</strong></td>
 <td>String</td>
-<td>Dictates the service where this fulfillment was handled</td>
+<td>Dictates the service where this fulfillment was handled.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>shipped_at</strong></td>
 <td>String</td>
-<td></td>
+<td>Timestamp when fulfillment is shipped.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>status</strong></td>
 <td>String</td>
-<td>One of packed or fulfilled. Will update to deleted or void if deleted, respectively.</td>
+<td>One of <code>packed</code> or <code>fulfilled</code>. Will update to <code>deleted</code> or <code>void</code> if deleted, respectively.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>tracking_company</strong></td>
 <td>String</td>
-<td>Service that is providing fulfillment</td>
+<td>Service that is providing fulfillment.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>tracking_number</strong></td>
 <td>String</td>
-<td>Tracking number provided by tracking company</td>
+<td>Tracking number provided by tracking company.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>tracking_url</strong></td>
 <td>String</td>
-<td>Link to tracking info</td>
+<td>Link to tracking info.</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -4300,19 +4300,19 @@ This endpoint also accepts embedded fulfillment_line_items.</p>
 <tr>
 <td><strong>base_price</strong></td>
 <td>String</td>
-<td></td>
+<td>Sales value of the variant in base currency at fulfillment shipped_at date.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>position</strong></td>
 <td>Integer</td>
-<td></td>
+<td>Display order.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>quantity</strong></td>
 <td>String</td>
-<td></td>
+<td>Quantity of the variant fulfilled.</td>
 <td>true</td>
 </tr>
 </tbody></table>
@@ -4464,19 +4464,19 @@ https://api.tradegecko.com/fulfillments/1
 <tr>
 <td><strong>base_price</strong></td>
 <td>String</td>
-<td></td>
+<td>Sales value of the variant in base currency at fulfillment shipped_at date.</td>
 <td>true</td>
 </tr>
 <tr>
 <td><strong>position</strong></td>
 <td>Integer</td>
-<td></td>
+<td>Display order.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>quantity</strong></td>
 <td>String</td>
-<td></td>
+<td>Quantity of the variant fulfilled.</td>
 <td></td>
 </tr>
 </tbody></table></p>
@@ -4572,7 +4572,7 @@ https://api.tradegecko.com/fulfillment_line_items/
 </tr>
 <tr>
 <td><strong>base_price</strong></td>
-<td>Sales value of the variant in base currency at fulfillment shipped_at date</td>
+<td></td>
 </tr>
 <tr>
 <td><strong>position</strong></td>
@@ -4636,19 +4636,19 @@ https://api.tradegecko.com/fulfillment_line_items/ -d <span class="s1">&#39;{&qu
 <tr>
 <td><strong>base_price</strong></td>
 <td>String</td>
-<td></td>
+<td>Sales value of the variant in base currency at fulfillment shipped_at date.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>position</strong></td>
 <td>Integer</td>
-<td></td>
+<td>Display order.</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>quantity</strong></td>
 <td>String</td>
-<td></td>
+<td>Quantity of the variant fulfilled.</td>
 <td>true</td>
 </tr>
 </tbody></table>
@@ -4832,6 +4832,12 @@ https://api.tradegecko.com/fulfillment_line_items/1
 <td>After a fulfillment return is created, a credit note with this number is created for accounting purposes.</td>
 <td></td>
 </tr>
+<tr>
+<td><strong>company_id</strong></td>
+<td>Integer</td>
+<td>Company of associated order.</td>
+<td>true</td>
+</tr>
 </tbody></table></p>
 
 <p><h2 id='list-all-fulfillment_returns'>List all fulfillment_returns</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
@@ -4913,6 +4919,10 @@ https://api.tradegecko.com/fulfillment_returns/
 </tr>
 <tr>
 <td><strong>location_id</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>company_id</strong></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -13943,7 +13953,7 @@ https://api.tradegecko.com/webhooks/ -d <span class="s1">&#39;{&quot;webhook&quo
 </tr>
 <tr>
 <td>variant</td>
-<td>variant.create</td>
+<td>variant.create, variant.stock_level_update</td>
 </tr>
 <tr>
 <td>image</td>
