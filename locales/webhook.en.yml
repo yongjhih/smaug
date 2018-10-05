@@ -26,7 +26,7 @@ en:
         ['purchase_order', 'purchase_order.create'],
         ['stock_adjustment', 'stock_adjustment.create'],
         ['stock_transfer', 'stock_transfer.create'],
-        ['variant', 'variant.create'],
+        ['variant', 'variant.create, variant.stock_level_update'],
         ['image', 'image.create'],
       ]
     json: [
