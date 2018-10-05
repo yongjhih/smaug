@@ -64,13 +64,13 @@ en:
       created_at: {
         name: "created_at",
         type: "String",
-        description: "",
+        description: "Date and time when the fulfillment was created.",
         readonly: true
       },
       updated_at: {
         name: "updated_at",
         type: "String",
-        description: "",
+        description: "Date and time when the fulfillment was last updated.",
         readonly: true
       },
       order_id: {
@@ -84,7 +84,7 @@ en:
       shipping_address_id: {
         name: "shipping_address_id",
         type: "Integer",
-        description: "The shipping address for the fulfillment",
+      description: "The shipping address for the fulfillment.",
         filterable: true,
         updatable: true,
         creatable: true,
@@ -108,28 +108,28 @@ en:
       delivery_type: {
         name: "delivery_type",
         type: "String",
-        description: "",
+        description: "Mode of delivery.",
         updatable: true,
         creatable: true,
       },
       exchange_rate: {
         name: "exchange_rate",
         type: "String",
-        description: "Currency exchange_rate at time of creation",
+        description: "Currency exchange_rate at time of creation.",
         updatable: true,
         creatable: true,
       },
       notes: {
         name: "notes",
         type: "String",
-        description: "",
+        description: "Additional notes.",
         updatable: true,
         creatable: true,
       },
       packed_at: {
         name: "packed_at",
         type: "String",
-        description: "",
+        description: "Timestamp when fulfillment is packed.",
         updatable: true,
         creatable: true
       },
@@ -138,6 +138,7 @@ en:
         type: "String",
         description: "",
         filterable: "Used by Shopify",
+        description: "Timestamp when fulfillment is received.",
         updatable: true,
         creatable: true,
         private: true
@@ -145,28 +146,28 @@ en:
       received_at: {
         name: "received_at",
         type: "String",
-        description: "",
+        description: "Timestamp when fulfillment is received.",
         updatable: true,
         creatable: true,
       },
       service: {
         name: "service",
         type: "String",
-        description: "Dictates the service where this fulfillment was handled",
+        description: "Dictates the service where this fulfillment was handled.",
         updatable: true,
         creatable: true,
       },
       shipped_at: {
         name: "shipped_at",
         type: "String",
-        description: "",
+        description: "Timestamp when fulfillment is shipped.",
         updatable: true,
         creatable: true
       },
       status: {
         name: "status",
         type: "String",
-        description: "One of packed or fulfilled. Will update to deleted or void if deleted, respectively.",
+        description: "One of `packed` or `fulfilled`. Will update to `deleted` or `void` if deleted, respectively.",
         filterable: "Possible options: `packed`, or `fulfilled`, `void`, `deleted`",
         updatable: true,
         creatable: true,
@@ -174,41 +175,41 @@ en:
       tracking_company: {
         name: "tracking_company",
         type: "String",
-        description: "Service that is providing fulfillment",
+        description: "Service that is providing fulfillment.",
         updatable: true,
         creatable: true,
       },
       tracking_number: {
         name: "tracking_number",
         type: "String",
-        description: "Tracking number provided by tracking company",
+        description: "Tracking number provided by tracking company.",
         updatable: true,
         creatable: true,
       },
       tracking_url: {
         name: "tracking_url",
         type: "String",
-        description: "Link to tracking info",
+        description: "Link to tracking info.",
         updatable: true,
         creatable: true,
       },
       order_number: {
         name: "order_number",
         type: "String",
-        description: "Order Number of associated order",
+        description: "Order Number of associated order.",
         readonly: true,
       },
       company_id: {
         name: "company_id",
         type: "Integer",
-        description: "",
+        description: "Company of associated order.",
         filterable: true,
         readonly: true,
       },
       fulfillment_line_item_ids: {
         name: "fulfillment_line_item_ids",
         type: "Array",
-        description: "",
+        description: "An array of IDs of the fulfillment's line items.",
         readonly: true,
       },
     }
