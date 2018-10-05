@@ -4,7 +4,7 @@
       <div class="col-12">
         <header class='site-header'>
           <div class="site-header__branding col-sm p-0">
-            <a href="#" class="site-header__logo" ></a>
+            <a href="/" class="site-header__logo" ></a>
             <a href="#" class="site-header__title" >
                 <strong class="site-header__title--strong">TradeGecko</strong> Developer
             </a>
@@ -14,7 +14,7 @@
               <a class="nav-link" href="/docs.html">Docs</a>
               <a class="nav-link" href="https://go.tradegecko.com/apps" target="_blank">App Store</a>
               <a class="nav-link" href="https://github.com/tradegecko/smaug/issues" target="_blank">Community</a>
-              <a class="nav-link" href="/changes.html">Change Log</a>
+              <a class="nav-link" href="/changes.html">Changelog</a>
             </nav>
           </div>
         </header>
