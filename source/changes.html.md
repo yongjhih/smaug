@@ -20,9 +20,9 @@ for existing known issues or [create a new issue](https://github.com/tradegecko/
 ## Changelog
 
 ### Oct 2018 - Enable Sideloading, Add Webhooks and Resource Actions
-We now support [sideloading of resources](https://developer.tradegecko.com/#sideloading-resources).
-We have also added support for [webhooks](https://developer.tradegecko.com/#webhook)
-and introduced resource actions for [Order](https://developer.tradegecko.com/#order-actions), [Purchase Order](https://developer.tradegecko.com/#purchase-order-actions), [Stock Adjustment](https://developer.tradegecko.com/#stock-adjustment-actions) and [Stock Transfer](https://developer.tradegecko.com/#stock-transfer-actions).
+We now support [sideloading of resources](/docs.html#sideloading-resources).
+We have also added support for [webhooks](/docs.html#webhook)
+and introduced resource actions for [Order](/docs.html#order-actions), [Purchase Order](/docs.html#purchase-order-actions), [Stock Adjustment](/docs.html#stock-adjustment-actions) and [Stock Transfer](/docs.html#stock-transfer-actions).
 
 ### Nov 2017 - Image management moved from Variant to the Product Level
 We have moved image management from the variant level to the product level.

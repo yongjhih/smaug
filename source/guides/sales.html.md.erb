@@ -17,7 +17,7 @@
 
     authorising_your_sales_channel_integration:
       header: Authorising Your Sales Channel Integration
-      introduction: TradeGecko uses OAuth to authorize third party integrations. As part of the OAuth flow, TradeGecko obtains the user’s authorization and issues an access token that your sales channel can use to interact with the API. To find out more, refer to our <a href="https://developer.tradegecko.com/docs.html#oauth-authentication-flows" target="_blank">OAuth docs</a>.
+      introduction: TradeGecko uses OAuth to authorize third party integrations. As part of the OAuth flow, TradeGecko obtains the user’s authorization and issues an access token that your sales channel can use to interact with the API. To find out more, refer to our <a href="/docs.html#oauth-authentication-flows" target="_blank">OAuth docs</a>.
 
     publishing_products_from_tradegecko_to_a_sales_channel:
       header: Publishing Products from TradeGecko to a Sales Channel
@@ -30,11 +30,11 @@
           - text: When a variant's <code>manage_stock</code> attribute is set to false, the variant's stock level will not be tracked by TradeGecko.
           - text: When a variant's <code>keep_selling</code> attribute is set to true, the variant can continue to be sold even when the stock level is zero or negative.
           - text: If the variant has a <code>max_online</code> value defined, the sales channel should not display stock levels higher than this value.
-          - text: In TradeGecko, images belong to products. Each image can be assigned to multiple variants of the product. Use the <a target="_blank" href="https://developer.tradegecko.com/#retrieve-a-particular-image">image endpoint</a> to retrieve variant images.
+          - text: In TradeGecko, images belong to products. Each image can be assigned to multiple variants of the product. Use the <a target="_blank" href="/docs.html#retrieve-a-particular-image">image endpoint</a> to retrieve variant images.
           - text: Variants may have different prices across price lists. To determine the variant prices to be displayed on the sales channel, you may need to retrieve the merchant's price lists by making a GET request to the price lists endpoint (<code>GET /price_lists</code>). Some relevant price lists include:&nbsp;
             subpoints:
-              - The <code>default_order_price_list_id</code> which you can retrieve from the <a href="https://developer.tradegecko.com/#account" target="_blank">account endpoint.</a>
-              - The <code>default_price_list_id</code> which you can retrieve from the <a href="https://developer.tradegecko.com/#company" target="_blank">company endpoint.</a>
+              - The <code>default_order_price_list_id</code> which you can retrieve from the <a href="/docs.html#account" target="_blank">account endpoint.</a>
+              - The <code>default_price_list_id</code> which you can retrieve from the <a href="/docs.html#company" target="_blank">company endpoint.</a>
       step2:
         header: Step 2 (optional):&nbsp;Receive an alert whenever a merchant creates a new product or variant in TradeGecko
         text: Subscribe to the <code>product.create</code> and <code>variant.create</code> webhooks to be notified when a new product or variant is created by the merchant.
@@ -48,11 +48,11 @@
       step1:
         header: Step 1:&nbsp;Create a sales order.
         text1: For an existing customer with existing addresses, populate the <code>company_id</code> attribute with the customer's TradeGecko id, and the <code>shipping_address_id</code> and <code>billing_address_id</code> attributes with appropriate TradeGecko address ids. Do note that the <code>billing_address_id</code> defaults to the <code>shipping_address_id</code> if it is not provided.
-        text2: For an existing customer with a new address, you can embed the address when creating a sales order as seen below. Alternatively, you can manually create a new address using the <a href="https://developer.tradegecko.com/#create-a-new-address" target="_blank">address endpoint</a>.
-        text3: For a new customer, you can embed the the company and shipping address when creating a sales order as seen below. Alternatively, you can manually create <a href="https://developer.tradegecko.com/#create-a-new-company" target="_blank">a new company</a> and <a href="https://developer.tradegecko.com/#create-a-new-address" target="_blank">a new address</a>.
+        text2: For an existing customer with a new address, you can embed the address when creating a sales order as seen below. Alternatively, you can manually create a new address using the <a href="/docs.html#create-a-new-address" target="_blank">address endpoint</a>.
+        text3: For a new customer, you can embed the the company and shipping address when creating a sales order as seen below. Alternatively, you can manually create <a href="/docs.html#create-a-new-company" target="_blank">a new company</a> and <a href="/docs.html#create-a-new-address" target="_blank">a new address</a>.
       step2:
         header: Step 2 (optional):&nbsp;Invoice and mark the sales order as paid.
-        subpoint1: Create an invoice for a sales order by sending an API call to <code> POST /orders/[:order_id]/actions/invoice</code>. This will create an <a target="_blank" href="https://developer.tradegecko.com/#invoice">invoice</a> for the sales order. Once the customer has paid for the sales order, mark the sales order as paid by sending an API call to <code>POST /orders/[:order_id]/actions/pay</code>.
+        subpoint1: Create an invoice for a sales order by sending an API call to <code> POST /orders/[:order_id]/actions/invoice</code>. This will create an <a target="_blank" href="/docs.html#invoice">invoice</a> for the sales order. Once the customer has paid for the sales order, mark the sales order as paid by sending an API call to <code>POST /orders/[:order_id]/actions/pay</code>.
         subpoint2: For orders which are paid by credit card, you can send an API call to <code> POST /orders/[:order_id]/actions/pay</code> to both invoice and mark the sales order as paid in one step.
       step3:
         header: Step 3 (optional):&nbsp;Fulfill a sales order.
@@ -77,7 +77,7 @@
         - You cannot delete a fulfillment if there are any associated fulfillment returns.
         - If a merchant is integrated with an accounting platform on TradeGecko, creating a fulfillment return would create a credit note on the accounting platform.
         - Refunds are currently not supported. If you need an endpoint for the refund process, let us know <a target="_blank" href="https://tradegecko.typeform.com/to/A2ewy0">here</a>.
-        - You can void an order via the <a target="_blank" href="https://developer.tradegecko.com/#order-actions">order's void endpoint</a>.
+        - You can void an order via the <a target="_blank" href="/docs.html#order-actions">order's void endpoint</a>.
 
     additional_resources:
       header: Additional Resources
