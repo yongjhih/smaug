@@ -1,6 +1,4 @@
-<% unless disable_headers == 'true' %>
 ## Retrieve a particular <%= t(".resource_name", scope: resource) %>
-<% end %>
 
 <% unless t('.gecko.unavailable', scope: resource) == true %>
 ```ruby
@@ -23,9 +21,7 @@ https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/1
 }
 ```
 
-<% unless disable_headers == 'true' %>
 Retrieves the details of an existing <%= t(".resource_name", scope: resource) %>. You need only supply the unique <%= t(".resource_name", scope: resource) %> identifier that was returned upon <%= t(".resource_name", scope: resource) %> creation.
 
 ### HTTP Request
 `GET https://api.tradegecko.com/<%= t(".resource_plural", scope: resource) %>/{RESOURCE_ID}`
-<% end %>
