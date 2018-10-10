@@ -18,7 +18,9 @@ en:
         order_line_item_id: 4,
         base_price: null,
         position: 1,
-        quantity: "1.0"
+        quantity: "1.0",
+        variant_id: 1,
+        variant_sku: "SKU1"
       },
       {
         id: 2,
@@ -28,7 +30,9 @@ en:
         order_line_item_id: 5,
         base_price: null,
         position: 2,
-        quantity: "2.0"
+        quantity: "2.0",
+        variant_id: 2,
+        variant_sku: "SKU2"
       },
       {
         id: 1,
@@ -38,7 +42,9 @@ en:
         order_line_item_id: 6,
         base_price: null,
         position: 3,
-        quantity: "2.0"
+        quantity: "2.0",
+        variant_id: 3,
+        variant_sku: "SKU3"
       }
     ]
     gecko:
@@ -113,5 +119,17 @@ en:
         updatable: true,
         creatable: true,
         required: true,
+      },
+      variant_id: {
+        name: "variant_id",
+        type: "String",
+        description: "The order_line_item's variant.",
+        readonly: true,
+      },
+      variant_sku: {
+        name: "variant_sku",
+        type: "String",
+        description: "The sku of the order_line_item's variant.",
+        readonly: true,
       },
     }
