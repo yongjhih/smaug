@@ -4491,6 +4491,18 @@ https://api.tradegecko.com/fulfillments/1
 <td>Quantity of the variant fulfilled.</td>
 <td></td>
 </tr>
+<tr>
+<td><strong>variant_id</strong></td>
+<td>String</td>
+<td>The order_line_item&#39;s variant.</td>
+<td>true</td>
+</tr>
+<tr>
+<td><strong>variant_sku</strong></td>
+<td>String</td>
+<td>The sku of the order_line_item&#39;s variant.</td>
+<td>true</td>
+</tr>
 </tbody></table></p>
 
 <p><h2 id='list-all-fulfillment_line_items'>List all fulfillment_line_items</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">&#39;gecko-ruby&#39;</span>
@@ -4511,7 +4523,9 @@ https://api.tradegecko.com/fulfillment_line_items/
     </span><span class="s2">&quot;order_line_item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;base_price&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="w">
+    </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;variant_sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SKU1&quot;</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4521,7 +4535,9 @@ https://api.tradegecko.com/fulfillment_line_items/
     </span><span class="s2">&quot;order_line_item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;base_price&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="w">
+    </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;variant_sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SKU2&quot;</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -4531,7 +4547,9 @@ https://api.tradegecko.com/fulfillment_line_items/
     </span><span class="s2">&quot;order_line_item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;base_price&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="w">
+    </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;variant_sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SKU3&quot;</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4617,7 +4635,9 @@ https://api.tradegecko.com/fulfillment_line_items/ -d <span class="s1">&#39;{&qu
   </span><span class="s2">&quot;order_line_item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;base_price&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="w">
+  </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;variant_sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SKU1&quot;</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4685,7 +4705,9 @@ https://api.tradegecko.com/fulfillment_line_items/1
   </span><span class="s2">&quot;order_line_item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;base_price&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="w">
+  </span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;variant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;variant_sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SKU1&quot;</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>

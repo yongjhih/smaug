@@ -323,7 +323,7 @@ https://api.tradegecko.com/webhooks/ -d <span class="s1">'{"webhook":{"address":
 
 <p><div class="step-section">
       <h3>Step 2:&nbsp;Query the fulfillment to see the fulfillment line items.</h3>
-      <p>If your fulfillment service only handles fulfillment in certain stock locations, you can check the <code>stock_location_id</code> of the fulfillment to determine if you should ship any variants.</p></p>
+      <p>If your fulfillment service only handles fulfillment in certain stock locations, you can check the <code>stock_location_id</code> of the fulfillment to determine if you should ship any variants. You can also refer to the <code>quantity</code> and <code>variant_id</code> or <code>variant_sku</code> fields on the fulfillment line items to determine which and how many items to ship.</p></p>
 
 <div class="lang-selector">
       <a href="#" data-language-name="ruby">ruby</a>
@@ -354,6 +354,9 @@ https://api.tradegecko.com/fulfillments/1?include<span class="o">=</span>fulfill
       <span class="s2">"id"</span>: 1,
       <span class="s2">"created_at"</span>: <span class="s2">"2015-11-02T01:22:25.524Z"</span>,
       <span class="s2">"updated_at"</span>: <span class="s2">"2015-12-02T01:11:25.524Z"</span>,
+      <span class="s2">"variant_id"</span>: 1,
+      <span class="s2">"variant_sku"</span>: <span class="s2">"SKU123"</span>,
+      <span class="s2">"quantity"</span>: 1
       // more fields
     <span class="o">}</span>,
   <span class="o">]</span>,
@@ -367,8 +370,7 @@ https://api.tradegecko.com/fulfillments/1?include<span class="o">=</span>fulfill
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-<p><p>To find a fulfillment line item&#39;s variant, first retrieve the associated order line item object. Then, use the <code>variant_id</code> attribute in the order line item object to retrieve the variant.</p>
-    </div></p>
+<p></div></p>
 
 <p><div class="step-section">
       <h3>Step 3:&nbsp;Update fulfillment status to <code>fulfilled</code>.</h3>
@@ -750,7 +752,7 @@ https://api.tradegecko.com/fulfillment_returns/ -d <span class="s1">'{"fulfillme
     <h2>
       Got Feedback? We want to hear from you!
     </h2>
-    <a target="_blank" href="https://tradegecko.typeform.com/to/XKIXY7" class="btn btn-big btn-primary" >
+    <a target="_blank" href="https://tradegecko.typeform.com/to/A2ewy0" class="btn btn-big btn-primary" >
       Give Feedback
     </a>
 </div>
