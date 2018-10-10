@@ -1,7 +1,7 @@
 ---
   title: Fulfillment Service Integration Guide
   introduction: This guide explains how to use TradeGecko API to integrate with a fulfillment service - a third party warehouse that prepares and ships orders on behalf of a merchant on TradeGecko. You can use these resources to receive and create fulfillments.
-  
+
   articles:
     fulfillment_resources:
       header: Fulfillment Resources
@@ -38,8 +38,7 @@
         step2:
           header: Step 2:&nbsp;Query the fulfillment to see the fulfillment line items.
           textSections:
-            text1: If your fulfillment service only handles fulfillment in certain stock locations, you can check the <code>stock_location_id</code> of the fulfillment to determine if you should ship any variants.
-            text2: To find a fulfillment line item's variant, first retrieve the associated order line item object. Then, use the <code>variant_id</code> attribute in the order line item object to retrieve the variant.
+            text: If your fulfillment service only handles fulfillment in certain stock locations, you can check the <code>stock_location_id</code> of the fulfillment to determine if you should ship any variants. You can also refer to the `quantity` and `variant_id` or `variant_sku` fields on the fulfillment line items to determine which and how many items to ship.
         step3:
           header: Step 3:&nbsp;Update fulfillment status to <code>fulfilled</code>.
           text: After shipping a fulfillment, you can update the <code>status</code> of the fulfillment to <code>fulfilled</code> and include information like <code>tracking_company</code>, <code>tracking_number</code> and <code>tracking_url</code>.
@@ -181,7 +180,7 @@ https://api.tradegecko.com/webhooks/ -d '{"webhook":{"address":"https://mywebsit
 
     <div class="step-section">
       <h3><%= section.scenario1.step2.header %></h3>
-      <p><%= section.scenario1.step2.textSections.text1 %></p>
+      <p><%= section.scenario1.step2.textSections.text %></p>
 
       <% partial "includes/code_buttons"  do %>
   ```ruby
@@ -212,6 +211,9 @@ https://api.tradegecko.com/fulfillments/1?include=fulfillment_line_items
       "id": 1,
       "created_at": "2015-11-02T01:22:25.524Z",
       "updated_at": "2015-12-02T01:11:25.524Z",
+      "variant_id": 1,
+      "variant_sku": "SKU123",
+      "quantity": 1
       // more fields
     },
   ],
@@ -226,7 +228,6 @@ https://api.tradegecko.com/fulfillments/1?include=fulfillment_line_items
 }
 ```   
       <% end %>
-      <p><%= section.scenario1.step2.textSections.text2 %></p>
     </div>
 
     <div class="step-section">
