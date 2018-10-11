@@ -2,6 +2,8 @@ require 'active_support/inflector'
 require 'active_support/core_ext/hash'
 require 'gecko'
 require 'pry'
+require 'oauth2'
+
 class Generate < Thor
   include Thor::Actions
 
@@ -56,7 +58,6 @@ en:
 
   def json
     @json ||= JSON.parse(access_token.request(:get, @plural).body).first.last.map(&:symbolize_keys).first(3)
-  rescue
   end
 
   def attributes
