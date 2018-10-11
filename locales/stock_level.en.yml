@@ -1,0 +1,78 @@
+---
+en:
+  stock_level:
+    disable_create: true
+    disable_destroy: true
+    disable_update: true
+    resource_article: "a"
+    resource_klass: "StockLevel"
+    resource_name: "stock_level"
+    resource_plural: "stock_levels"
+    json: [
+      {
+        id: 60,
+        committed_stock: "5",
+        locations: [
+          {
+            location_id: 3,
+            committed_stock: "5",
+            incoming_stock: 0,
+            stock_on_hand: "30"
+          }
+        ],
+        stock_on_hand: "30",
+        incoming_stock: "0"
+      },
+      {
+        id: 43,
+        committed_stock: "0",
+        locations": [
+          {
+            location_id: 3,
+            committed_stock: 0,
+            incoming_stock: 0,
+            stock_on_hand: "75"
+          }
+        ],
+        stock_on_hand: "75",
+        incoming_stock: "0"
+      }
+    ]
+
+    gecko:
+      index: {
+        
+      }
+
+    attributes: {
+      id: {
+        name: "id",
+        type: "Integer",
+        readonly: true,
+        description: "A unique identifier for the resource."
+      },
+      committed_stock: {
+        name: "committed_stock",
+        type: "String",
+        description: "Stock committed for sale across all locations",
+        readonly: true,
+      },
+      locations: {
+        name: "locations",
+        type: "Array",
+        description: "An array of per-warehouse data about current variant.",
+        readonly: true,
+      },
+      stock_on_hand: {
+        name: "stock_on_hand",
+        type: "String",
+        description: "Stock on hand across all locations",
+        readonly: true,
+      },
+      incoming_stock: {
+        name: "incoming_stock",
+        type: "String",
+        description: "Stock on order across all locations",
+        readonly: true,
+      }
+    }
