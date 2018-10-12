@@ -29,13 +29,12 @@ name: {
 - StockAdjustment
 - StockTransfer
 - TaxComponent
-- Webhook
 
 ### Add a new resource with
 
 `thor generate model ClassName`
 
-You will need 
+You will need
 ```
 OAUTH_SECRET=xxx
 OAUTH_ID=xxx
@@ -63,4 +62,3 @@ git remote set upstream git@github.com:lord/slate.git
 git fetch upstream
 
 git merge upstream/master
-
