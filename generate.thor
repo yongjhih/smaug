@@ -3,6 +3,8 @@ require 'active_support/core_ext/hash'
 require 'gecko'
 require 'pry'
 require 'oauth2'
+require 'dotenv'
+Dotenv.load!
 
 class Generate < Thor
   include Thor::Actions
