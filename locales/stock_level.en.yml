@@ -10,13 +10,13 @@ en:
     resource_plural: "stock_levels"
     json: [
       {
-        id: 60,
+        variant_id: 60,
         committed_stock: "5",
         locations: [
           {
             location_id: 3,
-            committed_stock: "5",
-            incoming_stock: 0,
+            committed: "5",
+            incoming: 0,
             stock_on_hand: "30"
           }
         ],
@@ -24,13 +24,13 @@ en:
         incoming_stock: "0"
       },
       {
-        id: 43,
+        variant_id: 43,
         committed_stock: "0",
-        locations": [
+        locations: [
           {
             location_id: 3,
-            committed_stock: 0,
-            incoming_stock: 0,
+            committed: 0,
+            incoming: 0,
             stock_on_hand: "75"
           }
         ],
@@ -45,7 +45,7 @@ en:
       }
 
     attributes: {
-      id: {
+      variant_id: {
         name: "id",
         type: "Integer",
         readonly: true,
