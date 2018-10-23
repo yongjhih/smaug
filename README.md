@@ -20,22 +20,17 @@ name: {
 
 ### To Do
 
-- FulfillmentReturn
 - LedgerAccount
 - Login
 - Payment
 - Procurement
 - Refund
-- StockAdjustment
-- StockTransfer
-- TaxComponent
-- Webhook
 
 ### Add a new resource with
 
-`thor generate model ClassName`
+`$ thor generate model ClassName`
 
-You will need 
+You will need
 ```
 OAUTH_SECRET=xxx
 OAUTH_ID=xxx
