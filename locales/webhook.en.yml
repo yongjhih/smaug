@@ -12,6 +12,7 @@ en:
       columns: [
         ['account', 'account.update'],
         ['addresss', 'address.create, address.update'],
+        ['channel', 'channel.destroy'],
         ['company', 'company.create, company.update'],
         ['contact', 'contact.create, contact.update'],
         ['document_theme', 'document_theme.update'],
