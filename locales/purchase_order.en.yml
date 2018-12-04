@@ -75,7 +75,7 @@ en:
     gecko:
       create: {
         company_id: 1,
-        issued_at: Time.now,
+        issued_at: "2015-11-23T11:19:07.072Z",
         billing_address_id: 1,
         shipping_address_id: 1
       }

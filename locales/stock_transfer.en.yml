@@ -48,7 +48,7 @@ en:
       unavailable: true
       create: {
         company_id: 1,
-        issued_at: Time.now,
+        issued_at: "2015-11-26T03:53:17.729Z",
         billing_address_id: 1,
         shipping_address_id: 1
       }

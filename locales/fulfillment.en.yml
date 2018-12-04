@@ -41,12 +41,12 @@ en:
     gecko:
       create: {
         order_id: 1,
-        packed_at: Time.now,
+        packed_at: "2015-11-02T01:22:25.524Z",
         billing_address_id: 1,
         shipping_address_id: 1,
         fulfillment_line_items: [
-          order_line_item_id: 1,
-          order_line_item_id: 2,
+          { order_line_item_id: 1, quantity: 1 },
+          { order_line_item_id: 2, quantity: 1 }
         ]
       }
       update: {
