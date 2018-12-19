@@ -366,7 +366,7 @@ en:
       purchasable: {
         name: "purchasable",
         type: "Boolean",
-        description: "Tells whether you can create PO with the variant",
+        description: "Tells whether you can create Purchase Order with the variant",
         updatable: true,
         creatable: true,
       },
