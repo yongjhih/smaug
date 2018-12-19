@@ -363,6 +363,13 @@ en:
         description: "provided by the product to which the variant belongs",
         readonly: true,
       },
+      purchasable: {
+        name: "purchasable",
+        type: "Boolean",
+        description: "Tells whether you can create PO with the variant",
+        updatable: true,
+        creatable: true,
+      },
       retail_price: {
         name: "retail_price",
         type: "String",
