@@ -74,7 +74,7 @@
   In this guide:
   <ul class="mt-2">
     <% current_page.data.articles.each do |(slug, data)|%>
-      <li><a href="#<%= slug %>"><%= data.header %></a></li>
+      <li><a href="#<%= slug %>"><%= data&.header || slug.titleize %></a></li>
     <% end %>
   </ul>
 </div>
