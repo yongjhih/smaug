@@ -1,7 +1,7 @@
 {
   "name": "smaug",
   "version": "1.0.0",
-  "description": "Tradegecko developer portal",
+  "description": "TradeGecko developer portal",
   "main": "index.js",
   "directories": {
     "lib": "lib"
