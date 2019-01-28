@@ -43,7 +43,7 @@
           header: Step 3:&nbsp;Update fulfillment status to <code>fulfilled</code>.
           text: After shipping a fulfillment, you can update the <code>status</code> of the fulfillment to <code>fulfilled</code> and include information like <code>tracking_company</code>, <code>tracking_number</code> and <code>tracking_url</code>.
         notes:
-          - <b>Query the order to see its order line items:</b>&nbsp;In TradeGecko, merchants have the option to partially pack order line items. For example, a merchant may choose to pack only 5 out of 10 items from an order line item. 
+          - <b>Query the order to see its order line items:</b>&nbsp;In TradeGecko, merchants have the option to partially pack order line items. For example, a merchant may choose to pack only 5 out of 10 items from an order line item.
       scenario2:
         header: <b>Scenario 2:&nbsp;Fulfillment service is in charge of packing and fulfilling an order.</b>
         step1:
@@ -84,8 +84,8 @@
 
   In this guide:
   <ul class="mt-2">
-    <% current_page.data.articles.each do |article|%>
-      <li><a href=<%="##{article[0]}"%>><%= article[0].titleize %></a></li>
+    <% current_page.data.articles.each do |(slug, data)|%>
+      <li><a href="#<%= slug %>"><%= data.header %></a></li>
     <% end %>
   </ul>
 </div>
@@ -226,14 +226,14 @@ https://api.tradegecko.com/fulfillments/1?include=fulfillment_line_items
     // more fields
   }
 }
-```   
+```
       <% end %>
     </div>
 
     <div class="step-section">
       <h3><%= section.scenario1.step3.header %></h3>
       <p><%= section.scenario1.step3.text %></p>
-      
+
       <% partial "includes/code_buttons"  do %>
   ```ruby
 require 'gecko-ruby'

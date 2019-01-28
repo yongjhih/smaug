@@ -73,8 +73,8 @@
 
   In this guide:
   <ul class="mt-2">
-    <% current_page.data.articles.each do |article|%>
-      <li><a href=<%="##{article[0]}"%>><%= article[0].titleize %></a></li>
+    <% current_page.data.articles.each do |(slug, data)|%>
+      <li><a href="#<%= slug %>"><%= data.header %></a></li>
     <% end %>
   </ul>
 </div>
@@ -132,7 +132,7 @@
     </div>
     <div class="step-section">
       <h3><%= section.step2.header %></h3>
-      
+
       <% partial "includes/code_buttons"  do %>
 ```ruby
 require 'gecko-ruby'
