@@ -41,7 +41,7 @@ en:
       create: {
         label: "Secondary office",
         address1: "887 Orchard Road",
-        country: "Singapore"
+        country: "SG"
       }
       update: {
         address1: "121 Telok Ayer Street",

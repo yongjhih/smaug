@@ -63,7 +63,7 @@ it will get created for us.
     "shipping_address": {
       "address1": "123 Cross St",
       "city": "Springfield",
-      "country": "USA",
+      "country": "United States of America",
       "label": "Head Office"
     },
     "status": "active",
@@ -78,7 +78,7 @@ it will get created for us.
 
 ```shell
 curl -X POST -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" https://api.tradegecko.com/orders/
--d '{"order": {"company_id": 101, "shipping_address": {"address1": "123 Cross St", "city": "Springfield", "country": "USA", "label": "Head Office"}, "status": "active", "issued_at": "21-02-2018", "order_line_items": [{"variant_id": 14, "quantity": 1}, {"variant_id": 15, "quantity": 2}]}}'
+-d '{"order": {"company_id": 101, "shipping_address": {"address1": "123 Cross St", "city": "Springfield", "country": "United States of America", "label": "Head Office"}, "status": "active", "issued_at": "21-02-2018", "order_line_items": [{"variant_id": 14, "quantity": 1}, {"variant_id": 15, "quantity": 2}]}}'
 ```
 
 ```ruby
@@ -88,7 +88,7 @@ address = gecko.Address.build({
   company_id: 101,
   address1: "123 Cross St",
   city: "Springfield",
-  country: "USA",
+  country: "United States of America",
   label: "Head Office"
 })
 address.save
@@ -135,7 +135,7 @@ If nesting inside the order, at least a `shipping_address` must be included as w
     "shipping_address": {
       "address1": "123 Cross St",
       "city": "Springfield",
-      "country": "USA",
+      "country": "United States of America",
       "label": "Head Office"
     },
     "status": "active",
@@ -150,7 +150,7 @@ If nesting inside the order, at least a `shipping_address` must be included as w
 
 ```shell
 curl -X POST -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" https://api.tradegecko.com/orders/ \
--d '{"order": {"company": {"name": "Bill\'s Boots", "company_code": "BB-123", "company_type": "business", "email": "billy@billsboots.com", "website": "https://billsboots.com"}, "shipping_address": {"address1": "123 Cross St", "city": "Springfield", "country": "USA", "label": "Head Office"}, "status": "active", "issued_at": "21-02-2018", "order_line_items": [{"variant_id": 14, "quantity": 1}, {"variant_id": 15, "quantity": 2 }]}}'
+-d '{"order": {"company": {"name": "Bill\'s Boots", "company_code": "BB-123", "company_type": "business", "email": "billy@billsboots.com", "website": "https://billsboots.com"}, "shipping_address": {"address1": "123 Cross St", "city": "Springfield", "country": "United States of America", "label": "Head Office"}, "status": "active", "issued_at": "21-02-2018", "order_line_items": [{"variant_id": 14, "quantity": 1}, {"variant_id": 15, "quantity": 2 }]}}'
 ```
 
 ```ruby
@@ -165,7 +165,7 @@ company.save
 address = gecko.Address.build({
   address1: "123 Cross St",
   city: "Springfield",
-  country: "USA",
+  country: "United States of America",
   label: "Head Office"
 })
 address.save
