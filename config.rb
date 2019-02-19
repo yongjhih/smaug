@@ -64,3 +64,6 @@ helpers do
   require './lib/toc_data.rb'
   require './lib/resource_wrapper.rb'
 end
+
+redirect "api/stock-adjustment-line-item/", to: "/docs.html#stockadjustmentlineitem"
+redirect "api/stock-adjustment-line-item", to: "/docs.html#stockadjustmentlineitem"
