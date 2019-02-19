@@ -1591,7 +1591,7 @@ it will get created for us.</p>
     </span><span class="s2">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Cross St"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Springfield"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States of America"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Head Office"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
@@ -1603,14 +1603,14 @@ it will get created for us.</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span> https://api.tradegecko.com/orders/
--d <span class="s1">'{"order": {"company_id": 101, "shipping_address": {"address1": "123 Cross St", "city": "Springfield", "country": "USA", "label": "Head Office"}, "status": "active", "issued_at": "21-02-2018", "order_line_items": [{"variant_id": 14, "quantity": 1}, {"variant_id": 15, "quantity": 2}]}}'</span>
+-d <span class="s1">'{"order": {"company_id": 101, "shipping_address": {"address1": "123 Cross St", "city": "Springfield", "country": "United States of America", "label": "Head Office"}, "status": "active", "issued_at": "21-02-2018", "order_line_items": [{"variant_id": 14, "quantity": 1}, {"variant_id": 15, "quantity": 2}]}}'</span>
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="c1"># The rubygem does not yet support creating nested addresses,</span>
 <span class="c1"># so this will make two API requests.</span>
 <span class="n">address</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Address</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span>
   <span class="ss">company_id: </span><span class="mi">101</span><span class="p">,</span>
   <span class="ss">address1: </span><span class="s2">"123 Cross St"</span><span class="p">,</span>
   <span class="ss">city: </span><span class="s2">"Springfield"</span><span class="p">,</span>
-  <span class="ss">country: </span><span class="s2">"USA"</span><span class="p">,</span>
+  <span class="ss">country: </span><span class="s2">"United States of America"</span><span class="p">,</span>
   <span class="ss">label: </span><span class="s2">"Head Office"</span>
 <span class="p">})</span>
 <span class="n">address</span><span class="p">.</span><span class="nf">save</span>
@@ -1656,7 +1656,7 @@ If nesting inside the order, at least a <code>shipping_address</code> must be in
     </span><span class="s2">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Cross St"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Springfield"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States of America"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Head Office"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
@@ -1668,7 +1668,7 @@ If nesting inside the order, at least a <code>shipping_address</code> must be in
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"Content-type: application/json"</span> -H <span class="s2">"Authorization: Bearer &lt;ACCESS_TOKEN&gt;"</span> https://api.tradegecko.com/orders/ <span class="se">\</span>
--d <span class="s1">'{"order": {"company": {"name": "Bill\'</span>s Boots<span class="s2">", "</span>company_code<span class="s2">": "</span>BB-123<span class="s2">", "</span>company_type<span class="s2">": "</span>business<span class="s2">", "</span>email<span class="s2">": "</span>billy@billsboots.com<span class="s2">", "</span>website<span class="s2">": "</span>https://billsboots.com<span class="s2">"}, "</span>shipping_address<span class="s2">": {"</span>address1<span class="s2">": "</span>123 Cross St<span class="s2">", "</span>city<span class="s2">": "</span>Springfield<span class="s2">", "</span>country<span class="s2">": "</span>USA<span class="s2">", "</span>label<span class="s2">": "</span>Head Office<span class="s2">"}, "</span>status<span class="s2">": "</span>active<span class="s2">", "</span>issued_at<span class="s2">": "</span>21-02-2018<span class="s2">", "</span>order_line_items<span class="s2">": [{"</span>variant_id<span class="s2">": 14, "</span>quantity<span class="s2">": 1}, {"</span>variant_id<span class="s2">": 15, "</span>quantity<span class="s2">": 2 }]}}'
+-d <span class="s1">'{"order": {"company": {"name": "Bill\'</span>s Boots<span class="s2">", "</span>company_code<span class="s2">": "</span>BB-123<span class="s2">", "</span>company_type<span class="s2">": "</span>business<span class="s2">", "</span>email<span class="s2">": "</span>billy@billsboots.com<span class="s2">", "</span>website<span class="s2">": "</span>https://billsboots.com<span class="s2">"}, "</span>shipping_address<span class="s2">": {"</span>address1<span class="s2">": "</span>123 Cross St<span class="s2">", "</span>city<span class="s2">": "</span>Springfield<span class="s2">", "</span>country<span class="s2">": "</span>United States of America<span class="s2">", "</span>label<span class="s2">": "</span>Head Office<span class="s2">"}, "</span>status<span class="s2">": "</span>active<span class="s2">", "</span>issued_at<span class="s2">": "</span>21-02-2018<span class="s2">", "</span>order_line_items<span class="s2">": [{"</span>variant_id<span class="s2">": 14, "</span>quantity<span class="s2">": 1}, {"</span>variant_id<span class="s2">": 15, "</span>quantity<span class="s2">": 2 }]}}'
 </span></code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">company</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Company</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span>
   <span class="ss">name: </span><span class="s2">"Bill's Boots"</span><span class="p">,</span>
   <span class="ss">company_code: </span><span class="s2">"BB-123"</span><span class="p">,</span>
@@ -1680,7 +1680,7 @@ If nesting inside the order, at least a <code>shipping_address</code> must be in
 <span class="n">address</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Address</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span>
   <span class="ss">address1: </span><span class="s2">"123 Cross St"</span><span class="p">,</span>
   <span class="ss">city: </span><span class="s2">"Springfield"</span><span class="p">,</span>
-  <span class="ss">country: </span><span class="s2">"USA"</span><span class="p">,</span>
+  <span class="ss">country: </span><span class="s2">"United States of America"</span><span class="p">,</span>
   <span class="ss">label: </span><span class="s2">"Head Office"</span>
 <span class="p">})</span>
 <span class="n">address</span><span class="p">.</span><span class="nf">save</span>
@@ -2112,6 +2112,12 @@ This request accepts the same arguments as the account creation call.</p>
 <td></td>
 </tr>
 <tr>
+<td><strong>country_code</strong></td>
+<td>String</td>
+<td>ISO3166-1 alpha2 code for the country, will be generated from country field if not provided</td>
+<td></td>
+</tr>
+<tr>
 <td><strong>email</strong></td>
 <td>String</td>
 <td>Email of person associated with address.</td>
@@ -2181,6 +2187,7 @@ https://api.tradegecko.com/addresses/
     </span><span class="s2">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;company_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;country_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SG&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;last_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2200,7 +2207,8 @@ https://api.tradegecko.com/addresses/
     </span><span class="s2">&quot;address2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;505 Frederick Flat&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;East Trudie&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;company_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UK&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Great Britain&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">&quot;country_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GB&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;samara@williamwonkacandyltd.com&quot;</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">&quot;last_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2285,6 +2293,7 @@ https://api.tradegecko.com/addresses/ -d <span class="s1">&#39;{&quot;address&qu
   </span><span class="s2">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;company_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;country_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SG&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;last_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2343,6 +2352,12 @@ https://api.tradegecko.com/addresses/ -d <span class="s1">&#39;{&quot;address&qu
 <td><strong>country</strong></td>
 <td>String</td>
 <td>Country of an address.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>country_code</strong></td>
+<td>String</td>
+<td>ISO3166-1 alpha2 code for the country, will be generated from country field if not provided</td>
 <td></td>
 </tr>
 <tr>
@@ -2417,6 +2432,7 @@ https://api.tradegecko.com/addresses/1
   </span><span class="s2">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;company_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">&quot;country_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SG&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">&quot;last_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -6866,10 +6882,10 @@ https://api.tradegecko.com/locations/
 <span class="n">gecko</span> <span class="o">=</span> <span class="no">Gecko</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">&lt;</span><span class="no">OAUTH_ID</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">OAUTH_SECRET</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">access_token</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">gecko</span><span class="p">.</span><span class="nf">oauth_client</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
 <span class="n">gecko</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="n">access_token</span>
-<span class="n">location</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Location</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span><span class="ss">:label</span><span class="o">=&gt;</span><span class="s2">&quot;Secondary office&quot;</span><span class="p">,</span> <span class="ss">:address1</span><span class="o">=&gt;</span><span class="s2">&quot;887 Orchard Road&quot;</span><span class="p">,</span> <span class="ss">:country</span><span class="o">=&gt;</span><span class="s2">&quot;Singapore&quot;</span><span class="p">})</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">gecko</span><span class="o">.</span><span class="no">Location</span><span class="p">.</span><span class="nf">build</span><span class="p">({</span><span class="ss">:label</span><span class="o">=&gt;</span><span class="s2">&quot;Secondary office&quot;</span><span class="p">,</span> <span class="ss">:address1</span><span class="o">=&gt;</span><span class="s2">&quot;887 Orchard Road&quot;</span><span class="p">,</span> <span class="ss">:country</span><span class="o">=&gt;</span><span class="s2">&quot;SG&quot;</span><span class="p">})</span>
 <span class="n">location</span><span class="p">.</span><span class="nf">save</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">&quot;Content-type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&quot;</span>
-https://api.tradegecko.com/locations/ -d <span class="s1">&#39;{&quot;location&quot;:{&quot;label&quot;:&quot;Secondary office&quot;,&quot;address1&quot;:&quot;887 Orchard Road&quot;,&quot;country&quot;:&quot;Singapore&quot;}}&#39;</span>
+https://api.tradegecko.com/locations/ -d <span class="s1">&#39;{&quot;location&quot;:{&quot;label&quot;:&quot;Secondary office&quot;,&quot;address1&quot;:&quot;887 Orchard Road&quot;,&quot;country&quot;:&quot;SG&quot;}}&#39;</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
