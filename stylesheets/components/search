@@ -79,7 +79,7 @@ Backtrace:
 /Users/philip/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/contracts-0.13.0/lib/contracts/method_reference.rb:43:in `send_to'
 /Users/philip/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/contracts-0.13.0/lib/contracts/call_with.rb:76:in `call_with'
 /Users/philip/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/contracts-0.13.0/lib/contracts/method_handler.rb:138:in `block in redefine_method'
-/Users/philip/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/middleman-core-4.2.1/lib/middleman-core/rack.rb:112:in `process_request'
+/Users/philip/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/middleman-core-4.2.1/lib/middleman-core/rack.rb:114:in `process_request'
 /Users/philip/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/middleman-core-4.2.1/lib/middleman-core/rack.rb:66:in `block in call'
 /Users/philip/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/middleman-core-4.2.1/lib/middleman-core/rack.rb:65:in `catch'
 /Users/philip/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/middleman-core-4.2.1/lib/middleman-core/rack.rb:65:in `call'
