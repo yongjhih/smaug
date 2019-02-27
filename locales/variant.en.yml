@@ -429,7 +429,7 @@ en:
       weight_unit: {
         name: "weight_unit",
         type: "String",
-        description: "The weight unit (kg, gm, oz or lb)",
+        description: "The weight unit (kg, g, oz or lb)",
         updatable: true,
         creatable: true,
       },
